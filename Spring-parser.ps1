@@ -13,7 +13,7 @@ function Get-SpringArtefacts{
         output folder
 
     .OUTPUTS
-        API mapping, wsdl
+        Wordlists
 
     .EXAMPLE
         Get-SpringArtefact -source .\Spring-project -output .

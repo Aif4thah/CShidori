@@ -38,8 +38,8 @@ gc wordlist.txt |%{ .\CShidori.exe mut 5 "$_" }
 ### Generate get/post requests to tests
 
 ```powershell
-.\CShidori.exe bc |%{ .\CShidori.exe get "?bar=foo&foo=bar" "$_" }
-.\CShidori.exe bc |%{ .\CShidori.exe json request.json "$_" }
+.\CShidori.exe bc |%{ .\CShidori.exe get "?bar=foo&foo=bar" $_ }
+.\CShidori.exe bc |%{ .\CShidori.exe json request.json $_ }
 ```
 
 ### Generate a xml request from an xsd file and test all parameters
