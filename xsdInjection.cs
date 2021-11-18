@@ -10,16 +10,16 @@ using System.Xml.Linq;
 
 namespace CShidori
 {
-    public class xsdInjection
+    public class XsdInjection
     {
         public string Input { get; set; }
-        public xsdInjection(string param)
+        public XsdInjection(string param)
         {
             this.Input = param;
 
             XmlDocument xmldoc = new XmlDocument();
             xmldoc.Load(this.Input);
-            XSD xsd = new XSD(xmldoc);
+            Xsd xsd = new Xsd(xmldoc);
 
             //Console.WriteLine( String.Join("\n", xsd.SimpleElements));
             //Console.WriteLine( String.Join("\n", xsd.ComplexTypes));
@@ -27,7 +27,7 @@ namespace CShidori
             createxml(xsd);
         }
 
-        private void createxml(XSD xsd)
+        private void createxml(Xsd xsd)
         {
             XmlDocument outdoc = new XmlDocument();
             XmlDeclaration xmlDeclaration = outdoc.CreateXmlDeclaration("1.0", "UTF-8", null);

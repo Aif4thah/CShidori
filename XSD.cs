@@ -9,12 +9,12 @@ using System.Xml.XPath;
 
 namespace CShidori
 {
-    class XSD
+    class Xsd
     {
         public List<SimpleElement> SimpleElements { get; set; }
         public List<ComplexType> ComplexTypes { get; set; }
 
-        public XSD(XmlDocument doc)
+        public Xsd(XmlDocument doc)
         {
             string type = string.Empty;
             XmlNamespaceManager nsManager = new XmlNamespaceManager(doc.NameTable);

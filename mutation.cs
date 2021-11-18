@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace CShidori
 {
-    public class mutation
+    public class Mutation
     {
         public string Input { get; set; }
         public List<string> Output { set; get; }
 
-        public mutation(int n, string param ) 
+        public Mutation(int n, string param ) 
         {
             this.Input = param;
             this.Output = new List<string>();
@@ -30,7 +30,7 @@ namespace CShidori
 
             string result = string.Empty;
             var rand = new Random();
-            List<string> bc = new badChars().Output;
+            List<string> bc = new BadChars().Output;
             int randvalue = rand.Next(this.Input.Length);
             int randbc = rand.Next(bc.Count -1);         
             //Console.WriteLine("randvalue {0}, randbc: {1}", randvalue, randbc);

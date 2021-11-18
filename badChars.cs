@@ -6,11 +6,11 @@ using System.Collections.Generic;
 
 namespace CShidori
 {
-    public class badChars
+    public class BadChars
     {
         public List<string> Output { get; set; }
 
-        public badChars()
+        public BadChars()
         {
 
             List<string> results = new List<string>();

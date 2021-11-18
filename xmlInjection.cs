@@ -9,20 +9,18 @@ using System.Xml;
 
 namespace CShidori
 {
-    public class xmlInjection
+    public class XmlInjection
     {
         public string InputXml { get; set; }
         public string InputInj { get; set; }
 
-        public xmlInjection( string param1, string param2 )
+        public XmlInjection( string param1, string param2 )
         {
             this.InputXml = param1;
             this.InputInj = param2;
 
             XmlDocument xmldoc = new XmlDocument();
             xmldoc.Load(this.InputXml);
-            StringWriter stringWriter = new StringWriter();
-            XmlTextWriter xmlTextWriter = new XmlTextWriter(stringWriter);
 
             XmlNodeList nodes = xmldoc.DocumentElement.ChildNodes;
             foreach (XmlNode n in nodes)
@@ -62,8 +60,6 @@ namespace CShidori
                 //write in oneline
                 xmldoc.WriteTo(xmlTextWriter);
                 Console.WriteLine(stringWriter);
-                stringWriter = new StringWriter();
-                xmlTextWriter = new XmlTextWriter(stringWriter);
 
                 //restore xml
                 n.InnerText = old;

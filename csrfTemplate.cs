@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace CShidori
 {
-    public class csrfTemplate
+    public class CsrfTemplate
     {
         string target { get; set; }
         string parameters { get; set;}
 
-        public csrfTemplate( string method, string target, string parameters)
+        public CsrfTemplate( string method, string target, string parameters)
         {
             this.target = target;
             this.parameters = parameters;

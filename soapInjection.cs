@@ -10,11 +10,11 @@ using System.Text.RegularExpressions;
 
 namespace CShidori
 {
-    public class soapInjection
+    public class SoapInjection
     {
         public string Input { get; set; }
 
-        public soapInjection(string param)
+        public SoapInjection(string param)
         {
             this.Input = param;
 
@@ -22,7 +22,7 @@ namespace CShidori
             XmlDocument wsdlDoc = new XmlDocument();
             wsdlDoc.Load(this.Input);
             //Console.WriteLine("wsdlDoc :" + wsdlDoc.OuterXml);
-            WSDL wsdl = new WSDL(wsdlDoc);
+            Wsdl wsdl = new Wsdl(wsdlDoc);
             //Console.WriteLine("wsdl :" + wsdl.Messages);
 
             foreach (SoapService service in wsdl.Services)

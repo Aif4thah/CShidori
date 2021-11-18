@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace CShidori
 {
-    public class xxeTemplate
+    public class XxeTemplate
     {
 
         string target { get; set; }
-        public xxeTemplate(string TemplateType, string param)
+        public XxeTemplate(string TemplateType, string param)
         {
             this.target = param;
             string XXE = string.Empty;

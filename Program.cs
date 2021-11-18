@@ -12,50 +12,50 @@ namespace CShidori
 
             if (args.Length >= 3 && args[0].ToLower() == "mut")
             {
-                mutation mut = new mutation(int.Parse(args[1]), args[2] );
+                Mutation mut = new Mutation(int.Parse(args[1]), args[2] );
                 Console.WriteLine(String.Join("\n", mut.Output));
             }
             else if (args.Length >= 1 && args[0].ToLower() == "bc")
             {
-               badChars bc = new badChars();
+               BadChars bc = new BadChars();
                Console.WriteLine(String.Join("\n", bc.Output));
             }
             else if (args.Length >= 2 && args[0].ToLower() == "xss")
             {
-                new xssInjection(args[1]);
+                new XssInjection(args[1]);
             }
             else if(args.Length >= 3 && args[0].ToLower() == "json")
             {
-                new jsonInjection(args[1], args[2]);
+                new JsonInjection(args[1], args[2]);
             }
             else if(args.Length >= 2 && args[0].ToLower() == "soap")
             {
-                new soapInjection(args[1]);
+                new SoapInjection(args[1]);
             }
             else if (args.Length >= 3 && args[0].ToLower() == "xml")
             {
-                new xmlInjection(args[1], args[2]);
+                new XmlInjection(args[1], args[2]);
             }
             else if (args.Length >= 2 && args[0].ToLower() == "xsd")
             {
-                new xsdInjection(args[1]);
+                new XsdInjection(args[1]);
             }
             else if (args.Length >= 3 && args[0].ToLower() == "get")
             {
-                 new getInjection(args[1], args[2]);
+                 new GetInjection(args[1], args[2]);
             }
             else if (args.Length >= 4 && args[0].ToLower() == "csrf")
             {
-                 new csrfTemplate(args[1], args[2], args[3]);
+                 new CsrfTemplate(args[1], args[2], args[3]);
             }
             else if (args.Length >= 3 && args[0].ToLower() == "xxe")
             {
-                new xxeTemplate(args[1], args[2]);
+                new XxeTemplate(args[1], args[2]);
             }
             else if (args.Length >= 2 && args[0].ToLower() == "enc")
             {
                 List<string> l = new List<string>() { args[1] };
-                Console.WriteLine(String.Join("\n", new badChars().encodebadchars(l)));
+                Console.WriteLine(String.Join("\n", new BadChars().encodebadchars(l)));
             }
             else if (args.Length >= 1 && args[0].ToLower() == "help")
             {

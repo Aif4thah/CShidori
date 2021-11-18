@@ -5,11 +5,11 @@ using System.Linq;
 
 namespace CShidori
 {
-    public class xssInjection
+    public class XssInjection
     {
         public string Input { get; set; }
 
-        public xssInjection(string param)
+        public XssInjection(string param)
         {
             
             this.Input = param;
@@ -40,7 +40,7 @@ namespace CShidori
             results.AddRange(wrapped);
 
             //encode
-            results = new badChars().encodebadchars(results); //results.Distinct().ToList(); is performed here
+            results = new BadChars().encodebadchars(results); //results.Distinct().ToList(); is performed here
 
             Console.WriteLine(String.Join("\n", results));
 

@@ -6,12 +6,12 @@ using Newtonsoft.Json.Linq;
 
 namespace CShidori
 {
-    public class getInjection
+    public class GetInjection
     {
         public string InputGetparam { get; set; }
         public string InputInj { get; set; }
 
-        public getInjection(string param1, string param2)
+        public GetInjection(string param1, string param2)
         {
             this.InputGetparam = param1;
             this.InputInj = param2;
