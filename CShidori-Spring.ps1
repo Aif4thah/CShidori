@@ -68,7 +68,7 @@ function Get-SpringArtefacts
             $file = $_.FullName
             $name = $_.Name
 
-            if($file -match 'wsdl$' -or $file -match 'dtd$' -or $file -match 'xsd$' -or $file -match 'p12$' -or $file -match 'jks$' -or $file -match '.cer')
+            if($file -match 'wsdl$' -or $file -match 'dtd$' -or $file -match 'xsd$' -or $file -match 'p12$' -or $file -match 'jks$' -or $file -match 'cer$')
             { 
                 $hash = (Get-FileHash -Algorithm SHA256 $file).Hash
                 copy-item -Path $file -Destination "${output}\${hash}-$name"
