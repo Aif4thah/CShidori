@@ -185,8 +185,38 @@ function Get-SpringArtefacts
                     #serialization
                     if ( $line -match 'Java.io' -or
                     $line -match 'serializ' -or
-                    $line -match 'readObject' -or
-                    $line -match 'replace')
+                    $line -match '.*readObject\(.*' -or
+                    $line -match 'java.beans.XMLDecoder' -or
+                    $line -match 'com.thoughtworks.xstream.XStream' -or
+                    $line -match '.*\.fromXML\(.*\)' -or
+                    $line -match 'com.esotericsoftware.kryo.io.Input' -or
+                    $line -match '.readClassAndObject\(.*' -or
+                    $line -match '.readObjectOrNull\(.*' -or
+                    $line -match 'com.caucho.hessian.io' -or
+                    $line -match 'com.caucho.burlap.io.BurlapInput' -or
+                    $line -match 'com.caucho.burlap.io.BurlapOutput' -or
+                    $line -match 'org.codehaus.castor' -or
+                    $line -match 'Unmarshaller' -or
+                    $line -match 'jsonToJava\(.*' -or
+                    $line -match 'JsonObjectsToJava\/.*' -or
+                    $line -match 'JsonReader' -or
+                    $line -match 'ObjectMapper\(' -or
+                    $line -match 'enableDefaultTyping\(\s*\)' -or
+                    $line -match '@JsonTypeInfo\(' -or
+                    $line -match 'readValue\(.*\,\s*Object\.class' -or
+                    $line -match 'com.alibaba.fastjson.JSON' -or
+                    $line -match 'JSON.parseObject' -or
+                    $line -match 'com.owlike.genson.Genson' -or
+                    $line -match 'useRuntimeType' -or
+                    $line -match 'genson.deserialize' -or
+                    $line -match 'org.red5.io' -or
+                    $line -match 'deserialize\(.*\,\s*Object\.class' -or
+                    $line -match '\.Yaml' -or
+                    $line -match '\.load\(.*' -or
+                    $line -match '\.loadType\(.*\,\s*Object\.class' -or
+                    $line -match 'YamlReader' -or
+                    $line -match 'com.esotericsoftware.yamlbeans'
+                    )
                     {
                         write-host ("[{0}] Serialization : {1} : {2}" -f $id,$file,$line) -ForegroundColor DarkYellow
                         $id+=1

