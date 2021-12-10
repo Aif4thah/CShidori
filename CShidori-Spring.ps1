@@ -194,8 +194,10 @@ function Get-SpringArtefacts
 
                     # Spring Security
 
-                    if ( $line -match 'WebSecurityConfig' -or
-                    $line -match 'HttpSecurity')
+                    if ( $line -match 'WebSecurity' -or
+                    $line -match 'HttpSecurity' -or
+                    $line -match 'SecurityConfig' 
+                    )
                     {
                         write-host ("[{0}] Spring Security : {1} : {2}" -f $id,$file,$line) -ForegroundColor DarkGreen
                         $id+=1
