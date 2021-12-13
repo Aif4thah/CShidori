@@ -12,7 +12,7 @@ namespace CShidori
     {
         public string GetIp()
         {
-            string localIP = "127.0.0.1";
+            string localIP = string.Empty;
             try
             {
                 using (Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, 0))
@@ -23,7 +23,9 @@ namespace CShidori
 
                 }
             }
-            catch{}
+            catch{
+                localIP = "127.0.0.1";
+            }
 
             return localIP;
 
