@@ -4,7 +4,7 @@ Web payloads generator and fuzzer helper
 
 ## Disclaimer
 
-Usage of all tools on this site for attacking targets without prior mutual consent is illegal. It is the end user�s responsibility to obey all applicable local, state and federal laws. We assume no liability and are not responsible for any misuse or damage caused by this site. This tools is provided "as is" without warranty of any kind.
+Usage of all tools on this site for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. We assume no liability and are not responsible for any misuse or damage caused by this site. This tools is provided "as is" without warranty of any kind.
 
 ## References
 
