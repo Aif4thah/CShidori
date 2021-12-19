@@ -28,17 +28,9 @@ namespace CShidori
             {
                 new JsonInjection(args[1], args[2]);
             }
-            else if(args.Length >= 2 && args[0].ToLower() == "soap")
-            {
-                new SoapInjection(args[1]);
-            }
             else if (args.Length >= 3 && args[0].ToLower() == "xml")
             {
                 new XmlInjection(args[1], args[2]);
-            }
-            else if (args.Length >= 2 && args[0].ToLower() == "xsd")
-            {
-                new XsdInjection(args[1]);
             }
             else if (args.Length >= 3 && args[0].ToLower() == "get")
             {
@@ -60,14 +52,12 @@ namespace CShidori
             else if (args.Length >= 1 && args[0].ToLower() == "help")
             {
                 //help
-                Console.WriteLine("# CShidori: payload generator helper\tversion: 1.1.9");
+                Console.WriteLine("# CShidori: payload generator helper\tversion: 1.2.0");
                 Console.WriteLine("\tMutation: {0} mut <count> <string>", executable);
                 Console.WriteLine("\tBadChars: {0} bc", executable);
                 Console.WriteLine("\tXSS/Injection: {0} xss <input> ", executable);
                 Console.WriteLine("\tJSON: {0} json <json parameters> <input>", executable);
                 Console.WriteLine("\tXML: {0} xml <file.xml>", executable);
-                Console.WriteLine("\tSOAP: {0} soap <file.wsdl>", executable);
-                Console.WriteLine("\tXSD: {0} xsd <file.xsd>", executable);
                 Console.WriteLine("\tGET: {0} get <[url]?parameters>", executable);
                 Console.WriteLine("\tCSRF: {0} csrf <http-method> <url>", executable);
                 Console.WriteLine("\tXXE: {0} xxe <http-listener-ip>", executable);

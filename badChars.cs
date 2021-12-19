@@ -15,7 +15,7 @@ namespace CShidori
         {
 
             List<string> results = new List<string>();
-            string ip = new Misc().GetIp();
+            string ip = Misc.GetIp();
             
             String[] misc = new string[] {
             "", "*",";", "&", "%", ";", "[", "]", "(", ")","|", "?", "\\", "'", "\"", "@", "#", "!",

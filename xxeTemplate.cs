@@ -12,7 +12,7 @@ namespace CShidori
         string target { get; set; }
         public XxeTemplate(string TemplateType)
         {
-            this.target = new Misc().GetIp();
+            this.target = Misc.GetIp();
             string XXE = string.Empty;
 
 

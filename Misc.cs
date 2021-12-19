@@ -8,9 +8,10 @@ using System.Net.Sockets;
 
 namespace CShidori
 {
-    public class Misc
+    public static class Misc
+
     {
-        public string GetIp()
+        public static string GetIp()
         {
             string localIP = string.Empty;
             try
@@ -20,7 +21,6 @@ namespace CShidori
                     socket.Connect("8.8.8.8", 65530);
                     IPEndPoint endPoint = socket.LocalEndPoint as IPEndPoint;
                     localIP = endPoint.Address.ToString();
-
                 }
             }
             catch{

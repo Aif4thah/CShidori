@@ -1,6 +1,6 @@
 # CShidori
 
-Web payloads generator and fuzzer helper
+Web payloads generator
 
 ## Disclaimer
 
@@ -16,8 +16,6 @@ OWASP Web Application Security Testing Guide: [07-Input Validation Testing](http
 - XSS
 - JSON
 - XML
-- SOAP
-- XSD
 - GET
 - CSRF
 - XXE
@@ -38,16 +36,10 @@ gc wordlist.txt |%{ .\CShidori.exe mut 5 "$_" }
 ```powershell
 .\CShidori.exe bc |%{ .\CShidori.exe get "?bar=foo&foo=bar" $_ }
 .\CShidori.exe bc |%{ .\CShidori.exe json request.json $_ }
+.\CShidori.exe bc |%{ .\CShidori.exe xml request.xml $_ }  
 ```
 
-### Generate a xml request from an xsd file and test all parameters
-
-```powershell
-.\CShidori.exe xsd schema.xsd > request.xml
-.\CShidori.exe bc |%{ .\CShidori.exe xml request.xml $_ }   
-```
-
-### Send the generated payloads with Ffuf through Burp
+### Then send generated payloads with Ffuf through Burp
 
 ```powershell
 .\CShidori.exe bc > list ; .\ffuf.exe -u https://target/FUZZ -w list:FUZZ -replay-proxy http://127.0.0.1:8080
@@ -71,18 +63,6 @@ gc wordlist.txt |%{ .\CShidori.exe mut 5 "$_" }
 
 ```powershell
 .\CShidori.exe xml ..\testing\exemple.xml "'"
-```
-
-### SOAP
-
-```powershell
-.\CShidori.exe soap ..\testing\exemple-helloservice.wsdl
-```
-
-### XSD
-
-```powershell
-.\CShidori.exe xsd ..\testing\exemple.xsd
 ```
 
 ### GET
@@ -118,7 +98,8 @@ gc wordlist.txt |%{ .\CShidori.exe mut 5 "$_" }
 .\CShidori.exe enc "<script>alert(1)</script>"
 ```
 
-## Miscellaneous scripts
+
+## Miscellaneous
 
 ### CShidori-Spring.ps1
 
@@ -128,3 +109,9 @@ Security hotspots, endpoints, parameters and wsdl grabber from Spring projects
 . .\Spring-parser.ps1
 Get-SpringArtefact -source .\project\repository -output .
 ```
+
+### SOAP & XSD
+
+Removed since you can did it with Visual studio:
+- Merge XSD in WSDL
+- Right click on the project and select "Add Service Reference" -> "WCF" -> "enter localPath"
