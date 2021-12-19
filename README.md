@@ -113,6 +113,6 @@ Get-SpringArtefact -source .\project\repository -output .
 
 ### SOAP & XSD
 
-Removed since you can perform it with Visual studio:
+Removed since you can perform it with Visual Studio:
 - Merge XSD in WSDL
 - Right click on the project and select "Add Service Reference" -> "WCF" -> "enter localPath"
