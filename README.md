@@ -39,8 +39,9 @@ gc wordlist.txt |%{ .\CShidori.exe mut 5 "$_" }
 .\CShidori.exe bc |%{ .\CShidori.exe xml request.xml $_ }  
 ```
 
-### Then send generated payloads with Ffuf through Burp
+### Then send generated payloads with your usual tool
 
+exemple with Ffuf through Burp
 ```powershell
 .\CShidori.exe bc > list ; .\ffuf.exe -u https://target/FUZZ -w list:FUZZ -replay-proxy http://127.0.0.1:8080
 ```
