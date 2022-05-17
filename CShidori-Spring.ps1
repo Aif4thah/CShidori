@@ -343,7 +343,7 @@ function Get-SpringArtefacts
        {
             write-host "[*] Generating Fuzzing lists" -ForegroundColor Yellow
         
-            $badchars = Invoke-expression("$CshidoriPath bc")
+            $badchars = Invoke-expression("$CshidoriPath -m bc")
 
             $badchars >> $paramPath
 

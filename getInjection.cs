@@ -37,9 +37,11 @@ namespace CShidori
             {
                 getstr = parameters.Replace(kv.Key + "=" + kv.Value, kv.Key + "=" + this.InputInj);
                 results.Add(getstr);
+
                 // HTTP parameters polution
                 results.Add(parameters + "&" + getstr); 
                 results.Add(parameters.Replace(kv.Key + "=" + kv.Value, kv.Key + "=" + kv.Value + "," + this.InputInj));
+
 
             }    
             Console.WriteLine(String.Join("\n", results));
