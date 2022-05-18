@@ -40,7 +40,7 @@ namespace CShidori
             results.AddRange(wrapped);
 
             //encode
-            results = new BadChars().encodebadchars(results); //results.Distinct().ToList(); is performed here
+            results = new BadStrings().encodebadchars(results); //results.Distinct().ToList(); is performed here
 
             Console.WriteLine(String.Join("\n", results));
 

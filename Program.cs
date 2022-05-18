@@ -34,40 +34,49 @@ namespace CShidori
             var rootCommand = new RootCommand{m,i,p, o};
 
             rootCommand.Description = "CShidori : A C# Thousand Birds Payloads Generator";
-
             rootCommand.SetHandler((string m, string i, string p, string o) =>
             {
-                switch(m)
+                BadStrings bss = new BadStrings();
+
+                switch (m)
                 {
-                    case "bc":
-                        BadChars bc = new BadChars();
-                        Console.WriteLine(String.Join("\n", bc.Output));
+                    case "bs":
+                        Console.WriteLine(String.Join("\n", bss.Output));
                         break;
 
                     case "mut":
-                        Mutation mut = new Mutation(int.Parse(p), i);
+                        Mutation mut = new Mutation(int.Parse(o), p);
                         Console.WriteLine(String.Join("\n", mut.Output));
                         break;
 
                     case "enc":
                         List<string> l = new List<string>() { p };
-                        Console.WriteLine(String.Join("\n", new BadChars().encodebadchars(l)));
+                        Console.WriteLine(String.Join("\n", new BadStrings().encodebadchars(l)));
                         break;
 
                     case "xss":
-                        new XssInjection(i);
+                        new XssInjection(p);
                         break;
 
                     case "json":
-                        new JsonInjection(p, i);
+                        foreach (string bs in bss.Output)
+                        {
+                            new JsonInjection(p, bs);
+                        }                      
                         break;
 
                     case "xml":
-                        new XmlInjection(p, i);
+                        foreach (string bs in bss.Output)
+                        {
+                            new XmlInjection(p, bs);
+                        }
                         break;
 
                     case "get":
-                        new GetInjection(p, i);
+                        foreach (string bs in bss.Output)
+                        {
+                            new GetInjection(p, bs);
+                        }
                         break;
 
                     case "csrf":

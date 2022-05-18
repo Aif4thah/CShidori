@@ -7,11 +7,11 @@ using System.Net;
 
 namespace CShidori
 {
-    public class BadChars
+    public class BadStrings
     {
         public List<string> Output { get; set; }
 
-        public BadChars()
+        public BadStrings()
         {
 
             List<string> results = new List<string>();

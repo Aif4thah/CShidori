@@ -30,7 +30,7 @@ namespace CShidori
 
             string result = string.Empty;
             var rand = new Random();
-            List<string> bc = new BadChars().Output;
+            List<string> bc = new BadStrings().Output;
             int randvalue = rand.Next(this.Input.Length);
             int randbc = rand.Next(bc.Count -1);         
             //Console.WriteLine("randvalue {0}, randbc: {1}", randvalue, randbc);
