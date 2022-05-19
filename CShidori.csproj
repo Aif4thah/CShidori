@@ -15,7 +15,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove=".gitattributes" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="ScriptFile.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include=".gitattributes" />
+    <Resource Include="Data\BadStrings.txt" />
   </ItemGroup>
 
 
@@ -26,6 +35,15 @@
 
   <ItemGroup>
     <Folder Include="Connected Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update=".gitignore">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\BadStrings.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

@@ -2,10 +2,6 @@
 
 A C# "Thousand Birds" Payloads Generator
 
-## Dev Roadmap
-
-- store badstrings with Entity Framework
-
 ## Disclaimer
 
 Usage of all tools on this site for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. We assume no liability and are not responsible for any misuse or damage caused by this site. This tools is provided "as is" without warranty of any kind.
@@ -99,5 +95,5 @@ Get-SpringArtefact -source .\project\repository -output .
 ### SOAP & XSD
 
 Removed since you can perform it from Visual Studio:
-- Merge XSD in WSDL
+- Merge all XSD files in WSDL file
 - Right click on the project and select "Add Service Reference" -> "WCF" -> "enter localPath"

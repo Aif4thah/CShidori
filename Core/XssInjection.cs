@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Web;
 using System.Linq;
 
-namespace CShidori
+namespace CShidori.Core 
 {
     public class XssInjection
     {

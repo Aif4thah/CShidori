@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Net.Sockets;
 
-namespace CShidori
+namespace CShidori.Core
 {
     public static class Misc
 

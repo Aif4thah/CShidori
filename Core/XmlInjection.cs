@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Xml;
 
-namespace CShidori
+namespace CShidori.Core
 {
     public class XmlInjection
     {

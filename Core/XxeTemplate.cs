@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CShidori
+namespace CShidori.Core
 {
     public class XxeTemplate
     {
