@@ -34,14 +34,18 @@ namespace CShidori
 
             var rootCommand = new RootCommand{m,i,p, o};
 
-            rootCommand.Description = "CShidori : A C# Thousand Birds Payloads Generator";
+            rootCommand.Description = @"CShidori : A C# Thousand Birds Payloads Generator
+README: https://github.com/Aif4thah/CShidori
+Licence: GPL-3.0
+Disclaimer: Usage of this tool for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. We assume no liability and are not responsible for any misuse or damage caused by this site. This tools is provided 'as is' without warranty of any kind.";
+            
             rootCommand.SetHandler((string m, string i, string p, string o) =>
             {
                 BadStrings bss = new BadStrings();
 
                 switch (m)
                 {
-                    case "bs":
+                    case "dump":
                         Console.WriteLine(String.Join("\n", bss.Output));
                         break;
 

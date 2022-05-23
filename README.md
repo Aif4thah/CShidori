@@ -9,9 +9,10 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 ## References
 
 OWASP Web Application Security Testing Guide: [07-Input Validation Testing](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/)
+
 Taisen: [Website](https://taisen.fr)
 
-## supported modes/payloads
+## Supported modes and payloads
 
 - Mutation
 - XSS
@@ -65,9 +66,7 @@ Taisen: [Website](https://taisen.fr)
 ### XXE
 
 ```powershell
-.\CShidori.exe -m xxe -o file
-.\CShidori.exe -m xxe -o call 
-.\CShidori.exe -m xxe -o all 
+.\CShidori.exe -m xxe
 ```
 ### Encode
 
@@ -78,19 +77,10 @@ Taisen: [Website](https://taisen.fr)
 ### Dump
 
 ```powershell
-.\CShidori.exe -m bs
+.\CShidori.exe -m dump
 ```
 
 ## Miscellaneous
-
-### CShidori-Spring.ps1
-
-Security hotspots, endpoints, parameters and wsdl grabber from Spring projects
-
-```powershell
-. .\Spring-parser.ps1
-Get-SpringArtefact -source .\project\repository -output .
-```
 
 ### SOAP & XSD
 

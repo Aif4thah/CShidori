@@ -21,7 +21,6 @@ namespace CShidori.Core
                 results.Add(line);
             }
 
-
             String[] bof = new string[] {
                 string.Concat(Enumerable.Repeat("%s", 10)), // format string
                 string.Concat(Enumerable.Repeat("%n", 10)) , // format string
@@ -29,10 +28,7 @@ namespace CShidori.Core
             };
             results.AddRange(bof);
 
-
-            results = results.Distinct().ToList();
-            results = encodebadchars(results);
-            /* ---- declared after -> not encoded ---- */
+            results = encodebadchars(results); //results.Distinct().ToList();
 
             this.Output = results;
         }
