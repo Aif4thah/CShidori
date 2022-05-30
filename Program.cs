@@ -56,7 +56,7 @@ Disclaimer: Usage of this tool for attacking targets without prior mutual consen
 
                     case "enc":
                         List<string> l = new List<string>() { p };
-                        Console.WriteLine(String.Join("\n", new BadStrings().encodebadchars(l)));
+                        Console.WriteLine(String.Join("\n", bss.encodebadchars(l)));
                         break;
 
                     case "xss":
@@ -65,23 +65,17 @@ Disclaimer: Usage of this tool for attacking targets without prior mutual consen
 
                     case "json":
                         foreach (string bs in bss.Output)
-                        {
-                            new JsonInjection(p, bs);
-                        }                      
+                            new JsonInjection(p, bs);                     
                         break;
 
                     case "xml":
                         foreach (string bs in bss.Output)
-                        {
                             new XmlInjection(p, bs);
-                        }
                         break;
 
                     case "get":
                         foreach (string bs in bss.Output)
-                        {
                             new GetInjection(p, bs);
-                        }
                         break;
 
                     case "csrf":
@@ -90,6 +84,10 @@ Disclaimer: Usage of this tool for attacking targets without prior mutual consen
 
                     case "xxe":
                         new XxeTemplate(o);
+                        break;
+
+                    case "mst":
+                        new MsTestTemplate(p, i);
                         break;
 
                 }

@@ -16,13 +16,16 @@ namespace CShidori.Core
             this.Input = param;
             this.Output = new List<string>();
 
-            while(n >= 1)
+            if (this.Input != string.Empty)
             {
-
-                this.Output.Add(randombc());
-                this.Output.Add(bitflip());
-                n -= 1;
+                while (n >= 1)
+                {
+                    this.Output.Add(randombc());
+                    this.Output.Add(bitflip());
+                    n -= 1;
+                }
             }
+
         }
         
         public string randombc()
@@ -30,21 +33,20 @@ namespace CShidori.Core
 
             string result = string.Empty;
             var rand = new Random();
-            List<string> bc = new BadStrings().Output;
+            List<string> bss = new BadStrings().Output;
             int randvalue = rand.Next(this.Input.Length);
-            int randbc = rand.Next(bc.Count -1);         
-            //Console.WriteLine("randvalue {0}, randbc: {1}", randvalue, randbc);
+            int randbc = rand.Next(bss.Count -1);         
+            //Console.WriteLine("randvalue {0}, randbc: {1}, Input: {2}", randvalue, randbc, this.Input);
 
             StringBuilder sb = new StringBuilder(this.Input);
             sb.Remove(randvalue, 1);
-            result = sb.ToString();
+            result = sb.ToString().Insert(randvalue, bss[randbc]);
 
-            if(randvalue < 0)
-            {
-                randvalue -= 1;
-            }
-            
-            return result.Insert(randvalue, bc[randbc]);
+
+             result = bss[randbc];
+
+           
+            return result;
 
         }
 

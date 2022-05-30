@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31129.286
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CShidori", "CShidori.csproj", "{C39A3C44-BBF3-40DF-A490-0E84A02AF792}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "..\UnitTests\UnitTests.csproj", "{B58B3F8D-8263-4E7F-9A7B-E0BAC10599B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,14 @@ Global
 		{C39A3C44-BBF3-40DF-A490-0E84A02AF792}.Release|Any CPU.Build.0 = Release|x64
 		{C39A3C44-BBF3-40DF-A490-0E84A02AF792}.Release|x64.ActiveCfg = Release|x64
 		{C39A3C44-BBF3-40DF-A490-0E84A02AF792}.Release|x64.Build.0 = Release|x64
+		{B58B3F8D-8263-4E7F-9A7B-E0BAC10599B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B58B3F8D-8263-4E7F-9A7B-E0BAC10599B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B58B3F8D-8263-4E7F-9A7B-E0BAC10599B0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B58B3F8D-8263-4E7F-9A7B-E0BAC10599B0}.Debug|x64.Build.0 = Debug|Any CPU
+		{B58B3F8D-8263-4E7F-9A7B-E0BAC10599B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B58B3F8D-8263-4E7F-9A7B-E0BAC10599B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B58B3F8D-8263-4E7F-9A7B-E0BAC10599B0}.Release|x64.ActiveCfg = Release|Any CPU
+		{B58B3F8D-8263-4E7F-9A7B-E0BAC10599B0}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
