@@ -2,7 +2,7 @@
 
 A C# "Thousand Birds" Payloads Generator
 
-![](intro.png)
+![](Intro.png)
 
 ## Disclaimer
 
