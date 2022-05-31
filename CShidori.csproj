@@ -10,8 +10,8 @@
     <PublishSingleFile Condition="'$(Configuration)' == 'Release'">true</PublishSingleFile>
     <PublishReadyToRun>true</PublishReadyToRun>
     <AssemblyVersion></AssemblyVersion>
-    <Version>2.3.0</Version>
-    <ApplicationIcon>ScriptFile.ico</ApplicationIcon>
+    <Version>2.3.2</Version>
+    <ApplicationIcon>csharp.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="ScriptFile.ico" />
+    <Content Include="csharp.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,11 +41,20 @@
     <None Update=".gitignore">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
+    <None Update="Data\BadChars.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Data\BadStrings.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Data\CsrfTemplate.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\DotNet.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\Java.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Data\MsTestTemplate.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

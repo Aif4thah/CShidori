@@ -40,13 +40,8 @@ namespace CShidori.Core
 
             StringBuilder sb = new StringBuilder(this.Input);
             sb.Remove(randvalue, 1);
-            result = sb.ToString().Insert(randvalue, bss[randbc]);
-
-
-             result = bss[randbc];
-
-           
-            return result;
+            
+            return sb.ToString().Insert(randvalue, bss[randbc]);
 
         }
 
@@ -59,14 +54,8 @@ namespace CShidori.Core
             int randvalue = rand.Next(bytes.Length);
             int randbit = rand.Next(biteW.Length);
 
-            try
-            {
-                bytes[randvalue] += biteW[randbit];
-            }
-            catch
-            {
-                bytes[randvalue] -= biteW[randbit];
-            }
+            try{ bytes[randvalue] += biteW[randbit]; }
+            catch{ bytes[randvalue] -= biteW[randbit]; }
 
             return Encoding.UTF8.GetString(bytes) ;
         }
