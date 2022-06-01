@@ -12,69 +12,74 @@ namespace CShidori
         static void Main(string[] args)
         {
 
-            var m = new Option<string>(
+            var m = new Option<string>( //mode
                 "-m",
                 getDefaultValue: () => "none",
                 description: "mode, ie: bc, xss, json...");
 
-            var o = new Option<string>(
+            var o = new Option<string>( // option
                 "-o",
                 getDefaultValue: () => "none",
                 description: "option, ie: get, post...");
 
-            var i = new Option<string>(
+            var i = new Option<string>( // injection
                 "-i",
                 getDefaultValue: () => "foo",
                 description: "injection, ie: foo");
 
-            var p = new Option<string>(
+            var p = new Option<string>( //params
                 "-p",
                 getDefaultValue: () => "bar",
                 description: "parameter, ie: bar");
 
-            var rootCommand = new RootCommand{m,i,p, o};
+            var d = new Option<string>( //data
+            "-d",
+            getDefaultValue: () => "s",
+            description: "parameter, ie: bar");
+
+            var rootCommand = new RootCommand{m,i,p, o,d};
 
             rootCommand.Description = @"CShidori : A C# Thousand Birds Payloads Generator
 README: https://github.com/Aif4thah/CShidori
 License: GPL-3.0
 Disclaimer: Usage of this tool for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. We assume no liability and are not responsible for any misuse or damage caused by this site. This tools is provided 'as is' without warranty of any kind.";
             
-            rootCommand.SetHandler((string m, string i, string p, string o) =>
+            rootCommand.SetHandler((string m, string i, string p, string o, string d) =>
             {
-                BadStrings bss = new BadStrings();
 
                 switch (m)
                 {
-                    case "dump":
-                        Console.WriteLine(String.Join("\n", bss.Output));
+                    case "gen":
+                        BadStrings data = new BadStrings(d);
+                        Console.WriteLine(String.Join("\n", data.Output));
                         break;
 
                     case "mut":
-                        Mutation mut = new Mutation(int.Parse(o), p);
+                        Mutation mut = new Mutation(int.Parse(o), p, d);
                         Console.WriteLine(String.Join("\n", mut.Output));
                         break;
 
                     case "enc":
-                        List<string> l = new List<string>() { p };
-                        Console.WriteLine(String.Join("\n", bss.encodebadchars(l)));
-                        break;
-
-                    case "xss":
-                        new XssInjection(p);
+                        List<string> list = new List<string>() { p };
+                        List<string> results = EncodeStrings.encodebadchars(list);
+                        Console.WriteLine(String.Join("\n", results));
                         break;
 
                     case "json":
-                        foreach (string bs in bss.Output)
+                        BadStrings DataToJson = new BadStrings(d);
+                        foreach (string bs in DataToJson.Output)
                             new JsonInjection(p, bs);                     
                         break;
 
                     case "xml":
-                        foreach (string bs in bss.Output)
+                        BadStrings DataToXml = new BadStrings(d);
+                        foreach (string bs in DataToXml.Output)
                             new XmlInjection(p, bs);
                         break;
 
                     case "get":
-                        foreach (string bs in bss.Output)
+                        BadStrings DataToGet = new BadStrings(d);
+                        foreach (string bs in DataToGet.Output)
                             new GetInjection(p, bs);
                         break;
 
@@ -90,9 +95,13 @@ Disclaimer: Usage of this tool for attacking targets without prior mutual consen
                         new MsTestTemplate(p, i);
                         break;
 
+                    case "xss":
+                        new XssInjection(p);
+                        break;
+
                 }
 
-            }, m,i,p,o);
+            }, m,i,p,o,d);
 
             rootCommand.Invoke(args);
 

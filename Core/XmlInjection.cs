@@ -14,10 +14,10 @@ namespace CShidori.Core
         public string InputXml { get; set; }
         public string InputInj { get; set; }
 
-        public XmlInjection( string param1, string param2 )
+        public XmlInjection( string p, string i )
         {
-            this.InputXml = param1;
-            this.InputInj = param2;
+            this.InputXml = p;
+            this.InputInj = i;
 
             XmlDocument xmldoc = new XmlDocument();
             xmldoc.Load(this.InputXml);

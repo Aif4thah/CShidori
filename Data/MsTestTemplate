@@ -2,7 +2,7 @@
         [TestMethod]
         public void InjectBadStrings()
         {
-            BadStrings bss = new BadStrings();
+            BadStrings bss = new BadStrings("s");
 
             foreach(string % in bss.Output)
                 §;
@@ -11,11 +11,11 @@
         [TestMethod]
         public void TestMutation()
         {
-            BadStrings bss = new BadStrings();
+            BadStrings bss = new BadStrings("s");
 
             foreach (string bs in bss.Output)
             {
-                Mutation mut = new Mutation(5, bs);
+                Mutation mut = new Mutation(5, bs, "s");
                 foreach(string % in mut.Output)
                     §; 
             }

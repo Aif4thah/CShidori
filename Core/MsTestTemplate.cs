@@ -16,11 +16,12 @@ namespace CShidori.Core
         {
             this.function = functionWithParam; //function(string test1, string test2)
             this.inject = paramToInject;
-            string MsTest = System.IO.File.ReadAllText(@"Data/MsTestTemplate.txt");
+            //string MsTest = System.IO.File.ReadAllText(@"Data/MsTestTemplate.txt");
+            List<string> MsTest = new DataLoader().Dataloader("MsTestTemplate");
+            foreach(string l in MsTest)
+            Console.WriteLine(l.Replace("%", this.inject).Replace("§",this.function));
 
-            MsTest = MsTest.Replace("%", this.inject).Replace("§",this.function);
-
-            Console.WriteLine(MsTest);
+            
 
 
         }

@@ -11,7 +11,7 @@ namespace CShidori.Core
         public string Input { get; set; }
         public List<string> Output { set; get; }
 
-        public Mutation(int n, string param ) 
+        public Mutation(int n, string param, string d ) 
         {
             this.Input = param;
             this.Output = new List<string>();
@@ -20,7 +20,7 @@ namespace CShidori.Core
             {
                 while (n >= 1)
                 {
-                    this.Output.Add(randombc());
+                    this.Output.Add(randombc(d));
                     this.Output.Add(bitflip());
                     n -= 1;
                 }
@@ -28,12 +28,15 @@ namespace CShidori.Core
 
         }
         
-        public string randombc()
+        public string randombc(string d)
         {
 
             string result = string.Empty;
             var rand = new Random();
-            List<string> bss = new BadStrings().Output;
+            List<string> bss = new BadStrings(d).Output;
+
+            if(bss.Count == 0){ bss = new BadStrings("s").Output;}
+
             int randvalue = rand.Next(this.Input.Length);
             int randbc = rand.Next(bss.Count -1);         
             //Console.WriteLine("randvalue {0}, randbc: {1}, Input: {2}", randvalue, randbc, this.Input);

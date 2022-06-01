@@ -21,7 +21,7 @@ namespace CShidori.Core
             wrapped.AddRange(wrapp(this.Input));
             results.AddRange(wrapped);
 
-            results = new BadStrings().encodebadchars(results); //results.Distinct().ToList(); is performed here
+            results = EncodeStrings.encodebadchars(results); //results.Distinct().ToList(); is performed here
 
             Console.WriteLine(String.Join("\n", results));
 
@@ -31,7 +31,8 @@ namespace CShidori.Core
         {
             List<string> results = new List<string>();
 
-            string[] lines = System.IO.File.ReadAllLines(@"Data/XssWrappers.txt");
+            //string[] lines = System.IO.File.ReadAllLines(@"Data/XssWrappers.txt");
+            List<string> lines = new DataLoader().Dataloader("Xss");
             foreach (string line in lines)
             {
                 results.Add(

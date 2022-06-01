@@ -10,7 +10,7 @@
     <PublishSingleFile Condition="'$(Configuration)' == 'Release'">true</PublishSingleFile>
     <PublishReadyToRun>true</PublishReadyToRun>
     <AssemblyVersion></AssemblyVersion>
-    <Version>2.3.2</Version>
+    <Version>4.0.0</Version>
     <ApplicationIcon>csharp.ico</ApplicationIcon>
   </PropertyGroup>
 
@@ -24,7 +24,7 @@
 
   <ItemGroup>
     <Resource Include=".gitattributes" />
-    <Resource Include="Data\BadStrings.txt" />
+    <Resource Include="Data\BadStrings" />
   </ItemGroup>
 
 
@@ -41,28 +41,28 @@
     <None Update=".gitignore">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
-    <None Update="Data\BadChars.txt">
+    <None Update="Data\BadChars">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Data\BadStrings.txt">
+    <None Update="Data\BadStrings">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Data\CsrfTemplate.txt">
+    <None Update="Data\CsrfTemplate">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Data\DotNet.txt">
+    <None Update="Data\DotNet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Data\Java.txt">
+    <None Update="Data\Java">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Data\MsTestTemplate.txt">
+    <None Update="Data\MsTestTemplate">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Data\XssWrappers.txt">
+    <None Update="Data\Xss">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Data\XxeTemplate.txt">
+    <None Update="Data\XxeTemplate">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

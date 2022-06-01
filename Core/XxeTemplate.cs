@@ -13,9 +13,9 @@ namespace CShidori.Core
         public XxeTemplate(string TemplateType)
         {
             this.target = Misc.GetIp();
-            string XXE = System.IO.File.ReadAllText(@"Data/XxeTemplate.txt");
-            Console.WriteLine(
-                XXE.Replace("§", this.target).Replace("foo", Misc.RandomString(3)));
+            List<string> XXE = new DataLoader().Dataloader("XxeTemplate");
+            foreach(string l in XXE)
+                Console.WriteLine(l.Replace("§", this.target).Replace("foo", Misc.RandomString(3)));
 
         }
     }
