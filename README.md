@@ -1,6 +1,7 @@
 # CShidori
 
-A C# "Thousand Birds" Payloads Generator
+A C# "Thousand Birds" Payloads Generator : **Get Data To Fuzz and Pentest Your App**
+
 
 ![](Intro.png)
 
