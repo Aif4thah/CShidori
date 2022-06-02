@@ -28,9 +28,9 @@ namespace CShidori.Core
                 json[p.Name] = old;
             }
 
-            //intger
-            if (int.TryParse(this.InputInj, out int v)){
 
+            if (int.TryParse(this.InputInj, out int v))   //if inupt is int
+            {
                 foreach (JProperty p in json.DeepClone())
                 {
                     old = json[p.Name];

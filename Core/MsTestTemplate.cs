@@ -14,15 +14,11 @@ namespace CShidori.Core
 
         public MsTestTemplate (string functionWithParam, string paramToInject)
         {
-            this.function = functionWithParam; //function(string test1, string test2)
+            this.function = functionWithParam; //ex: function(string test1, string test2)
             this.inject = paramToInject;
-            //string MsTest = System.IO.File.ReadAllText(@"Data/MsTestTemplate.txt");
             List<string> MsTest = new DataLoader().Dataloader("MsTestTemplate");
             foreach(string l in MsTest)
             Console.WriteLine(l.Replace("%", this.inject).Replace("§",this.function));
-
-            
-
 
         }
     }

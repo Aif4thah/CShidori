@@ -24,9 +24,7 @@ namespace CShidori.Core
             if (parameters.Contains("&"))
             {
                 foreach (string pv in parameters.Split("&"))
-                {
                     dparameters.Add(pv.Split("=")[0], pv.Split("=")[1]);
-                }
             }
             else
             {
@@ -41,8 +39,6 @@ namespace CShidori.Core
                 // HTTP parameters polution
                 results.Add(parameters + "&" + getstr); 
                 results.Add(parameters.Replace(kv.Key + "=" + kv.Value, kv.Key + "=" + kv.Value + "," + this.InputInj));
-
-
             }    
             Console.WriteLine(String.Join("\n", results));
         }

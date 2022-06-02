@@ -30,8 +30,6 @@ namespace CShidori.Core
         private List<string> wrapp(string param)
         {
             List<string> results = new List<string>();
-
-            //string[] lines = System.IO.File.ReadAllLines(@"Data/XssWrappers.txt");
             List<string> lines = new DataLoader().Dataloader("Xss");
             foreach (string line in lines)
             {

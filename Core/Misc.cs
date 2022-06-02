@@ -22,9 +22,7 @@ namespace CShidori.Core
                     localIP = endPoint.Address.ToString();
                 }
             }
-            catch{
-                localIP = "127.0.0.1";
-            }
+            catch{ localIP = "127.0.0.1";}
 
             return localIP;
         }

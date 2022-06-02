@@ -23,6 +23,7 @@ namespace CShidori.Core
                 "Data/CsrfTemplate",
                 "Data/MsTestTemplate",
                 "Data/XxeTemplate",
+                "Data/C",
 
             };
 
@@ -38,9 +39,6 @@ namespace CShidori.Core
                         results.Add(line);
                 }
             }
-
-
-
 
             return results;
         }

@@ -1,9 +1,15 @@
 # CShidori
 
-A C# "Thousand Birds" Payloads Generator : **Get Data To Fuzz and Pentest Your App**
-
+**Get Data To Fuzz Your App**
 
 ![](Intro.png)
+
+## Real life vulnerabilities discovered by this tool
+
+* Open Redirect: 1
+* IDOR: 1
+* XSS: 1
+* Application Data Leak: 2
 
 ## Disclaimer
 
@@ -14,6 +20,7 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 * OWASP Web Application Security Testing Guide: [07-Input Validation Testing](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/)
 
 * Taisen: [Website](https://taisen.fr)
+
 
 ## Supported modes and payloads
 

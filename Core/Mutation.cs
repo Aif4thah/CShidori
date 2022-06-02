@@ -15,28 +15,25 @@ namespace CShidori.Core
         {
             this.Input = param;
             this.Output = new List<string>();
+            List<string> bss = new BadStrings(d).Output;
+            if (bss.Count == 0) { bss = new BadStrings("s").Output; }
 
             if (this.Input != string.Empty)
             {
                 while (n >= 1)
                 {
-                    this.Output.Add(randombc(d));
-                    this.Output.Add(bitflip());
+                    if (n%2 == 0){ this.Output.Add(randombc(bss)); }
+                    else{ this.Output.Add(bitflip()); }               
                     n -= 1;
                 }
             }
-
         }
         
-        public string randombc(string d)
+        public string randombc(List<string> bss)
         {
-
             string result = string.Empty;
             var rand = new Random();
-            List<string> bss = new BadStrings(d).Output;
-
-            if(bss.Count == 0){ bss = new BadStrings("s").Output;}
-
+           
             int randvalue = rand.Next(this.Input.Length);
             int randbc = rand.Next(bss.Count -1);         
             //Console.WriteLine("randvalue {0}, randbc: {1}, Input: {2}", randvalue, randbc, this.Input);
@@ -50,7 +47,6 @@ namespace CShidori.Core
 
         public string bitflip()
         {
-
             byte[] bytes = Encoding.UTF8.GetBytes(this.Input);
             byte[] biteW = { 0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80 };
             var rand = new Random();

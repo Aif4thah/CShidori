@@ -50,7 +50,6 @@ namespace CShidori.Core
         {
             Dictionary<string, string> dparameters = new Dictionary<string, string>();
 
-            //string csrf = System.IO.File.ReadAllText(@"Data/CsrfTemplate");
             List<string> data = new DataLoader().Dataloader("CsrfTemplate");
             string csrf = String.Join("\n", data);
 

@@ -36,9 +36,8 @@ namespace CShidori.Core
                         if (n2.HasChildNodes)
                         {
                             foreach (XmlNode n3 in n2.ChildNodes)
-                            {
                                 inject(n3, xmldoc);
-                            }
+
                         }
                     }
                 }
