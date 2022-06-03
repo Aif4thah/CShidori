@@ -19,7 +19,7 @@ namespace CShidori.Core
                 "Data/BadStrings",
                 "Data/Java",
                 "Data/DotNet",
-                "Data/Xss",
+                "Data/JavaScript",
                 "Data/CsrfTemplate",
                 "Data/MsTestTemplate",
                 "Data/XxeTemplate",

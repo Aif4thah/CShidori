@@ -10,7 +10,7 @@
     <PublishSingleFile Condition="'$(Configuration)' == 'Release'">true</PublishSingleFile>
     <PublishReadyToRun>true</PublishReadyToRun>
     <AssemblyVersion></AssemblyVersion>
-    <Version>4.0.1</Version>
+    <Version>4.0.2</Version>
     <ApplicationIcon>csharp.ico</ApplicationIcon>
   </PropertyGroup>
 
@@ -65,7 +65,7 @@
     <None Update="Data\MsTestTemplate">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Data\Xss">
+    <None Update="Data\JavaScript">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Data\XxeTemplate">

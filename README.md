@@ -42,7 +42,8 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 * Strings (default)
 * DotNet
 * Java
-* Xss
+* Angular
+* JavaScript
 
 ## Usage and examples
 

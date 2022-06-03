@@ -30,7 +30,7 @@ namespace CShidori.Core
         private List<string> wrapp(string param)
         {
             List<string> results = new List<string>();
-            List<string> lines = new DataLoader().Dataloader("Xss");
+            List<string> lines = new DataLoader().Dataloader("JavaScript");
             foreach (string line in lines)
             {
                 results.Add(
