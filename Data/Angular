@@ -1,0 +1,10 @@
+# Angular pipes
+bypassSecurityTrustHtml
+bypassSecurityTrustScript
+bypassSecurityTrustStyle
+bypassSecurityTrustUrl
+bypassSecurityTrustResourceUrl
+[innerHTML] 
+trustAsHtml
+$eval
+$evalAsync

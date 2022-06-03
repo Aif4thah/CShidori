@@ -41,6 +41,9 @@
     <None Update=".gitignore">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
+    <None Update="Data\Angular">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Data\BadChars">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

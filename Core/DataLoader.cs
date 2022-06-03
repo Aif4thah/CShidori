@@ -24,6 +24,7 @@ namespace CShidori.Core
                 "Data/MsTestTemplate",
                 "Data/XxeTemplate",
                 "Data/C",
+                "Data/Angular"
 
             };
 
