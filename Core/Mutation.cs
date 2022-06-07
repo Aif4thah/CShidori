@@ -22,8 +22,12 @@ namespace CShidori.Core
             {
                 while (n >= 1)
                 {
-                    if (n%2 == 0){ this.Output.Add(randombc(bss)); }
-                    else{ this.Output.Add(bitflip()); }               
+                    var rand = new Random();
+                    int r = rand.Next(2);
+
+                    if (r%2 == 0){ this.Output.Add(randombc(bss)); }
+                    else{ this.Output.Add(bitflip()); } 
+                    
                     n -= 1;
                 }
             }
@@ -36,7 +40,7 @@ namespace CShidori.Core
            
             int randvalue = rand.Next(this.Input.Length);
             int randbc = rand.Next(bss.Count -1);         
-            //Console.WriteLine("randvalue {0}, randbc: {1}, Input: {2}", randvalue, randbc, this.Input);
+            //Console.WriteLine("[randombc] randvalue {0}, randbc: {1}, Input: {2}", randvalue, randbc, this.Input);
 
             StringBuilder sb = new StringBuilder(this.Input);
             sb.Remove(randvalue, 1);
@@ -52,8 +56,9 @@ namespace CShidori.Core
             var rand = new Random();
             int randvalue = rand.Next(bytes.Length);
             int randbit = rand.Next(biteW.Length);
+            //Console.WriteLine("[bitflip] Input: {0}, randbc: {1}", bytes[randvalue], biteW[randbit]);
 
-            try{ bytes[randvalue] += biteW[randbit]; }
+            try { bytes[randvalue] += biteW[randbit]; }
             catch{ bytes[randvalue] -= biteW[randbit]; }
 
             return Encoding.UTF8.GetString(bytes) ;

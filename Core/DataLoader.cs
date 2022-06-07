@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,7 +36,7 @@ namespace CShidori.Core
                 IEnumerable<string> FileNames = from f in FileList where f.EndsWith(s) select f;
                 foreach (string FileName in FileNames)
                 {
-                    lines = System.IO.File.ReadAllLines(FileName);
+                    lines = File.ReadAllLines(FileName);
                     foreach (string line in lines)
                         results.Add(line);
                 }

@@ -10,7 +10,7 @@
     <PublishSingleFile Condition="'$(Configuration)' == 'Release'">true</PublishSingleFile>
     <PublishReadyToRun>true</PublishReadyToRun>
     <AssemblyVersion></AssemblyVersion>
-    <Version>4.0.2</Version>
+    <Version>5.1.1</Version>
     <ApplicationIcon>csharp.ico</ApplicationIcon>
   </PropertyGroup>
 
@@ -70,6 +70,9 @@
     </None>
     <None Update="Data\XxeTemplate">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Log\CShidori-log.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

@@ -39,7 +39,8 @@ namespace CShidori
 
             var rootCommand = new RootCommand{m,i,p, o,d};
 
-            rootCommand.Description = @"CShidori : A C# Thousand Birds Payloads Generator
+            rootCommand.Description = @"
+CShidori : A C# Thousand Birds Payloads Generator
 README: https://github.com/Aif4thah/CShidori
 License: GPL-3.0
 Disclaimer: Usage of this tool for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. We assume no liability and are not responsible for any misuse or damage caused by this site. This tools is provided 'as is' without warranty of any kind.";
@@ -49,6 +50,14 @@ Disclaimer: Usage of this tool for attacking targets without prior mutual consen
 
                 switch (m)
                 {
+                    case "tls":
+                        NetworkTest.TlsFuzz.TlsFuzzAsync(o, i, p, d);
+                        break;
+
+                    case "tcp":
+                        NetworkTest.TcpFuzz.TcpFuzzAsync(o, i, p, d);
+                        break;
+
                     case "gen":
                         BadStrings data = new BadStrings(d);
                         Console.WriteLine(String.Join("\n", data.Output));
@@ -92,7 +101,7 @@ Disclaimer: Usage of this tool for attacking targets without prior mutual consen
                         break;
 
                     case "mst":
-                        new MsTestTemplate(p, i);
+                        new UnitTest.MsTestTemplate(p, i);
                         break;
 
                     case "xss":
@@ -104,7 +113,6 @@ Disclaimer: Usage of this tool for attacking targets without prior mutual consen
             }, m,i,p,o,d);
 
             rootCommand.Invoke(args);
-
 
         }
     }

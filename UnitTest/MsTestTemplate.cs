@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CShidori.Core
+namespace CShidori.UnitTest
 {
     public class MsTestTemplate
     {
@@ -16,7 +16,7 @@ namespace CShidori.Core
         {
             this.function = functionWithParam; //ex: function(string test1, string test2)
             this.inject = paramToInject;
-            List<string> MsTest = new DataLoader().Dataloader("MsTestTemplate");
+            List<string> MsTest = new Core.DataLoader().Dataloader("MsTestTemplate");
             foreach(string l in MsTest)
             Console.WriteLine(l.Replace("%", this.inject).Replace("§",this.function));
 

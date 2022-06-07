@@ -1,6 +1,6 @@
 # CShidori
 
-**Get Data To Fuzz Your App**
+**Get Data and Fuzz Your App**
 
 ![](Intro.png)
 
@@ -22,9 +22,14 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 * Taisen: [Website](https://taisen.fr)
 
 
-## Supported modes and payloads
+## Fuzzer and Data
 
-### Modes 
+### Fuzzer
+
+* TLS Sockets (including HTTPS and other SSL/TLS encapsulated protocols)
+* TCP Sockets (TCP layer and OSI 5,6,7 protocols, including HTTP )
+
+### Data Generation Modes 
 * Mutation
 * XSS
 * JSON
@@ -42,10 +47,30 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 * Strings (default)
 * DotNet
 * Java
+* C
 * Angular
 * JavaScript
 
-## Usage and examples
+## Mutation Fuzzing
+
+### TLS sockets
+
+put your request in a text file (for HTTPS use Zap/Burp "copy to file")
+
+```powershell
+.\CShidori.exe -m tls -o ..\..\..\..\..\..\testing\ZAP-Post-req.raw -i 127.0.0.1 -p 443
+```
+
+### TCP Sockets
+
+put your request in a text file (for HTTP use Zap/Burp "copy to file")
+
+```powershell
+.\CShidori.exe -m tcp -o ..\..\..\..\..\..\testing\burp.req -i 127.0.0.1 -p 80
+```
+
+
+## Data Generation
 
 ### Mutation
 

@@ -1,8 +1,10 @@
 ## Roadmap
 
-* improve payloads / data loader class:
-	* create object with payload type/target and options to chose them
-	* Use Linq
+* improve Net Tests
+	* assert
 
 * improve Unit Tests
+	* Build
 	* assert
+
+* interpret fuzz results
