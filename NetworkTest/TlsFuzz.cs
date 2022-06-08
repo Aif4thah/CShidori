@@ -22,10 +22,12 @@ namespace CShidori.NetworkTest
                 try
                 {
                     await SslOneReq(File, Ip, Port, data);
+                    Thread.Sleep(300);
                 }
                 catch
                 {
                     Thread.Sleep(1000);
+                    new Core.DataLoggerWriter(Guid.NewGuid(), "Error with File or Socket", "Error with File or Socket");
                 }
 
             }
@@ -35,35 +37,40 @@ namespace CShidori.NetworkTest
 
         public static async Task SslOneReq(string File, string Ip, string Port, string data)
             {
-            Guid uuid;
-            TcpClient client = new TcpClient(Ip, int.Parse(Port));
-            var stream = client.GetStream();
-            SslStream sslStream = new SslStream(stream, false, new RemoteCertificateValidationCallback(CertificateValidationCallback));
-            sslStream.AuthenticateAsClient("client", null, System.Security.Authentication.SslProtocols.Tls12, false);
-
+            Guid uuid = Guid.NewGuid();
             string req = System.IO.File.ReadAllText(File);
-            string rsp = string.Empty;
+            Core.Mutation mut = new Core.Mutation(1, req, data);
 
-            uuid = Guid.NewGuid();
-            Core.Mutation mut = new Core.Mutation(1, req, data);               
-            foreach( string str in mut.Output) // Convert string[] mut.Output to string str
+            try
             {
-                sendMsg(str, sslStream);
-                rsp = readMsg(sslStream, client);
-                int n = 0;
-                while( rsp == string.Empty)
+                TcpClient client = new TcpClient(Ip, int.Parse(Port));
+                var stream = client.GetStream();
+                SslStream sslStream = new SslStream(stream, false, new RemoteCertificateValidationCallback(CertificateValidationCallback));
+                sslStream.AuthenticateAsClient("client", null, System.Security.Authentication.SslProtocols.Tls12, false);
+                string rsp = string.Empty;
+
+                foreach (string str in mut.Output) // Convert string[] mut.Output to string str
                 {
-                    rsp = readMsg(sslStream, client);                   
-                    if(n >= 1024) { break;  }
-                    n += 1;
+                    sendMsg(str, sslStream);
+                    rsp = readMsg(sslStream, client);
+                    int n = 0;
+                    while (rsp == string.Empty)
+                    {
+                        rsp = readMsg(sslStream, client);
+                        if (n >= 1024) { break; }
+                        n += 1;
+                    }
+                    //Console.WriteLine("{0}: {1}: {2}",uuid, str, rsp) ;
+                    new Core.DataLoggerWriter(uuid, str, rsp);
+
                 }
-                //Console.WriteLine("{0}: {1}: {2}",uuid, str, rsp) ;
-                new Core.DataLoggerWriter(uuid, str, rsp);
-
+                sslStream.Close();
+                client.Close();
             }
-            sslStream.Close();
-            client.Close();
-
+            catch
+            {
+                new Core.DataLoggerWriter(uuid, mut.Output.ToString(), "ERROR");
+            }
         }
 
 

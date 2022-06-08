@@ -21,6 +21,8 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 
 * Taisen: [Website](https://taisen.fr)
 
+* CShidori is part of [SIMPLE project (french)](https://github.com/Aif4thah/SIMPLE)
+
 
 ## Fuzzer and Data
 
@@ -58,7 +60,7 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 put your request in a text file (for HTTPS use Zap/Burp "copy to file")
 
 ```powershell
-.\CShidori.exe -m tls -o ..\..\..\..\..\..\testing\ZAP-Post-req.raw -i 127.0.0.1 -p 443
+.\CShidori.exe -m tls -o ..\testing\ZAP-Post-req.raw -i 127.0.0.1 -p 443
 ```
 
 ### TCP Sockets
@@ -66,7 +68,7 @@ put your request in a text file (for HTTPS use Zap/Burp "copy to file")
 put your request in a text file (for HTTP use Zap/Burp "copy to file")
 
 ```powershell
-.\CShidori.exe -m tcp -o ..\..\..\..\..\..\testing\burp.req -i 127.0.0.1 -p 80
+.\CShidori.exe -m tcp -o ..\testing\burp.req -i 127.0.0.1 -p 80
 ```
 
 

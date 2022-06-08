@@ -22,10 +22,12 @@ namespace CShidori.NetworkTest
                 try
                 {
                     await SendOneReq(File, Ip, Port, data);
+                    Thread.Sleep(300);
                 }
                 catch
                 {
                     Thread.Sleep(1000);
+                    new Core.DataLoggerWriter(Guid.NewGuid(), "Error with File or Socket", "Error with File or Socket");
                 }
 
             }
@@ -35,31 +37,38 @@ namespace CShidori.NetworkTest
 
         public static async Task SendOneReq(string File, string Ip, string Port, string data)
         {
-            Guid uuid;
-            TcpClient client = new TcpClient(Ip, int.Parse(Port));
-            var stream = client.GetStream();
 
+            Guid uuid = Guid.NewGuid();
             string req = System.IO.File.ReadAllText(File);
-            string rsp = string.Empty;
-
-            uuid = Guid.NewGuid();
             Core.Mutation mut = new Core.Mutation(1, req, data);
-            foreach (string str in mut.Output) // Convert string[] mut.Output to string str
-            {
-                sendMsg(str, stream);
-                rsp = readMsg(stream);
-                int n = 0;
-                while (true)
-                {
-                    rsp += readMsg(stream);
-                    if (n >= 4096) { break; }
-                    n += 1;
-                }
-                Console.WriteLine("{0}:\n{1}\n---\n{2}", uuid, str, rsp);
-                new Core.DataLoggerWriter(uuid, str, rsp);
 
+            try
+            {
+                TcpClient client = new TcpClient(Ip, int.Parse(Port));
+                var stream = client.GetStream();
+                string rsp = string.Empty;
+
+                foreach (string str in mut.Output) // Convert string[] mut.Output to string str
+                {
+                    sendMsg(str, stream);
+                    rsp = readMsg(stream);
+                    int n = 0;
+                    while (true)
+                    {
+                        rsp += readMsg(stream);
+                        if (n >= 4096) { break; }
+                        n += 1;
+                    }
+                    Console.WriteLine("{0}:\n{1}\n---\n{2}", uuid, str, rsp);
+                    new Core.DataLoggerWriter(uuid, str, rsp);
+
+                }
+                client.Close();
             }
-            client.Close();
+            catch
+            {
+                new Core.DataLoggerWriter(uuid, mut.Output.ToString(), "ERROR");
+            }
 
         }
 

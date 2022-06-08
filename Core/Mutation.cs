@@ -22,46 +22,93 @@ namespace CShidori.Core
             {
                 while (n >= 1)
                 {
-                    var rand = new Random();
-                    int r = rand.Next(2);
-
-                    if (r%2 == 0){ this.Output.Add(randombc(bss)); }
-                    else{ this.Output.Add(bitflip()); } 
-                    
                     n -= 1;
+                    var rand = new Random();
+                    int r = rand.Next(0,5);
+                    //Console.WriteLine(r);
+                    switch (r)
+                    {
+                        case 0:
+                            this.Output.Add( BitFlip(rand) );
+                            break;
+                        case 1:
+                            this.Output.Add(AddRandBc(bss, rand) );
+                            break;
+                        case 2:
+                            this.Output.Add( RepRandBc(bss, rand) );
+                            break;
+                        case 3:
+                            this.Output.Add( DelChar(rand) );
+                            break;
+                        case 4:
+                            this.Output.Add( RepTwoBytes(rand));
+                            break;
+
+                    }
+                                 
                 }
             }
         }
         
-        public string randombc(List<string> bss)
-        {
-            string result = string.Empty;
-            var rand = new Random();
-           
+        public string RepRandBc(List<string> bss, Random rand)
+        {         
             int randvalue = rand.Next(this.Input.Length);
-            int randbc = rand.Next(bss.Count -1);         
-            //Console.WriteLine("[randombc] randvalue {0}, randbc: {1}, Input: {2}", randvalue, randbc, this.Input);
+            int randbc = rand.Next(bss.Count -1);  
+            
+            StringBuilder sb = new StringBuilder(this.Input);
+            sb.Remove(randvalue, 1);     
+            
+            return sb.ToString().Insert(randvalue, bss[randbc]);
+        }
+
+
+        public string AddRandBc(List<string> bss, Random rand)
+        {
+            int randvalue = rand.Next(this.Input.Length);
+            int randbc = rand.Next(bss.Count - 1);
+
+            return this.Input.Insert(randvalue, bss[randbc]);
+        }
+
+
+        public string DelChar( Random rand)
+        {
+            int randvalue = rand.Next(this.Input.Length);
 
             StringBuilder sb = new StringBuilder(this.Input);
             sb.Remove(randvalue, 1);
-            
-            return sb.ToString().Insert(randvalue, bss[randbc]);
 
+            return sb.ToString();
         }
 
-        public string bitflip()
+        public string BitFlip(Random rand)
         {
             byte[] bytes = Encoding.UTF8.GetBytes(this.Input);
-            byte[] biteW = { 0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80 };
-            var rand = new Random();
+            byte[] bitW = { 0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80 };
+
             int randvalue = rand.Next(bytes.Length);
-            int randbit = rand.Next(biteW.Length);
-            //Console.WriteLine("[bitflip] Input: {0}, randbc: {1}", bytes[randvalue], biteW[randbit]);
+            int randbit = rand.Next(bitW.Length);
 
-            try { bytes[randvalue] += biteW[randbit]; }
-            catch{ bytes[randvalue] -= biteW[randbit]; }
+            try { bytes[randvalue] += bitW[randbit]; }
+            catch { bytes[randvalue] -= bitW[randbit]; }
 
-            return Encoding.UTF8.GetString(bytes) ;
+            return Encoding.UTF8.GetString(bytes);
         }
+
+
+        public string RepTwoBytes(Random rand)
+        {
+            byte[] bytes = Encoding.UTF8.GetBytes(this.Input);
+            byte[] ByteRange = new Byte[2];
+
+            int randvalue = rand.Next(bytes.Length-1);
+            rand.NextBytes(ByteRange);
+
+            bytes[randvalue] = ByteRange[0];
+            bytes[randvalue+1] = ByteRange[1];
+
+            return Encoding.UTF8.GetString(bytes);
+        }
+
     }
 }
