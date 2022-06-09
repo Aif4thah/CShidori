@@ -41,7 +41,7 @@ namespace CShidori.Core
                             this.Output.Add( DelChar(rand) );
                             break;
                         case 4:
-                            this.Output.Add( RepTwoBytes(rand));
+                            this.Output.Add( RepThreeBytes(rand));
                             break;
 
                     }
@@ -96,16 +96,17 @@ namespace CShidori.Core
         }
 
 
-        public string RepTwoBytes(Random rand)
+        public string RepThreeBytes(Random rand)
         {
             byte[] bytes = Encoding.UTF8.GetBytes(this.Input);
-            byte[] ByteRange = new Byte[2];
+            byte[] ByteRange = new Byte[3];
 
-            int randvalue = rand.Next(bytes.Length-1);
+            int randvalue = rand.Next(bytes.Length - 2);
             rand.NextBytes(ByteRange);
 
             bytes[randvalue] = ByteRange[0];
             bytes[randvalue+1] = ByteRange[1];
+            bytes[randvalue + 2] = ByteRange[2];
 
             return Encoding.UTF8.GetString(bytes);
         }

@@ -17,17 +17,33 @@ namespace CShidori.NetworkTest
     {
         public static async void TlsFuzzAsync(string File, string Ip, string Port, string data)
         {
-            while (true)
+            Console.WriteLine("[*] Reading File: {0}", File);
+            string req = System.IO.File.ReadAllText(File);
+            float TotalReq = req.Length * 10;
+            float start_time = DateTime.Now.Second;
+            float PourcentWork, Elapsed_time;
+
+            Console.WriteLine("[*] Start Fuzzing for {0} requests", TotalReq);
+            for (int i = 0; i < TotalReq; i++)
             {
+                PourcentWork = (i / TotalReq) * 100;
+                Elapsed_time = DateTime.Now.Second - start_time;
+                Console.WriteLine("[{0} %]\tET: {1}\tETA:{2}",
+                    PourcentWork,
+                    TimeSpan.FromSeconds(Elapsed_time),
+                    TimeSpan.FromSeconds((100 - PourcentWork) * Elapsed_time)
+                );
+
                 try
                 {
                     await SslOneReq(File, Ip, Port, data);
                     Thread.Sleep(300);
                 }
-                catch
+                catch(Exception ex)
                 {
                     Thread.Sleep(1000);
-                    new Core.DataLoggerWriter(Guid.NewGuid(), "Error with File or Socket", "Error with File or Socket");
+                    new Core.DataLoggerWriter(Guid.NewGuid(), "Internal Error", ex.ToString());
+                    Console.Write(ex.ToString());
                 }
 
             }
@@ -35,42 +51,36 @@ namespace CShidori.NetworkTest
         }
 
 
-        public static async Task SslOneReq(string File, string Ip, string Port, string data)
+        public static async Task SslOneReq(string req, string Ip, string Port, string data)
             {
             Guid uuid = Guid.NewGuid();
-            string req = System.IO.File.ReadAllText(File);
             Core.Mutation mut = new Core.Mutation(1, req, data);
 
-            try
-            {
-                TcpClient client = new TcpClient(Ip, int.Parse(Port));
-                var stream = client.GetStream();
-                SslStream sslStream = new SslStream(stream, false, new RemoteCertificateValidationCallback(CertificateValidationCallback));
-                sslStream.AuthenticateAsClient("client", null, System.Security.Authentication.SslProtocols.Tls12, false);
-                string rsp = string.Empty;
 
-                foreach (string str in mut.Output) // Convert string[] mut.Output to string str
+            TcpClient client = new TcpClient(Ip, int.Parse(Port));
+            var stream = client.GetStream();
+            SslStream sslStream = new SslStream(stream, false, new RemoteCertificateValidationCallback(CertificateValidationCallback));
+            sslStream.AuthenticateAsClient("client", null, System.Security.Authentication.SslProtocols.Tls12, false);
+            string rsp = string.Empty;
+
+            foreach (string str in mut.Output) // Convert string[] mut.Output to string str
+            {
+                sendMsg(str, sslStream);
+                rsp = readMsg(sslStream, client);
+                int n = 0;
+                while (rsp == string.Empty)
                 {
-                    sendMsg(str, sslStream);
                     rsp = readMsg(sslStream, client);
-                    int n = 0;
-                    while (rsp == string.Empty)
-                    {
-                        rsp = readMsg(sslStream, client);
-                        if (n >= 1024) { break; }
-                        n += 1;
-                    }
-                    //Console.WriteLine("{0}: {1}: {2}",uuid, str, rsp) ;
-                    new Core.DataLoggerWriter(uuid, str, rsp);
-
+                    if (n >= 1024) { break; }
+                    n += 1;
                 }
-                sslStream.Close();
-                client.Close();
+                //Console.WriteLine("{0}: {1}: {2}",uuid, str, rsp) ;
+                new Core.DataLoggerWriter(uuid, str, rsp);
+
             }
-            catch
-            {
-                new Core.DataLoggerWriter(uuid, mut.Output.ToString(), "ERROR");
-            }
+            sslStream.Close();
+            client.Close();
+
         }
 
 
