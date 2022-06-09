@@ -10,7 +10,7 @@
     <PublishSingleFile Condition="'$(Configuration)' == 'Release'">true</PublishSingleFile>
     <PublishReadyToRun>true</PublishReadyToRun>
     <AssemblyVersion></AssemblyVersion>
-    <Version>5.3.5</Version>
+    <Version>5.3.12</Version>
     <ApplicationIcon>csharp.ico</ApplicationIcon>
   </PropertyGroup>
 

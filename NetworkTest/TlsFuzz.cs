@@ -10,6 +10,7 @@ using System.IO;
 using System.Collections.ObjectModel;
 using System.Threading;
 using System.Text.RegularExpressions;
+using System.Diagnostics;
 
 namespace CShidori.NetworkTest
 {
@@ -19,19 +20,30 @@ namespace CShidori.NetworkTest
         {
             Console.WriteLine("[*] Reading File: {0}", File);
             string req = System.IO.File.ReadAllText(File);
-            float TotalReq = req.Length * 10;
-            float start_time = DateTime.Now.Second;
-            float PourcentWork, Elapsed_time;
+            double TotalReq = req.Length * 10;
+            Stopwatch stopwatch = new Stopwatch();
+            double PourcentWork;
+            double ElapsedTime;
+            double RemainTime = 0;
+            DateTime ETA = DateTime.Now;
 
             Console.WriteLine("[*] Start Fuzzing for {0} requests", TotalReq);
+            stopwatch.Start();
             for (int i = 0; i < TotalReq; i++)
             {
-                PourcentWork = (i / TotalReq) * 100;
-                Elapsed_time = DateTime.Now.Second - start_time;
-                Console.WriteLine("[{0} %]\tET: {1}\tETA:{2}",
+                PourcentWork = ((i / TotalReq) * 100);
+                ElapsedTime = (int)(stopwatch.ElapsedMilliseconds)/1000;
+
+                if(ElapsedTime > 0)
+                {
+                    RemainTime = (ElapsedTime / i) * (TotalReq - i); //bug ??
+                    ETA = DateTime.Now.AddSeconds(RemainTime);
+                }
+
+                Console.WriteLine("[{0} %]\tET: {1}\t ETA:{2}",
                     PourcentWork,
-                    TimeSpan.FromSeconds(Elapsed_time),
-                    TimeSpan.FromSeconds((100 - PourcentWork) * Elapsed_time)
+                    ElapsedTime,
+                    ETA
                 );
 
                 try
