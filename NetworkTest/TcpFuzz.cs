@@ -40,9 +40,8 @@ namespace CShidori.NetworkTest
                     ETA = DateTime.Now.AddSeconds(RemainTime);
                 }
 
-                Console.WriteLine("[{0} %]\tET: {1}\t ETA:{2}",
+                Console.WriteLine("[{0} %]\t ETA:{1}",
                     PourcentWork,
-                    ElapsedTime,
                     ETA
                 );
 
