@@ -1,12 +1,23 @@
-﻿
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using CShidori.Core;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CShidori.Core.Tests
+{
+    [TestClass()]
+    public class MutationTests
+    {
         [TestMethod]
         public void InjectBadStrings()
         {
             BadStrings bss = new BadStrings("s");
 
-            foreach(string % in bss.Output)
-                §;
-
+            foreach (string str in bss.Output)
+                new Mutation(int.Parse("1"), str, "s");
         }
         [TestMethod]
         public void TestMutation()
@@ -16,7 +27,9 @@
             foreach (string bs in bss.Output)
             {
                 Mutation mut = new Mutation(5, bs, "s");
-                foreach(string % in mut.Output)
-                    §; 
+                foreach (string str in mut.Output)
+                    new Mutation(int.Parse("1"), str, "s");
             }
         }
+    }
+}
