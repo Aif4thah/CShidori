@@ -15,7 +15,7 @@ function Start-Fuzzing
     .OUTPUTS
        the results are saved in the Cshidori Log directory
 
-    .EXAMPLE
+    .EXAMPLEhe
         Start-Fuzzing
 
     #>
@@ -40,7 +40,6 @@ function Start-Fuzzing
             return 1
         }
         
-
         <#--- Here is your targets and CShidori options, respectively -m, -o, -i, -p ---#>
         $FuzzingList = @(
 
@@ -53,7 +52,6 @@ function Start-Fuzzing
     }
     Process
     {
-
         $FuzzingList|%{ 
             $c=$_
 
@@ -66,13 +64,10 @@ function Start-Fuzzing
             -ArgumentList $CShidoriPath, $c[0], $c[1], $c[2], $c[3]   `
             -ThrottleLimit $MaxThreads -Debug
         }
-    
-
     }
     end
     {
         return 0    
     }
-
 }
 

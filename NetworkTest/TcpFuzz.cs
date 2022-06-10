@@ -18,8 +18,10 @@ namespace CShidori.NetworkTest
     {
         public static async void TcpFuzzAsync(string File, string Ip, string Port, string data)
         {
+            string LogFile = Ip + "-" + Guid.NewGuid().ToString();
             Console.WriteLine("[*] Reading File: {0}", File);
             string req = System.IO.File.ReadAllText(File);
+
             double TotalReq = req.Length * 10;
             Stopwatch stopwatch = new Stopwatch();
             double PourcentWork;
@@ -36,24 +38,20 @@ namespace CShidori.NetworkTest
 
                 if (ElapsedTime > 0)
                 {
-                    RemainTime = (ElapsedTime / i) * (TotalReq - i); //bug ??
+                    RemainTime = (ElapsedTime / i) * (TotalReq - i);
                     ETA = DateTime.Now.AddSeconds(RemainTime);
                 }
-
-                Console.WriteLine("[{0} %]\t ETA:{1}",
-                    PourcentWork,
-                    ETA
-                );
+                Console.WriteLine("[{0} %]\t ETA:{1}", PourcentWork,ETA);
 
                 try
                 {
-                    await SendOneReq(req, Ip, Port, data);
+                    await SendOneReq(req, Ip, Port, data, LogFile);
                     Thread.Sleep(300);
                 }
                 catch(Exception ex)
                 {
                     Thread.Sleep(1000);
-                    new Core.DataLoggerWriter(Guid.NewGuid(), "Internal Error", ex.ToString());
+                    new Core.DataLoggerWriter(LogFile, Guid.NewGuid(), "Internal Error", ex.ToString());
                     Console.Write(ex.ToString());
                 }
 
@@ -62,7 +60,7 @@ namespace CShidori.NetworkTest
         }
 
 
-        public static async Task SendOneReq(string req, string Ip, string Port, string data)
+        public static async Task SendOneReq(string req, string Ip, string Port, string data, string LogFile)
         {
 
             Guid uuid = Guid.NewGuid();
@@ -85,8 +83,7 @@ namespace CShidori.NetworkTest
                     if (n >= 4096) { break; }
                     n += 1;
                 }
-                Console.WriteLine("{0}:\n{1}\n---\n{2}", uuid, str, rsp);
-                new Core.DataLoggerWriter(uuid, str, rsp);
+                new Core.DataLoggerWriter(LogFile, uuid, str, rsp);
 
             }
                 client.Close();

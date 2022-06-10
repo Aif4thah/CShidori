@@ -10,7 +10,7 @@
     <PublishSingleFile Condition="'$(Configuration)' == 'Release'">true</PublishSingleFile>
     <PublishReadyToRun>true</PublishReadyToRun>
     <AssemblyVersion></AssemblyVersion>
-    <Version>5.3.12</Version>
+    <Version>5.4.3</Version>
     <ApplicationIcon>csharp.ico</ApplicationIcon>
   </PropertyGroup>
 
@@ -71,7 +71,7 @@
     <None Update="Data\XxeTemplate">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Log\CShidori-log.json">
+    <None Update="Log\Info.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Start-Fuzzing-Function.ps1">

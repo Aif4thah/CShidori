@@ -50,7 +50,7 @@ namespace CShidori.Core
             foreach (char c in str)
             {
                 try { hexstr += Uri.HexEscape(c); }
-                catch { hexstr += c; }
+                catch { hexstr += c; }               
             }
             return hexstr;
         }
@@ -62,7 +62,6 @@ namespace CShidori.Core
             {
                 try
                 {
-                    htmlASCIIEncoded = string.Empty;
                     int val = Convert.ToInt32(c);
                     if (val < 128) //if ASCCI not extended
                     {
@@ -82,7 +81,6 @@ namespace CShidori.Core
             {
                 try
                 {
-                    htmlASCIIHexEncoded = string.Empty;
                     int val = Convert.ToInt32(c);
                     if (val < 128) //if ASCCI not extended
                     {
