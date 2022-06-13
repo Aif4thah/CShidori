@@ -59,7 +59,7 @@ namespace CShidori.Core
             }
 
             //beta: send data to ML
-            new MachineLearning.MLDataGen.MLDataWriter(u, req, rsp);
+            new MachineLearning.MLDataGen.MLDataHandler().MLDataWriter(u, req, rsp, true); // set to true to enable prediction
 
         }
 

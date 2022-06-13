@@ -25,13 +25,13 @@ namespace CShidori.MachineLearning
             public string response { get; set; }
             public string request { get; set; }
 
-            public Boolean vulnerable { get; set; }
+            public string vulnerable { get; set; }
 
         }
 
-        public class MLDataWriter
+        public class MLDataHandler
         {
-            public MLDataWriter(Guid u, string req, string rsp)
+            public void MLDataWriter(Guid u, string req, string rsp, bool predict)
             {
                 // Call from datalog class, guid ML = guid logs
 
@@ -42,10 +42,27 @@ namespace CShidori.MachineLearning
                     {
                         uuid = u, 
                         request = MLAsciiEncode(req), 
-                        response = MLAsciiEncode(rsp), 
-                        vulnerable = false
+                        response = MLAsciiEncode(rsp),
+                        vulnerable = "false"
                     }
                 };
+
+                if (predict)
+                {
+                    data = new List<MLData> {
+                        new MLData
+                        {
+                            uuid = u,
+                            request = MLAsciiEncode(req),
+                            response = MLAsciiEncode(rsp),
+                            vulnerable = MLPrediction(u.ToString(), req, rsp)
+                        }
+                    };
+                }
+
+
+
+
 
                 if (!File.Exists(MLDataPath)) //create new file or append data
                 {
@@ -70,6 +87,32 @@ namespace CShidori.MachineLearning
                 }
 
             }
+
+
+            string MLPrediction(string u, string rsp, string req)
+            {
+                try
+                {
+                    Console.WriteLine("call ML prediction");
+                    var sampleData = new MLfuzzing.ModelInput()
+                    {
+                        Uuid = u,
+                        Response = MLAsciiEncode(rsp),
+                        Request = MLAsciiEncode(req)
+                    };
+
+                    var result = MLfuzzing.Predict(sampleData); //Load model and predict output
+                    Console.WriteLine(result.Prediction);
+                    return result.Prediction.ToString();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.ToString());
+                    return "predictionError";
+                }
+               
+            }
+
 
             public static string MLAsciiEncode(string str)
             {

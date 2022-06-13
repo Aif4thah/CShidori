@@ -10,12 +10,10 @@
 
 ## Planned
 
-* Once Machine Learning: Update Documentation
-
 
 ## Ongoing
 
-
+create function for ML prediction + Update ReadMe + Business Plan integration
 
 
 ## finished

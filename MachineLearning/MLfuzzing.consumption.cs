@@ -45,7 +45,7 @@ namespace CShidori
 
         #endregion
 
-        private static string MLNetModelPath = Path.GetFullPath("MLfuzzing.zip");
+        private static string MLNetModelPath = Path.GetFullPath(@"MachineLearning\MLfuzzing.zip");
 
         public static readonly Lazy<PredictionEngine<ModelInput, ModelOutput>> PredictEngine = new Lazy<PredictionEngine<ModelInput, ModelOutput>>(() => CreatePredictEngine(), true);
 
