@@ -53,7 +53,7 @@ namespace CShidori.NetworkTest
                 catch(Exception ex)
                 {
                     Thread.Sleep(1000);
-                    new Core.DataLoggerWriter(LogFile, Guid.NewGuid(), "Internal Error", ex.ToString());
+                    new Core.DataLogWriter(LogFile, Guid.NewGuid(), "Internal Error", ex.ToString());
                     Console.Write(ex.ToString());
                 }
 
@@ -85,7 +85,7 @@ namespace CShidori.NetworkTest
                     if (n >= 4096) { break; }
                     n += 1;
                 }
-                new Core.DataLoggerWriter(LogFile, uuid, str, rsp);
+                new Core.DataLogWriter(LogFile, uuid, str, rsp);
 
             }
             client.Close();

@@ -8,18 +8,19 @@
 
 
 
-## Planed
+## Planned
 
-
+* Once Machine Learning: Update Documentation
 
 
 ## Ongoing
 
-* Integrate Machine learning builder : https://docs.microsoft.com/en-us/dotnet/machine-learning/tutorials/sales-anomaly-detection
+
 
 
 ## finished
 
 * log as CSV
+* Integrate Machine learning builder
 
 

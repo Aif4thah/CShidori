@@ -7,39 +7,37 @@ using System.Threading.Tasks;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using CsvHelper;
+using CShidori.MachineLearning;
 using CsvHelper.Configuration;
 using System.Globalization;
 
 namespace CShidori.Core
 {
-    public class DataLogger
+    public class DataLog
     {
         public Guid uuid { get; set; }
 
         public string response { get; set; }
         public string request { get; set; }
 
-        public bool vulnerable { get; set; } // for Machine Learning Training: true will set manually
-
     }
 
-    public class DataLoggerWriter
+    public class DataLogWriter
     {
-        public DataLoggerWriter(string f, Guid u, string req, string rsp)
+        public DataLogWriter(string f, Guid u, string req, string rsp)
         {
 
             string LogPath = "./Log/" + f.Replace(".", "-") + ".csv";
 
-            var data = new List<DataLogger> { 
-                new DataLogger
+            var data = new List<DataLog> { 
+                new DataLog
                 {
-                    uuid = u, request = req, response = rsp, vulnerable = false
+                    uuid = u, request = req, response = rsp
                 }               
             };
 
-            if (!File.Exists(LogPath))
+            if (!File.Exists(LogPath)) //create new file or append data
             {
-                // create file
                 using (var writer = new StreamWriter(LogPath))
                 using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
                 {
@@ -48,7 +46,6 @@ namespace CShidori.Core
             }
             else
             {
-                // Append to the file.
                 var config = new CsvConfiguration(CultureInfo.InvariantCulture)
                 {                   
                     HasHeaderRecord = false // Don't write the header again.
@@ -59,11 +56,10 @@ namespace CShidori.Core
                 {
                     csv.WriteRecords(data);
                 }
-
             }
 
-
-
+            //beta: send data to ML
+            new MachineLearning.MLDataGen.MLDataWriter(u, req, rsp);
 
         }
 

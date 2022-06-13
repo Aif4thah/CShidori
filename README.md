@@ -31,6 +31,10 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 * TLS Sockets (including HTTPS and other SSL/TLS encapsulated protocols)
 * TCP Sockets (TCP layer and OSI 5,6,7 protocols, including HTTP )
 
+### Machine Learning (Beta)
+
+* CShidori learns and tries to detect vulnerabilities from your fuzzing history
+
 ### Data Generation Modes 
 * Mutation
 * XSS
