@@ -18,19 +18,19 @@ namespace CShidori.NetworkTest
     {
         public static async void TlsFuzzAsync(string File, string Ip, string Port, string data)
         {
+            bool FirstReq = true;
             string LogFile = Ip + "-" + Guid.NewGuid().ToString();
             Console.WriteLine("[*] Reading File: {0}", File);
             string req = System.IO.File.ReadAllText(File);
 
-            double TotalReq = req.Length * 10;
             Stopwatch stopwatch = new Stopwatch();
-            double PourcentWork;
-            double ElapsedTime;
-            double RemainTime = 0;
-            DateTime ETA = DateTime.Now;
-
-            Console.WriteLine("[*] Start Fuzzing for {0} requests", TotalReq);
             stopwatch.Start();
+            DateTime ETA = DateTime.Now;
+            double TotalReq = req.Length * 10;
+            double RemainTime = 0;
+            double PourcentWork, ElapsedTime;
+                      
+            Console.WriteLine("[*] Start Fuzzing for {0} requests", TotalReq);
             for (int i = 0; i < TotalReq; i++)
             {
                 PourcentWork = ((i / TotalReq) * 100);
@@ -40,12 +40,14 @@ namespace CShidori.NetworkTest
                 {
                     RemainTime = (ElapsedTime / i) * (TotalReq - i);
                     ETA = DateTime.Now.AddSeconds(RemainTime);
+                    Console.WriteLine("[{0} %]\t ETA:{1}", PourcentWork, ETA);
                 }
-                Console.WriteLine("[{0} %]\t ETA:{1}",PourcentWork,ETA);
+                
 
                 try
                 {
-                    await SslOneReq(File, Ip, Port, data, LogFile);
+                    await SslOneReq(req, Ip, Port, data, LogFile, FirstReq);
+                    if (FirstReq) { FirstReq = false; }
                     Thread.Sleep(300);
                 }
                 catch(Exception ex)
@@ -60,7 +62,7 @@ namespace CShidori.NetworkTest
         }
 
 
-        public static async Task SslOneReq(string req, string Ip, string Port, string data, string LogFile)
+        public static async Task SslOneReq(string req, string Ip, string Port, string data, string LogFile, bool FirstReq)
             {
             Guid uuid = Guid.NewGuid();
             Core.Mutation mut = new Core.Mutation(1, req, data);
@@ -69,11 +71,13 @@ namespace CShidori.NetworkTest
             var stream = client.GetStream();
             SslStream sslStream = new SslStream(stream, false, new RemoteCertificateValidationCallback(CertificateValidationCallback));
             sslStream.AuthenticateAsClient("client", null, System.Security.Authentication.SslProtocols.Tls12, false);
-            string rsp = string.Empty;
 
+            string rsp = string.Empty;
             foreach (string str in mut.Output) // Convert string[] mut.Output to string str
             {
-                sendMsg(str, sslStream);
+                if (FirstReq){ sendMsg(req, sslStream); }
+                else{          sendMsg(str, sslStream); }
+
                 rsp = readMsg(sslStream, client);
                 int n = 0;
                 while (rsp == string.Empty)

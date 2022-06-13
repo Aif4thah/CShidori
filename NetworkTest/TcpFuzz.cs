@@ -18,19 +18,19 @@ namespace CShidori.NetworkTest
     {
         public static async void TcpFuzzAsync(string File, string Ip, string Port, string data)
         {
+            bool FirstReq = true;
             string LogFile = Ip + "-" + Guid.NewGuid().ToString();
             Console.WriteLine("[*] Reading File: {0}", File);
             string req = System.IO.File.ReadAllText(File);
 
-            double TotalReq = req.Length * 10;
             Stopwatch stopwatch = new Stopwatch();
-            double PourcentWork;
-            double ElapsedTime;
-            double RemainTime = 0;
+            stopwatch.Start();
             DateTime ETA = DateTime.Now;
+            double TotalReq = req.Length * 10;
+            double RemainTime = 0;
+            double PourcentWork, ElapsedTime;
 
             Console.WriteLine("[*] Start Fuzzing for {0} requests", TotalReq);
-            stopwatch.Start();
             for (int i = 0; i < TotalReq; i++)
             {
                 PourcentWork = ((i / TotalReq) * 100);
@@ -40,12 +40,14 @@ namespace CShidori.NetworkTest
                 {
                     RemainTime = (ElapsedTime / i) * (TotalReq - i);
                     ETA = DateTime.Now.AddSeconds(RemainTime);
+                    Console.WriteLine("[{0} %]\t ETA:{1}", PourcentWork, ETA);
                 }
-                Console.WriteLine("[{0} %]\t ETA:{1}", PourcentWork,ETA);
+                
 
                 try
                 {
-                    await SendOneReq(req, Ip, Port, data, LogFile);
+                    await SendOneReq(req, Ip, Port, data, LogFile, FirstReq);
+                    if (FirstReq) { FirstReq = false; }
                     Thread.Sleep(300);
                 }
                 catch(Exception ex)
@@ -60,21 +62,21 @@ namespace CShidori.NetworkTest
         }
 
 
-        public static async Task SendOneReq(string req, string Ip, string Port, string data, string LogFile)
+        public static async Task SendOneReq(string req, string Ip, string Port, string data, string LogFile, bool FirstReq)
         {
 
-            Guid uuid = Guid.NewGuid();
-            
+            Guid uuid = Guid.NewGuid();           
             Core.Mutation mut = new Core.Mutation(1, req, data);
-
 
             TcpClient client = new TcpClient(Ip, int.Parse(Port));
             var stream = client.GetStream();
-            string rsp = string.Empty;
 
+            string rsp = string.Empty;
             foreach (string str in mut.Output) // Convert string[] mut.Output to string str
             {
-                sendMsg(str, stream);
+                if (FirstReq) { sendMsg(req, stream); } 
+                else {          sendMsg(str, stream); }
+
                 rsp = readMsg(stream);
                 int n = 0;
                 while (true)
@@ -86,8 +88,7 @@ namespace CShidori.NetworkTest
                 new Core.DataLoggerWriter(LogFile, uuid, str, rsp);
 
             }
-                client.Close();
-
+            client.Close();
         }
 
 
@@ -99,7 +100,6 @@ namespace CShidori.NetworkTest
         }
         public static void sendMsg(string message, Stream stream)
         {
-
             stream.Write(Encoding.UTF8.GetBytes(message), 0, Encoding.UTF8.GetBytes(message).Length);
         }
     }
