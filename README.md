@@ -74,7 +74,7 @@ put your request in a text file (for HTTP use Zap/Burp "copy to file")
 ```powershell
 .\CShidori.exe -m tcp -o ..\testing\burp.req -i 127.0.0.1 -p 80
 ```
-### go further with MultiThreading
+### Go further with MultiThreading
 
 Edit and execute the `Start-Fuzzing-Function.ps1` script
 
@@ -82,6 +82,9 @@ Edit and execute the `Start-Fuzzing-Function.ps1` script
 . .\Start-Fuzzing-Function.ps1
 Start-Fuzzing
 ```
+### Speed
+
+Note that Cshidori contains a thread.sleep to respect somes firewall policies, feel free to rebuild it
 
 ## Data Generation
 
