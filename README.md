@@ -17,12 +17,11 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 
 ## References
 
-* OWASP Web Application Security Testing Guide: [07-Input Validation Testing](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/)
-
 * Taisen: [Website](https://taisen.fr)
 
 * CShidori is part of [SIMPLE project (french)](https://github.com/Aif4thah/SIMPLE)
 
+* OWASP Web Application Security Testing Guide: [07-Input Validation Testing](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/)
 
 ## Fuzzer and Data
 
@@ -31,9 +30,10 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 * TLS Sockets (including HTTPS and other SSL/TLS encapsulated protocols)
 * TCP Sockets (TCP layer and OSI 5,6,7 protocols, including HTTP )
 
-### Machine Learning (Beta)
+### Machine Learning
 
 * CShidori learns and tries to detect vulnerabilities from your fuzzing history
+* ML is not miraculous, you have to train it for your Apps ;)
 
 ### Data Generation Modes 
 * Mutation
