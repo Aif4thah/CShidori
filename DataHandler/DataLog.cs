@@ -11,7 +11,7 @@ using CShidori.MachineLearning;
 using CsvHelper.Configuration;
 using System.Globalization;
 
-namespace CShidori.Core
+namespace CShidori.DataHandler
 {
     public class DataLog
     {
@@ -59,7 +59,7 @@ namespace CShidori.Core
             }
 
             //beta: send data to ML
-            new MachineLearning.MLDataGen.MLDataHandler().MLDataWriter(u, req, rsp, true); // set to true to enable prediction
+            new MachineLearning.MLDataGen.MLDataHandler().MLDataWriter(u, req, rsp, false); // set last param to true to enable prediction
 
         }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Web;
 using System.Linq;
+using CShidori.DataHandler;
 
 namespace CShidori.Core 
 {
@@ -32,10 +33,7 @@ namespace CShidori.Core
             List<string> results = new List<string>();
             List<string> lines = new DataLoader().Dataloader("JavaScript");
             foreach (string line in lines)
-            {
-                results.Add(
-                    line.Replace("§",param));
-            }
+                results.Add( line.Replace("§",param) );
 
             return results;
         }

@@ -11,6 +11,7 @@ using System.Collections.ObjectModel;
 using System.Threading;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
+using CShidori.DataHandler;
 
 namespace CShidori.NetworkTest
 {
@@ -53,7 +54,7 @@ namespace CShidori.NetworkTest
                 catch(Exception ex)
                 {
                     Thread.Sleep(1000);
-                    new Core.DataLogWriter(LogFile, Guid.NewGuid(), "Internal Error", ex.ToString());
+                    new DataLogWriter(LogFile, Guid.NewGuid(), "Internal Error", ex.ToString());
                     Console.Write(ex.ToString());
                 }
 
@@ -86,7 +87,7 @@ namespace CShidori.NetworkTest
                     if (n >= 1024) { break; }
                     n += 1;
                 }
-                new Core.DataLogWriter(LogFile, uuid, str, rsp);
+                new DataLogWriter(LogFile, uuid, str, rsp);
 
             }
             sslStream.Close();

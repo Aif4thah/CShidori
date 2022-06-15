@@ -102,7 +102,7 @@ namespace CShidori.MachineLearning
                     };
 
                     var result = MLfuzzing.Predict(sampleData); //Load model and predict output
-                    Console.WriteLine(result.Prediction);
+                    //Console.WriteLine(result.Prediction);
                     return result.Prediction.ToString();
                 }
                 catch (Exception e)

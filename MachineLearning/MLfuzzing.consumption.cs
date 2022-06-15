@@ -5,6 +5,8 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Collections.Generic;
+using CShidori.DataHandler;
+
 namespace CShidori
 {
     public partial class MLfuzzing

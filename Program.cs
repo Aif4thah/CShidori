@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.CommandLine;
 using CShidori.Core;
+using CShidori.DataHandler;
+using CShidori.NetworkTest;
+using CShidori.UnitTest;
 
 namespace CShidori
 {
@@ -53,27 +56,27 @@ Disclaimer: Usage of this tool for attacking targets without prior mutual consen
                 switch (m)
                 {
                     case "tls":
-                        NetworkTest.TlsFuzz.TlsFuzzAsync(o, i, p, d);
+                        TlsFuzz.TlsFuzzAsync(o, i, p, d);
                         break;
 
                     case "tcp":
-                        NetworkTest.TcpFuzz.TcpFuzzAsync(o, i, p, d);
+                        TcpFuzz.TcpFuzzAsync(o, i, p, d);
                         break;
 
                     case "gen":
                         BadStrings data = new BadStrings(d);
-                        Console.WriteLine(String.Join("\n", data.Output));
+                        data.Output.ForEach(x => Console.WriteLine(x));
                         break;
 
                     case "mut":
                         Mutation mut = new Mutation(int.Parse(o), p, d);
-                        Console.WriteLine(String.Join("\n", mut.Output));
+                        mut.Output.ForEach(x => Console.WriteLine(x));
                         break;
 
                     case "enc":
                         List<string> list = new List<string>() { p };
                         List<string> results = EncodeStrings.encodebadchars(list);
-                        Console.WriteLine(String.Join("\n", results));
+                        results.ForEach(x => Console.WriteLine(x));
                         break;
 
                     case "json":
@@ -84,14 +87,12 @@ Disclaimer: Usage of this tool for attacking targets without prior mutual consen
 
                     case "xml":
                         BadStrings DataToXml = new BadStrings(d);
-                        foreach (string bs in DataToXml.Output)
-                            new XmlInjection(p, bs);
+                        DataToXml.Output.ForEach(x => new XmlInjection(p, x));
                         break;
 
                     case "get":
                         BadStrings DataToGet = new BadStrings(d);
-                        foreach (string bs in DataToGet.Output)
-                            new GetInjection(p, bs);
+                        DataToGet.Output.ForEach(x => new GetInjection(p, x));
                         break;
 
                     case "csrf":
@@ -103,7 +104,7 @@ Disclaimer: Usage of this tool for attacking targets without prior mutual consen
                         break;
 
                     case "mst":
-                        new UnitTest.MsTestTemplate(p, i);
+                        new MsTestTemplate(p, i);
                         break;
 
                     case "xss":
