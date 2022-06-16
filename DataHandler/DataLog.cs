@@ -16,9 +16,9 @@ namespace CShidori.DataHandler
     public class DataLog
     {
         public Guid uuid { get; set; }
-
         public string response { get; set; }
         public string request { get; set; }
+        public int responseLenght { get; set; }
 
     }
 
@@ -32,7 +32,7 @@ namespace CShidori.DataHandler
             var data = new List<DataLog> { 
                 new DataLog
                 {
-                    uuid = u, request = req, response = rsp
+                    uuid = u, request = req, response = rsp, responseLenght = rsp.Length
                 }               
             };
 
@@ -59,7 +59,7 @@ namespace CShidori.DataHandler
             }
 
             //beta: send data to ML
-            new MachineLearning.MLDataGen.MLDataHandler().MLDataWriter(u, req, rsp, false); // set last param to true to enable prediction
+            new MLDataGen.MLDataHandler().MLDataWriter(u, req, rsp, true); // set last param to true to enable prediction            
 
         }
 

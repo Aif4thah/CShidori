@@ -5,8 +5,11 @@
 ## Backlog
 
 
+* Add MSTest to Core Function
 
+* Create UI to manually analyse logs
 
+* review public /private class
 
 ## Planned
 
@@ -23,4 +26,4 @@
 ## finished
 
 
-
+* Add response lenght to logs

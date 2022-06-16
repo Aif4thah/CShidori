@@ -10,8 +10,7 @@
     <PublishReadyToRun>true</PublishReadyToRun>
     <AssemblyVersion>
     </AssemblyVersion>
-    <Version>5.6.4</Version>
-    <ApplicationIcon>csharp.ico</ApplicationIcon>
+    <Version>5.6.7</Version>
   </PropertyGroup>
   <ItemGroup>
     <None Remove=".gitattributes" />

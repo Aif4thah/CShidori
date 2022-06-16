@@ -24,8 +24,10 @@ namespace CShidori.MachineLearning
 
             public string response { get; set; }
             public string request { get; set; }
-
+            public int responseLenght { get; set; }
             public string vulnerable { get; set; }
+
+
 
         }
 
@@ -43,25 +45,15 @@ namespace CShidori.MachineLearning
                         uuid = u, 
                         request = MLAsciiEncode(req), 
                         response = MLAsciiEncode(rsp),
+                        responseLenght = rsp.Length,
                         vulnerable = "false"
                     }
                 };
 
                 if (predict)
                 {
-                    data = new List<MLData> {
-                        new MLData
-                        {
-                            uuid = u,
-                            request = MLAsciiEncode(req),
-                            response = MLAsciiEncode(rsp),
-                            vulnerable = MLPrediction(u.ToString(), req, rsp)
-                        }
-                    };
+                    data.ForEach(x => x.vulnerable = MLPrediction(u.ToString(), req, rsp));
                 }
-
-
-
 
 
                 if (!File.Exists(MLDataPath)) //create new file or append data
