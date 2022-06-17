@@ -11,6 +11,8 @@
 
 * manager exception (throw)
 
+* Train ML against Metasploitable
+
 ## Planned
 
 
@@ -28,3 +30,4 @@
 * Add response lenght to logs
 * Create pwsh function to manually analyse logs
 * review public /private classes
+* Taisen icon
