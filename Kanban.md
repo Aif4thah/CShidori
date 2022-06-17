@@ -7,9 +7,11 @@
 
 * Add MSTest to Core Function
 
-* Create UI to manually analyse logs
+* PLantUML
 
-* review public /private class
+* review public /private classes
+
+* manager exception (throw)
 
 ## Planned
 
@@ -22,8 +24,8 @@
 
 
 
-
 ## finished
 
 
 * Add response lenght to logs
+* Create pwsh function to manually analyse logs

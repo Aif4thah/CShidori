@@ -33,7 +33,7 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 ### Machine Learning
 
 * CShidori learns and tries to detect vulnerabilities from your fuzzing history
-* ML is not miraculous, you have to train it for your Apps ;)
+* ML is not miraculous thing, you have to train it for your Apps ;)
 
 ### Data Generation Modes 
 * Mutation
@@ -74,6 +74,16 @@ put your request in a text file (for HTTP use Zap/Burp "copy to file")
 ```powershell
 .\CShidori.exe -m tcp -o ..\testing\burp.req -i 127.0.0.1 -p 80
 ```
+### Analyse logs
+
+use the `Import-Csv` cmdlet or the `.\CShidoriLogsViewer.ps1` script. 
+You can then parse the logs as powershell objects.
+
+```powershell
+. .\CShidoriLogsViewer.ps1
+Get-CShidoriLogs .\127-0-0-1-b4e09da3-7e34-46f2-9ce9-6f8b1d3a3019.csv -ResponseMatch "bad" -ExcludeSize 295 -debug   
+```
+
 ### Go further with MultiThreading
 
 Edit and execute the `Start-Fuzzing-Function.ps1` script

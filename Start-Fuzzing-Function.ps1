@@ -5,7 +5,7 @@ function Start-Fuzzing
         This function shows how to use multithreading and fuzz multiple endpoints with CShidori
 
     .DESCRIPTION
-        version: 1.0
+        version: 1.1
         https://github.com/Aif4thah/CShidori
         Tested on powerhsell 7.2
 
@@ -15,7 +15,7 @@ function Start-Fuzzing
     .OUTPUTS
        the results are saved in the Cshidori Log directory
 
-    .EXAMPLEhe
+    .EXAMPLE
         Start-Fuzzing
 
     #>
@@ -37,7 +37,7 @@ function Start-Fuzzing
         $CShidoriPath = "{0}/CShidori.exe" -f $CShidoriPath
         if(-Not( test-path -Path "$CShidoriPath")){
             Write-Host "CShidori.exe not found" -ForegroundColor Red
-            return 1
+            exit
         }
         
         <#--- Here is your targets and CShidori options, respectively -m, -o, -i, -p ---#>
