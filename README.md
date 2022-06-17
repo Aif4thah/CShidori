@@ -1,5 +1,6 @@
 # CShidori
 
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![.DOTNET](https://github.com/Aif4thah/CShidori/actions/workflows/dotnet.yml/badge.svg?branch=main)
 [![Known Vulnerabilities](https://snyk.io/test/github/Aif4thah/CShidori/badge.svg)](https://snyk.io/test/github/Aif4thah/CShidori)
 [![HitCount](https://hits.dwyl.com/Aif4thah/CShidori.svg?style=flat-square)](http://hits.dwyl.com/Aif4thah/CShidori)
