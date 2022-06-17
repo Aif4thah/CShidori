@@ -11,12 +11,12 @@
 
 * manager exception (throw)
 
-* Train ML against Metasploitable
+
 
 ## Planned
 
 
-
+* Train ML against OWASP Web Goat
 
 
 ## Ongoing
