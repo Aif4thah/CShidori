@@ -9,8 +9,6 @@
 
 * PLantUML
 
-* review public /private classes
-
 * manager exception (throw)
 
 ## Planned
@@ -29,3 +27,4 @@
 
 * Add response lenght to logs
 * Create pwsh function to manually analyse logs
+* review public /private classes

@@ -10,7 +10,7 @@
     <PublishReadyToRun>true</PublishReadyToRun>
     <AssemblyVersion>
     </AssemblyVersion>
-    <Version>5.6.8</Version>
+    <Version>5.6.9</Version>
   </PropertyGroup>
   <ItemGroup>
     <None Remove=".gitattributes" />

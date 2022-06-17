@@ -63,7 +63,7 @@ namespace CShidori.NetworkTest
         }
 
 
-        public static async Task SendOneReq(string req, string Ip, string Port, string data, string LogFile, bool FirstReq)
+        private static async Task SendOneReq(string req, string Ip, string Port, string data, string LogFile, bool FirstReq)
         {
 
             Guid uuid = Guid.NewGuid();           
@@ -93,13 +93,13 @@ namespace CShidori.NetworkTest
         }
 
 
-        public static string readMsg(Stream stream)
+        private static string readMsg(Stream stream)
         {
             byte[] buffer = new byte[4096];
             int bytesRead = stream.Read(buffer, 0, buffer.Length);
             return Encoding.UTF8.GetString(buffer, 0, bytesRead);
         }
-        public static void sendMsg(string message, Stream stream)
+        private static void sendMsg(string message, Stream stream)
         {
             stream.Write(Encoding.UTF8.GetBytes(message), 0, Encoding.UTF8.GetBytes(message).Length);
         }

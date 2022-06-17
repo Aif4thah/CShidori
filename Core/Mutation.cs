@@ -51,7 +51,7 @@ namespace CShidori.Core
             }
         }
         
-        public string RepRandBc(List<string> bss, Random rand)
+        private string RepRandBc(List<string> bss, Random rand)
         {         
             int randvalue = rand.Next(this.Input.Length);
             int randbc = rand.Next(bss.Count -1);  
@@ -63,7 +63,7 @@ namespace CShidori.Core
         }
 
 
-        public string AddRandBc(List<string> bss, Random rand)
+        private string AddRandBc(List<string> bss, Random rand)
         {
             int randvalue = rand.Next(this.Input.Length);
             int randbc = rand.Next(bss.Count - 1);
@@ -72,7 +72,7 @@ namespace CShidori.Core
         }
 
 
-        public string DelChar( Random rand)
+        private string DelChar( Random rand)
         {
             int randvalue = rand.Next(this.Input.Length);
 
@@ -82,7 +82,7 @@ namespace CShidori.Core
             return sb.ToString();
         }
 
-        public string BitFlip(Random rand)
+        private string BitFlip(Random rand)
         {
             byte[] bytes = Encoding.UTF8.GetBytes(this.Input);
             byte[] bitW = { 0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80 };

@@ -39,13 +39,13 @@ namespace CShidori.Core
 
 
 
-        public static string EscapeQuotes(string str)
+        private static string EscapeQuotes(string str)
         {
             return str.Replace("\\", "\\\\").Replace("\"", "\\\"").Replace("'", "\\'");
         }
 
 
-        public static string HexEscapeString(string str)
+        private static string HexEscapeString(string str)
         {
             string hexstr = string.Empty;
             foreach (char c in str)
@@ -56,7 +56,7 @@ namespace CShidori.Core
             return hexstr;
         }
 
-        public static string AsciiEncode(string str)
+        private static string AsciiEncode(string str)
         {
             string htmlASCIIEncoded = string.Empty; ;
             foreach (char c in str)
@@ -75,7 +75,7 @@ namespace CShidori.Core
         }
 
 
-        public static string AsciiHexEncode(string str)
+        private static string AsciiHexEncode(string str)
         {
             string htmlASCIIHexEncoded = string.Empty; ;
             foreach (char c in str)

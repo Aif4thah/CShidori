@@ -63,7 +63,7 @@ namespace CShidori.NetworkTest
         }
 
 
-        public static async Task SslOneReq(string req, string Ip, string Port, string data, string LogFile, bool FirstReq)
+        private static async Task SslOneReq(string req, string Ip, string Port, string data, string LogFile, bool FirstReq)
             {
             Guid uuid = Guid.NewGuid();
             Core.Mutation mut = new Core.Mutation(1, req, data);
@@ -96,18 +96,18 @@ namespace CShidori.NetworkTest
         }
 
 
-        public static bool CertificateValidationCallback(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        private static bool CertificateValidationCallback(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
         {
             return true;
         }
 
-        public static string readMsg(SslStream sslStream, TcpClient client)
+        private static string readMsg(SslStream sslStream, TcpClient client)
         {
             byte[] buffer = new byte[client.ReceiveBufferSize];
             int bytesRead = sslStream.Read(buffer, 0, client.ReceiveBufferSize);
             return Encoding.UTF8.GetString(buffer, 0, bytesRead);
         }
-        public static void sendMsg(string message, SslStream sslStream)
+        private static void sendMsg(string message, SslStream sslStream)
         {
             sslStream.Write(Encoding.UTF8.GetBytes(message), 0, Encoding.UTF8.GetBytes(message).Length);
         }

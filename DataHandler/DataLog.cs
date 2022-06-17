@@ -59,7 +59,7 @@ namespace CShidori.DataHandler
             }
 
             //beta: send data to ML
-            new MLDataGen.MLDataHandler().MLDataWriter(u, req, rsp, true); // set last param to true to enable prediction            
+            new MLDataHandler().MLDataWriter(u, req, rsp, true); // set last param to true to enable prediction            
 
         }
 
