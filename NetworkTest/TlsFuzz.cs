@@ -19,20 +19,22 @@ namespace CShidori.NetworkTest
     {
         public static async void TlsFuzzAsync(string File, string Ip, string Port, string data)
         {
-            bool FirstReq = true;
-            string LogFile = Ip + "-" + Guid.NewGuid().ToString();
 
+            string LogFile = Ip + "-" + Guid.NewGuid().ToString();
+            Console.WriteLine("[*] Log file will be: {0}", LogFile);
 
             Console.WriteLine("[*] Reading File: {0}", File);
             string req = System.IO.File.ReadAllText(File);
 
+
+            Console.WriteLine("[*] Send Original request");
+            await SslOneReq(req, Ip, Port, data, LogFile);
+
+            Console.WriteLine("[*] Initialize Fuzzing");
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
             double TotalReq = req.Length * 200;
             double ElapsedTime;
-
-            Console.WriteLine("[*] Send Original request");
-            await SslOneReq(req, Ip, Port, data, LogFile);
 
             Console.WriteLine("[*] Start Fuzzing for {0} requests", TotalReq);
             int i = 1;

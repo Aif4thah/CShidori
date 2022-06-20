@@ -68,22 +68,22 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 
 ### TLS sockets
 
-put your request in a text file*: 
+Put your request in a text file* then start fuzzing with: 
 
 ```powershell
 .\CShidori.exe -m tls -o ..\testing\ZAP-Post-req.raw -i 127.0.0.1 -p 443
 ```
 
-### TCP Sockets
+You can select data with the "-d" parameter
 
-put your request in a text*
+### TCP Sockets
 
 ```powershell
 .\CShidori.exe -m tcp -o ..\testing\burp.req -i 127.0.0.1 -p 80
 ```
 
-#### *how put my request in a file ? 
-	
+#### *how put my Web request in a file ? 
+ 
 	* from ZAP or Burp: right click > copy to file
 	* for Chrome: F12 > Network > your request / paylod > view source, copy-past in text file, with a line between request and payload, and "\n" + a new line at the end of the file
 
@@ -98,6 +98,10 @@ You can then parse the logs as powershell objects.
 Get-CShidoriLogs .\127-0-0-1-b4e09da3-7e34-46f2-9ce9-6f8b1d3a3019.csv -ResponseMatch "bad" -ExcludeSize 295 -debug   
 ```
 
+### Speed
+
+1 thread = 70-100 req/s
+
 ### Go further with MultiThreading
 
 Edit and execute the `Start-Fuzzing-Function.ps1` script
@@ -106,9 +110,6 @@ Edit and execute the `Start-Fuzzing-Function.ps1` script
 . .\Start-Fuzzing-Function.ps1
 Start-Fuzzing
 ```
-### Speed
-
-1 thread = 70-90 req/s
 
 ## Data Generation
 

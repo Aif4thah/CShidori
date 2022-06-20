@@ -10,7 +10,7 @@
     <PublishReadyToRun>true</PublishReadyToRun>
     <AssemblyVersion>
     </AssemblyVersion>
-    <Version>5.7.1</Version>
+    <Version>5.7.2</Version>
     <ApplicationIcon>CShidoriTaisen.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
