@@ -24,9 +24,11 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 
 * Taisen: [Website](https://taisen.fr)
 
-* CShidori is part of [SIMPLE project (french)](https://github.com/Aif4thah/SIMPLE)
+* CShidori is part of [SIMPLE project (fr)](https://github.com/Aif4thah/SIMPLE)
 
 * OWASP Web Application Security Testing Guide: [07-Input Validation Testing](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/)
+
+* OWASP Web Application Security Testing Guide: [C-Fuzz Vectors](https://owasp.org/www-project-web-security-testing-guide/v41/6-Appendix/C-Fuzz_Vectors#replacive-fuzzing)
 
 ## Fuzzer and Data
 
@@ -66,7 +68,7 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 
 ### TLS sockets
 
-put your request in a text file (for HTTPS use Zap/Burp "copy to file")
+put your request in a text file*: 
 
 ```powershell
 .\CShidori.exe -m tls -o ..\testing\ZAP-Post-req.raw -i 127.0.0.1 -p 443
@@ -74,11 +76,18 @@ put your request in a text file (for HTTPS use Zap/Burp "copy to file")
 
 ### TCP Sockets
 
-put your request in a text file (for HTTP use Zap/Burp "copy to file")
+put your request in a text*
 
 ```powershell
 .\CShidori.exe -m tcp -o ..\testing\burp.req -i 127.0.0.1 -p 80
 ```
+
+#### *how put my request in a file ? 
+	
+	* from ZAP or Burp: right click > copy to file
+	* for Chrome: F12 > Network > your request / paylod > view source, copy-past in text file, with a line between request and payload, and "\n" + a new line at the end of the file
+
+
 ### Analyse logs
 
 use the `Import-Csv` cmdlet or the `.\CShidoriLogsViewer.ps1` script. 
@@ -99,7 +108,7 @@ Start-Fuzzing
 ```
 ### Speed
 
-Note that Cshidori contains a thread.sleep to respect somes firewall policies, feel free to rebuild it
+1 thread = 70-90 req/s
 
 ## Data Generation
 

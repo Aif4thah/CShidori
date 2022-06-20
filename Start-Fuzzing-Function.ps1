@@ -5,7 +5,7 @@ function Start-Fuzzing
         This function shows how to use multithreading and fuzz multiple endpoints with CShidori
 
     .DESCRIPTION
-        version: 1.1
+        version: 1.2
         https://github.com/Aif4thah/CShidori
         Tested on powerhsell 7.2
 
@@ -40,12 +40,12 @@ function Start-Fuzzing
             exit
         }
         
-        <#--- Here is your targets and CShidori options, respectively -m, -o, -i, -p ---#>
+        <#--- Here is your targets and CShidori options, respectively -m, -o, -i, -p, -d ---#>
         $FuzzingList = @(
 
-            @( 'tls', '..\testing\ZAP-Post-req.raw',   '127.0.0.1',   '443'    ),
-            @( 'tcp', '..\testing\burp.req',   '127.0.0.1',   '80'    ),
-            @( 'tls', '..\testing\Short.txt',   '127.0.0.1',   '443'    )
+            @( 'tls', '..\testing\ZAP-Post-req.raw',   '127.0.0.1',   '443', 'chars'    ),
+            @( 'tcp', '..\testing\burp.req',   '127.0.0.1',   '80', 'chars'     ),
+            @( 'tls', '..\testing\Short.txt',   '127.0.0.1',   '443', 'chars'   )
 
         )
 
@@ -56,12 +56,12 @@ function Start-Fuzzing
             $c=$_
 
             $sb = {
-                param($p0, $p1,$p2,$p3,$p4)
-                "$p0 -m $p1 -o $p2 -i $p3 -p $p4"|iex
+                param($p0, $p1,$p2,$p3,$p4, $p5)
+                "$p0 -m $p1 -o $p2 -i $p3 -p $p4 -d $p5"|iex
             }
             
             Start-ThreadJob -ScriptBlock $sb `
-            -ArgumentList $CShidoriPath, $c[0], $c[1], $c[2], $c[3]   `
+            -ArgumentList $CShidoriPath, $c[0], $c[1], $c[2], $c[3], $c[4]   `
             -ThrottleLimit $MaxThreads -Debug
         }
     }

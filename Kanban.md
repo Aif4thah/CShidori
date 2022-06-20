@@ -4,6 +4,9 @@
 
 ## Backlog
 
+* Select automaticaly the part of the request interesting to fuzz
+
+* Optomize disk access
 
 * Add MSTest to Core Function
 

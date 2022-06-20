@@ -25,24 +25,24 @@ namespace CShidori.Core
                 {
                     n -= 1;
                     var rand = new Random();
-                    int r = rand.Next(0,5);
+                    int r = rand.Next(0,10);
                     //Console.WriteLine(r);
-                    switch (r)
+                    switch(r)
                     {
                         case 0:
                             this.Output.Add( BitFlip(rand) );
                             break;
                         case 1:
-                            this.Output.Add(AddRandBc(bss, rand) );
+                            this.Output.Add(AddRandBc(bss, rand));
                             break;
                         case 2:
-                            this.Output.Add( RepRandBc(bss, rand) );
+                            this.Output.Add(DelChar(rand));
                             break;
                         case 3:
-                            this.Output.Add( DelChar(rand) );
+                            this.Output.Add(RepThreeBytes(rand));
                             break;
-                        case 4:
-                            this.Output.Add( RepThreeBytes(rand));
+                        case > 3:
+                            this.Output.Add(RepRandBc(bss, rand));
                             break;
 
                     }

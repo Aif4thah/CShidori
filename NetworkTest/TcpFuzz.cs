@@ -21,39 +21,46 @@ namespace CShidori.NetworkTest
         {
             bool FirstReq = true;
             string LogFile = Ip + "-" + Guid.NewGuid().ToString();
+
+
             Console.WriteLine("[*] Reading File: {0}", File);
             string req = System.IO.File.ReadAllText(File);
 
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            DateTime ETA = DateTime.Now;
-            double TotalReq = req.Length * 10;
-            double RemainTime = 0;
-            double PourcentWork, ElapsedTime;
+            double TotalReq = req.Length * 200;
+            double ElapsedTime;
+
+            Console.WriteLine("[*] Send Original request");
+            await SendOneReq(req, Ip, Port, data, LogFile);
 
             Console.WriteLine("[*] Start Fuzzing for {0} requests", TotalReq);
-            for (int i = 0; i < TotalReq; i++)
+            int i = 1;
+            while(i <= TotalReq)
             {
-                PourcentWork = ((i / TotalReq) * 100);
-                ElapsedTime = (int)(stopwatch.ElapsedMilliseconds) / 1000;
 
-                if (ElapsedTime > 0)
-                {
-                    RemainTime = (ElapsedTime / i) * (TotalReq - i);
-                    ETA = DateTime.Now.AddSeconds(RemainTime);
-                    Console.WriteLine("[{0} %]\t ETA:{1}", PourcentWork, ETA);
-                }
-                
+                ElapsedTime = (int)((stopwatch.ElapsedMilliseconds) + 1) / 1000;
+                Console.WriteLine("[{0:0.00} %]\t ETA:{1}\t Speed: {2:0.00}/s \t {3} requests",
+                    ((i / TotalReq) * 100), // % of work
+                    DateTime.Now.AddSeconds((ElapsedTime / i) * (TotalReq - i)), //ETA (Nom + Remain time
+                    i / ElapsedTime, //Speed
+                    i
+                );
 
                 try
                 {
-                    await SendOneReq(req, Ip, Port, data, LogFile, FirstReq);
-                    if (FirstReq) { FirstReq = false; }
-                    Thread.Sleep(300);
+                    Core.Mutation mut = new Core.Mutation(300, req, data);
+                    foreach( string str in mut.Output)
+                    {
+                        await SendOneReq(str, Ip, Port, data, LogFile);
+                        i++;
+                        //Thread.Sleep(300); /* use this to avoid Firewall Ban or DOS
+                    }
+
                 }
                 catch(Exception ex)
                 {
-                    Thread.Sleep(1000);
+                    Thread.Sleep(100); 
                     new DataLogWriter(LogFile, Guid.NewGuid(), "Internal Error", ex.ToString());
                     Console.Write(ex.ToString());
                 }
@@ -63,44 +70,37 @@ namespace CShidori.NetworkTest
         }
 
 
-        private static async Task SendOneReq(string req, string Ip, string Port, string data, string LogFile, bool FirstReq)
+        private static async Task SendOneReq(string req, string Ip, string Port, string data, string LogFile)
         {
 
-            Guid uuid = Guid.NewGuid();           
-            Core.Mutation mut = new Core.Mutation(1, req, data);
+            Guid uuid = Guid.NewGuid();                    
 
             TcpClient client = new TcpClient(Ip, int.Parse(Port));
             var stream = client.GetStream();
+            stream.ReadTimeout = 2000;
 
             string rsp = string.Empty;
-            foreach (string str in mut.Output) // Convert string[] mut.Output to string str
-            {
-                if (FirstReq) { sendMsg(req, stream); } 
-                else {          sendMsg(str, stream); }
 
-                rsp = readMsg(stream);
-                int n = 0;
-                while (true)
-                {
-                    rsp += readMsg(stream);
-                    if (n >= 4096) { break; }
-                    n += 1;
-                }
-                new DataLogWriter(LogFile, uuid, str, rsp);
+            sendMsg(req, stream);
 
-            }
+            for(int n = 0; n < 5; n++){ rsp += readMsg(stream);}
+
+            new DataLogWriter(LogFile, uuid, req, rsp);
+
             client.Close();
         }
 
 
         private static string readMsg(Stream stream)
         {
+            //Console.WriteLine("[reciv]");
             byte[] buffer = new byte[4096];
             int bytesRead = stream.Read(buffer, 0, buffer.Length);
             return Encoding.UTF8.GetString(buffer, 0, bytesRead);
         }
         private static void sendMsg(string message, Stream stream)
         {
+            //Console.WriteLine("[send]");
             stream.Write(Encoding.UTF8.GetBytes(message), 0, Encoding.UTF8.GetBytes(message).Length);
         }
     }

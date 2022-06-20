@@ -21,39 +21,46 @@ namespace CShidori.NetworkTest
         {
             bool FirstReq = true;
             string LogFile = Ip + "-" + Guid.NewGuid().ToString();
+
+
             Console.WriteLine("[*] Reading File: {0}", File);
             string req = System.IO.File.ReadAllText(File);
 
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            DateTime ETA = DateTime.Now;
-            double TotalReq = req.Length * 10;
-            double RemainTime = 0;
-            double PourcentWork, ElapsedTime;
-                      
-            Console.WriteLine("[*] Start Fuzzing for {0} requests", TotalReq);
-            for (int i = 0; i < TotalReq; i++)
-            {
-                PourcentWork = ((i / TotalReq) * 100);
-                ElapsedTime = (int)(stopwatch.ElapsedMilliseconds)/1000;
+            double TotalReq = req.Length * 200;
+            double ElapsedTime;
 
-                if(ElapsedTime > 0)
-                {
-                    RemainTime = (ElapsedTime / i) * (TotalReq - i);
-                    ETA = DateTime.Now.AddSeconds(RemainTime);
-                    Console.WriteLine("[{0} %]\t ETA:{1}", PourcentWork, ETA);
-                }
+            Console.WriteLine("[*] Send Original request");
+            await SslOneReq(req, Ip, Port, data, LogFile);
+
+            Console.WriteLine("[*] Start Fuzzing for {0} requests", TotalReq);
+            int i = 1;
+            while (i <= TotalReq)
+            {
                 
+                ElapsedTime = (int)((stopwatch.ElapsedMilliseconds) + 1) / 1000;
+                Console.WriteLine("[{0:0.00} %]\t ETA:{1}\t Speed: {2:0.00}/s \t {3} requests",
+                    ((i / TotalReq) * 100), // % of work
+                    DateTime.Now.AddSeconds((ElapsedTime / i) * (TotalReq - i)), //ETA (Nom + Remain time
+                    i / ElapsedTime, //Speed
+                    i
+                );
 
                 try
                 {
-                    await SslOneReq(req, Ip, Port, data, LogFile, FirstReq);
-                    if (FirstReq) { FirstReq = false; }
-                    Thread.Sleep(300);
+                    Core.Mutation mut = new Core.Mutation(300, req, data);
+                    foreach (string str in mut.Output)
+                    {
+                        await SslOneReq(str, Ip, Port, data, LogFile);
+                        i++;
+                        //Thread.Sleep(300); /* use this to avoid Firewall Ban or DOS
+                    }
+
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                    Thread.Sleep(1000);
+                    Thread.Sleep(100);
                     new DataLogWriter(LogFile, Guid.NewGuid(), "Internal Error", ex.ToString());
                     Console.Write(ex.ToString());
                 }
@@ -63,33 +70,22 @@ namespace CShidori.NetworkTest
         }
 
 
-        private static async Task SslOneReq(string req, string Ip, string Port, string data, string LogFile, bool FirstReq)
+        private static async Task SslOneReq(string req, string Ip, string Port, string data, string LogFile)
             {
             Guid uuid = Guid.NewGuid();
-            Core.Mutation mut = new Core.Mutation(1, req, data);
-
+            string rsp = String.Empty;
             TcpClient client = new TcpClient(Ip, int.Parse(Port));
             var stream = client.GetStream();
+            stream.ReadTimeout = 2000;
             SslStream sslStream = new SslStream(stream, false, new RemoteCertificateValidationCallback(CertificateValidationCallback));
             sslStream.AuthenticateAsClient("client", null, System.Security.Authentication.SslProtocols.Tls12, false);
 
-            string rsp = string.Empty;
-            foreach (string str in mut.Output) // Convert string[] mut.Output to string str
-            {
-                if (FirstReq){ sendMsg(req, sslStream); }
-                else{          sendMsg(str, sslStream); }
+            sendMsg(req, sslStream);
+            
+            for(int n = 0; n < 5; n++){ rsp += readMsg(sslStream, client);}
 
-                rsp = readMsg(sslStream, client);
-                int n = 0;
-                while (rsp == string.Empty)
-                {
-                    rsp = readMsg(sslStream, client);
-                    if (n >= 1024) { break; }
-                    n += 1;
-                }
-                new DataLogWriter(LogFile, uuid, str, rsp);
+            new DataLogWriter(LogFile, uuid, req, rsp);
 
-            }
             sslStream.Close();
             client.Close();
 
@@ -103,12 +99,14 @@ namespace CShidori.NetworkTest
 
         private static string readMsg(SslStream sslStream, TcpClient client)
         {
+            //Console.WriteLine("[reciv]");
             byte[] buffer = new byte[client.ReceiveBufferSize];
             int bytesRead = sslStream.Read(buffer, 0, client.ReceiveBufferSize);
             return Encoding.UTF8.GetString(buffer, 0, bytesRead);
         }
         private static void sendMsg(string message, SslStream sslStream)
         {
+            //Console.WriteLine("[send]");
             sslStream.Write(Encoding.UTF8.GetBytes(message), 0, Encoding.UTF8.GetBytes(message).Length);
         }
     }
