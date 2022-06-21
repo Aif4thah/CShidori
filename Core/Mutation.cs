@@ -25,48 +25,70 @@ namespace CShidori.Core
                     var rand = new Random();
                     int r = rand.Next(0,10);
                     //Console.WriteLine(r);
+                    this.Output.Add(RepLine(rand));
+
                     switch(r)
                     {
                         case 0:
                             this.Output.Add( BitFlip(rand) );
                             break;
+
                         case 1:
-                            this.Output.Add(AddRandBc(BadStrings.Output, rand));
+                            this.Output.Add(AddRandBc(rand));
                             break;
+
                         case 2:
                             this.Output.Add(DelChar(rand));
                             break;
+
                         case 3:
                             this.Output.Add(RepThreeBytes(rand));
                             break;
-                        case > 3:
-                            this.Output.Add(RepRandBc(BadStrings.Output, rand));
+
+                        case 4:
+                            this.Output.Add(RepLine(rand));
+                            break;
+
+                        default:
+                            this.Output.Add(RepRandBc(rand));
                             break;
 
                     }
-                                 
+
+
                 }
             }
         }
         
-        private string RepRandBc(List<string> bss, Random rand)
+        private string RepRandBc(Random rand)
         {         
             int randvalue = rand.Next(this.Input.Length);
-            int randbc = rand.Next(bss.Count -1);  
+            int randbc = rand.Next(BadStrings.Output.Count);  
             
             StringBuilder sb = new StringBuilder(this.Input);
             sb.Remove(randvalue, 1);     
             
-            return sb.ToString().Insert(randvalue, bss[randbc]);
+            return sb.ToString().Insert(randvalue, BadStrings.Output[randbc]);
         }
 
 
-        private string AddRandBc(List<string> bss, Random rand)
+        private string AddRandBc( Random rand)
         {
             int randvalue = rand.Next(this.Input.Length);
-            int randbc = rand.Next(bss.Count - 1);
+            int randbc = rand.Next(BadStrings.Output.Count);
 
-            return this.Input.Insert(randvalue, bss[randbc]);
+            return this.Input.Insert(randvalue, BadStrings.Output[randbc]);
+        }
+
+        private string RepLine(Random rand)
+        {
+            string[] lines = this.Input.Split('\n');
+            int randvalue = rand.Next(lines.Length);
+            int randbc = rand.Next(BadStrings.Output.Count);
+
+            lines[randvalue] = BadStrings.Output[randbc];
+
+            return String.Join('\n', lines);
         }
 
 

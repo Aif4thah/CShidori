@@ -40,7 +40,7 @@ namespace CShidori.Core
                     json[p.Name] = old;
                 }
             }
-            Console.WriteLine(String.Join("\n", results));
+            results.ForEach(x => Console.WriteLine(x));
         }
 
     }

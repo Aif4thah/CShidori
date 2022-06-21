@@ -4,9 +4,7 @@
 
 ## Backlog
 
-* Select automaticaly the part of the request interesting to fuzz
-
-
+* Find automaticaly the part of the request interesting to fuzz (the more interest, the more tested)
 
 * Add MSTest to Core Function
 

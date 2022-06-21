@@ -20,12 +20,10 @@ namespace CShidori.MachineLearning
     public class MLData
     {
         public Guid uuid { get; set; }
+        public string vulnerable { get; set; }
+        public int responseLenght { get; set; }
         public string response { get; set; }
         public string request { get; set; }
-        public int responseLenght { get; set; }
-        public string vulnerable { get; set; }
-
-
 
     }
 
@@ -39,11 +37,11 @@ namespace CShidori.MachineLearning
             var data = new List<MLData> {
                 new MLData
                 {
-                    uuid = u, 
-                    request = MLAsciiEncode(req), 
-                    response = MLAsciiEncode(rsp),
+                    uuid = u,                    
+                    vulnerable = "false",
                     responseLenght = rsp.Length,
-                    vulnerable = "false"
+                    response = MLAsciiEncode(rsp),
+                    request = MLAsciiEncode(req),
                 }
             };
 

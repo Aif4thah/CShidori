@@ -74,7 +74,8 @@ Disclaimer: Usage of this tool for attacking targets without prior mutual consen
 
                     case "mut":
                         new DataLoader(d);
-                        BadStrings.Output.ForEach(x => Console.WriteLine(x));
+                        Mutation mut = new Mutation(int.Parse(o), p);
+                        mut.Output.ForEach(x => Console.WriteLine(x));
                         break;
 
                     case "enc":
