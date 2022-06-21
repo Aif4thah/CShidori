@@ -1,8 +1,7 @@
-# CShidori
+# CShidori (1024 Birds Fuzzer)
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![.DOTNET](https://github.com/Aif4thah/CShidori/actions/workflows/dotnet.yml/badge.svg?branch=main)
-[![HitCount](https://hits.dwyl.com/Aif4thah/CShidori.svg?style=flat-square)](http://hits.dwyl.com/Aif4thah/CShidori)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
 
 **Get Data and Fuzz Your App**
@@ -100,7 +99,7 @@ Get-CShidoriLogs .\127-0-0-1-b4e09da3-7e34-46f2-9ce9-6f8b1d3a3019.csv -ResponseM
 
 ### Speed
 
-1 thread = 70-100 req/s
+1 thread = 110-150 req/s
 
 ### Go further with MultiThreading
 

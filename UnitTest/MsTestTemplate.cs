@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CShidori.DataHandler;
+using CShidori.Core;
 
 namespace CShidori.UnitTest
 {
@@ -15,11 +16,10 @@ namespace CShidori.UnitTest
 
         public MsTestTemplate (string functionWithParam, string paramToInject)
         {
-            this.function = functionWithParam; //ex: function(string test1, string test2)
+            this.function = functionWithParam; //ie: "function(string test1, string test2)"
             this.inject = paramToInject;
-            List<string> MsTest = new DataLoader().Dataloader("MsTestTemplate");
-            foreach(string l in MsTest)
-            Console.WriteLine(l.Replace("%", this.inject).Replace("§",this.function));
+            foreach(string l in BadStrings.Output)
+                Console.WriteLine(l.Replace("%", this.inject).Replace("§",this.function));
 
         }
     }

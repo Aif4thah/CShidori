@@ -17,7 +17,7 @@ namespace CShidori.NetworkTest
 {
     public class TlsFuzz
     {
-        public static async void TlsFuzzAsync(string File, string Ip, string Port, string data)
+        public static async void TlsFuzzAsync(string File, string Ip, string Port)
         {
 
             string LogFile = Ip + "-" + Guid.NewGuid().ToString();
@@ -28,7 +28,7 @@ namespace CShidori.NetworkTest
 
 
             Console.WriteLine("[*] Send Original request");
-            await SslOneReq(req, Ip, Port, data, LogFile);
+            await SslOneReq(req, Ip, Port, LogFile);
 
             Console.WriteLine("[*] Initialize Fuzzing");
             Stopwatch stopwatch = new Stopwatch();
@@ -51,10 +51,10 @@ namespace CShidori.NetworkTest
 
                 try
                 {
-                    Core.Mutation mut = new Core.Mutation(300, req, data);
+                    Core.Mutation mut = new Core.Mutation(300, req);
                     foreach (string str in mut.Output)
                     {
-                        await SslOneReq(str, Ip, Port, data, LogFile);
+                        await SslOneReq(str, Ip, Port, LogFile);
                         i++;
                         //Thread.Sleep(300); /* use this to avoid Firewall Ban or DOS
                     }
@@ -72,7 +72,7 @@ namespace CShidori.NetworkTest
         }
 
 
-        private static async Task SslOneReq(string req, string Ip, string Port, string data, string LogFile)
+        private static async Task SslOneReq(string req, string Ip, string Port, string LogFile)
             {
             Guid uuid = Guid.NewGuid();
             string rsp = String.Empty;

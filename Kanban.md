@@ -6,7 +6,7 @@
 
 * Select automaticaly the part of the request interesting to fuzz
 
-* Optomize disk access
+
 
 * Add MSTest to Core Function
 
@@ -29,7 +29,7 @@
 
 ## finished
 
-
+* Optomize disk access
 * Add response lenght to logs
 * Create pwsh function to manually analyse logs
 * review public /private classes

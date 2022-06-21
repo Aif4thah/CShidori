@@ -58,8 +58,8 @@ namespace CShidori.DataHandler
                 }
             }
 
-            //beta: send data to ML
-            new MLDataHandler().MLDataWriter(u, req, rsp, true); // set last param to true to enable prediction            
+            //beta: send data to Machine Learning (ML)
+            new MLDataHandler().MLDataWriter(u, req, rsp, true); // set last param to true to enable ML prediction            
 
         }
 

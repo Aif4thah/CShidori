@@ -12,12 +12,10 @@ namespace CShidori.Core
         public string Input { get; set; }
         public List<string> Output { set; get; }
 
-        public Mutation(int n, string param, string d ) 
+        public Mutation(int n, string p) 
         {
-            this.Input = param;
+            this.Input = p;
             this.Output = new List<string>();
-            List<string> bss = new BadStrings(d).Output;
-            if (bss.Count == 0) { bss = new BadStrings("s").Output; }
 
             if (this.Input != string.Empty)
             {
@@ -33,7 +31,7 @@ namespace CShidori.Core
                             this.Output.Add( BitFlip(rand) );
                             break;
                         case 1:
-                            this.Output.Add(AddRandBc(bss, rand));
+                            this.Output.Add(AddRandBc(BadStrings.Output, rand));
                             break;
                         case 2:
                             this.Output.Add(DelChar(rand));
@@ -42,7 +40,7 @@ namespace CShidori.Core
                             this.Output.Add(RepThreeBytes(rand));
                             break;
                         case > 3:
-                            this.Output.Add(RepRandBc(bss, rand));
+                            this.Output.Add(RepRandBc(BadStrings.Output, rand));
                             break;
 
                     }

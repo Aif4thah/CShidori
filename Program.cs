@@ -53,24 +53,28 @@ Disclaimer: Usage of this tool for attacking targets without prior mutual consen
             rootCommand.SetHandler((string m, string i, string p, string o, string d) =>
             {
 
+                
+
                 switch (m)
                 {
                     case "tls":
-                        TlsFuzz.TlsFuzzAsync(o, i, p, d);
+                        new DataLoader(d);
+                        TlsFuzz.TlsFuzzAsync(o, i, p);
                         break;
 
                     case "tcp":
-                        TcpFuzz.TcpFuzzAsync(o, i, p, d);
+                        new DataLoader(d);
+                        TcpFuzz.TcpFuzzAsync(o, i, p);
                         break;
 
                     case "gen":
-                        BadStrings data = new BadStrings(d);
-                        data.Output.ForEach(x => Console.WriteLine(x));
+                        new DataLoader(d);
+                        BadStrings.Output.ForEach(x => Console.WriteLine(x));
                         break;
 
                     case "mut":
-                        Mutation mut = new Mutation(int.Parse(o), p, d);
-                        mut.Output.ForEach(x => Console.WriteLine(x));
+                        new DataLoader(d);
+                        BadStrings.Output.ForEach(x => Console.WriteLine(x));
                         break;
 
                     case "enc":
@@ -80,34 +84,38 @@ Disclaimer: Usage of this tool for attacking targets without prior mutual consen
                         break;
 
                     case "json":
-                        BadStrings DataToJson = new BadStrings(d);
-                        foreach (string bs in DataToJson.Output)
+                        new DataLoader(d);
+                        foreach (string bs in BadStrings.Output)
                             new JsonInjection(p, bs);                     
                         break;
 
                     case "xml":
-                        BadStrings DataToXml = new BadStrings(d);
-                        DataToXml.Output.ForEach(x => new XmlInjection(p, x));
+                        new DataLoader(d);
+                        BadStrings.Output.ForEach(x => new XmlInjection(p, x));
                         break;
 
                     case "get":
-                        BadStrings DataToGet = new BadStrings(d);
-                        DataToGet.Output.ForEach(x => new GetInjection(p, x));
+                        new DataLoader(d);
+                        BadStrings.Output.ForEach(x => new GetInjection(p, x));
                         break;
 
                     case "csrf":
+                        new DataLoader("CsrfTemplate");
                         new CsrfTemplate(o, p, i);
                         break;
 
                     case "xxe":
+                        new DataLoader("XxeTemplate");
                         new XxeTemplate(o);
                         break;
 
                     case "mst":
+                        new DataLoader("MsTestTemplate");
                         new MsTestTemplate(p, i);
                         break;
 
                     case "xss":
+                        new DataLoader("JavaScript,Angular");
                         new XssInjection(p);
                         break;
 

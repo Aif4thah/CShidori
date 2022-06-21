@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CShidori.Core;
 
 namespace CShidori.DataHandler
 {
-    internal class DataLoader
+    public class DataLoader
     {
-
-        public List<string> Dataloader(string d)
+        public DataLoader(string d)
         {
             string[] lines;
             List<string> results = new List<string>();
@@ -29,7 +29,6 @@ namespace CShidori.DataHandler
 
             };
 
-
             foreach( string s in d.Split(","))
             {
                 //Console.WriteLine("DataLoader: Linq resquest with d: {0}", s);
@@ -42,7 +41,8 @@ namespace CShidori.DataHandler
                 }
             }
 
-            return results;
+            BadStrings.Output = d.EndsWith("Template") ? results : EncodeStrings.encodebadchars(results); //EncodeStrings.encodebadchars contains results.Distinct().ToList();
+
         }
     }
 }

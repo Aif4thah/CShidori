@@ -16,7 +16,6 @@ namespace CShidori.Core
             this.Input = param;
 
             List<string> results = new List<string>();
-            List<string> tmp = new List<string>();
             List<string> wrapped = new List<string>();
 
             wrapped.AddRange(wrapp(this.Input));
@@ -31,8 +30,7 @@ namespace CShidori.Core
         private List<string> wrapp(string param)
         {
             List<string> results = new List<string>();
-            List<string> lines = new DataLoader().Dataloader("JavaScript");
-            foreach (string line in lines)
+            foreach (string line in BadStrings.Output)
                 results.Add( line.Replace("§",param) );
 
             return results;

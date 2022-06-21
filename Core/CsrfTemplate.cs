@@ -51,8 +51,7 @@ namespace CShidori.Core
         {
             Dictionary<string, string> dparameters = new Dictionary<string, string>();
 
-            List<string> data = new DataLoader().Dataloader("CsrfTemplate");
-            string csrf = String.Join("\n", data);
+            string csrf = String.Join("\n", BadStrings.Output);
 
             string FormParams = @"     <input type=""hidden"" name=""§NAME§"" value=""§VAMUE§"">
 ";

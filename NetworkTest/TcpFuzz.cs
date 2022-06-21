@@ -12,12 +12,13 @@ using System.Threading;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
 using CShidori.DataHandler;
+using CShidori.Core;
 
 namespace CShidori.NetworkTest
 {
     internal class TcpFuzz
     {
-        public static async void TcpFuzzAsync(string File, string Ip, string Port, string data)
+        public static async void TcpFuzzAsync(string File, string Ip, string Port)
         {
             string LogFile = Ip + "-" + Guid.NewGuid().ToString();
             Console.WriteLine("[*] Log file will be: {0}", LogFile);
@@ -26,7 +27,7 @@ namespace CShidori.NetworkTest
             string req = System.IO.File.ReadAllText(File);
 
             Console.WriteLine("[*] Send Original request");
-            await SendOneReq(req, Ip, Port, data, LogFile);
+            await SendOneReq(req, Ip, Port, LogFile);
 
             Console.WriteLine("[*] Initialize Fuzzing");
             Stopwatch stopwatch = new Stopwatch();
@@ -49,10 +50,10 @@ namespace CShidori.NetworkTest
 
                 try
                 {
-                    Core.Mutation mut = new Core.Mutation(300, req, data);
+                    Core.Mutation mut = new Core.Mutation(300, req);
                     foreach( string str in mut.Output)
                     {
-                        await SendOneReq(str, Ip, Port, data, LogFile);
+                        await SendOneReq(str, Ip, Port, LogFile);
                         i++;
                         //Thread.Sleep(300); /* use this to avoid Firewall Ban or DOS
                     }
@@ -70,7 +71,7 @@ namespace CShidori.NetworkTest
         }
 
 
-        private static async Task SendOneReq(string req, string Ip, string Port, string data, string LogFile)
+        private static async Task SendOneReq(string req, string Ip, string Port, string LogFile)
         {
 
             Guid uuid = Guid.NewGuid();                    
