@@ -86,7 +86,7 @@ namespace CShidori.Core
             int randvalue = rand.Next(lines.Length);
             int randbc = rand.Next(BadStrings.Output.Count);
 
-            lines[randvalue] = BadStrings.Output[randbc];
+            lines[randvalue] = (rand.Next(2) == 1) ? BadStrings.Output[randbc] : BadStrings.Output[randbc] + "\\n";
 
             return String.Join('\n', lines);
         }
@@ -97,9 +97,8 @@ namespace CShidori.Core
             int randvalue = rand.Next(this.Input.Length);
 
             StringBuilder sb = new StringBuilder(this.Input);
-            sb.Remove(randvalue, 1);
-
-            return sb.ToString();
+            
+            return sb.Remove(randvalue, 1).ToString();
         }
 
         private string BitFlip(Random rand)

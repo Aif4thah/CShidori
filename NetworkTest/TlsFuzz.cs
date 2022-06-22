@@ -62,7 +62,6 @@ namespace CShidori.NetworkTest
                 }
                 catch (Exception ex)
                 {
-                    Thread.Sleep(100);
                     new DataLogWriter(LogFile, Guid.NewGuid(), "Internal Error", ex.ToString());
                     Console.Write(ex.ToString());
                 }
@@ -101,14 +100,12 @@ namespace CShidori.NetworkTest
 
         private static string readMsg(SslStream sslStream, TcpClient client)
         {
-            //Console.WriteLine("[reciv]");
             byte[] buffer = new byte[client.ReceiveBufferSize];
             int bytesRead = sslStream.Read(buffer, 0, client.ReceiveBufferSize);
             return Encoding.UTF8.GetString(buffer, 0, bytesRead);
         }
         private static void sendMsg(string message, SslStream sslStream)
         {
-            //Console.WriteLine("[send]");
             sslStream.Write(Encoding.UTF8.GetBytes(message), 0, Encoding.UTF8.GetBytes(message).Length);
         }
     }

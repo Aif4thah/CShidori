@@ -5,8 +5,6 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Collections.Generic;
-using CShidori.DataHandler;
-
 namespace CShidori
 {
     public partial class MLfuzzing
@@ -20,14 +18,17 @@ namespace CShidori
             [ColumnName(@"uuid")]
             public string Uuid { get; set; }
 
+            [ColumnName(@"vulnerable")]
+            public string Vulnerable { get; set; }
+
+            [ColumnName(@"responseLenght")]
+            public float ResponseLenght { get; set; }
+
             [ColumnName(@"response")]
             public string Response { get; set; }
 
             [ColumnName(@"request")]
             public string Request { get; set; }
-
-            [ColumnName(@"vulnerable")]
-            public string Vulnerable { get; set; }
 
         }
 

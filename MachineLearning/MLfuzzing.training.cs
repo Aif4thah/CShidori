@@ -28,13 +28,11 @@ namespace CShidori
         public static IEstimator<ITransformer> BuildPipeline(MLContext mlContext)
         {
             // Data process configuration with pipeline data transformations
-            var pipeline = mlContext.Transforms.Text.FeaturizeText(@"uuid", @"uuid")      
-                                    .Append(mlContext.Transforms.Text.FeaturizeText(@"response", @"response"))      
-                                    .Append(mlContext.Transforms.Text.FeaturizeText(@"request", @"request"))      
-                                    .Append(mlContext.Transforms.Concatenate(@"Features", new []{@"uuid",@"response",@"request"}))      
+            var pipeline = mlContext.Transforms.Text.FeaturizeText(@"response", @"response")      
+                                    .Append(mlContext.Transforms.Concatenate(@"Features", @"response"))      
                                     .Append(mlContext.Transforms.Conversion.MapValueToKey(@"vulnerable", @"vulnerable"))      
                                     .Append(mlContext.Transforms.NormalizeMinMax(@"Features", @"Features"))      
-                                    .Append(mlContext.MulticlassClassification.Trainers.SdcaMaximumEntropy(l1Regularization:0.143282010149996F,l2Regularization:1.29943317699872F,labelColumnName:@"vulnerable",featureColumnName:@"Features"))      
+                                    .Append(mlContext.MulticlassClassification.Trainers.SdcaMaximumEntropy(l1Regularization:0.836377533909836F,l2Regularization:1.73799478135539F,labelColumnName:@"vulnerable",featureColumnName:@"Features"))      
                                     .Append(mlContext.Transforms.Conversion.MapKeyToValue(@"PredictedLabel", @"PredictedLabel"));
 
             return pipeline;

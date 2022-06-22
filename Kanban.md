@@ -4,31 +4,37 @@
 
 ## Backlog
 
-* Find automaticaly the part of the request interesting to fuzz (the more interest, the more tested)
+* Find automaticaly the part of the request interesting to Fuzz (the more interest, the more tested)
 
-* Add MSTest to Core Function
+* Write Unit tests (MSTEST)
 
 * PLantUML
 
-* manager exception (throw)
+* manage exception (throw)
 
+* ? Write results in a DB (EF, MSSERVER ?)
 
+* ? Read input in a DB (EF, MSSERVER ?)
 
 ## Planned
 
-
-* Train ML against OWASP Web Goat
-
+* Write Unit tests (MSTEST)
 
 ## Ongoing
 
 
-
-
 ## finished
 
+
+* Test: Train ML against OWASP Web Goat: SQLI
+* Test: Train ML against OWASP Web Goat: XXE
+* Add security test: Snyk.io
 * Optomize disk access
 * Add response lenght to logs
 * Create pwsh function to manually analyse logs
 * review public /private classes
 * Taisen icon
+
+
+## aborted
+

@@ -1,4 +1,6 @@
-# CShidori (1024 Birds Fuzzer)
+# CShidori 
+
+## 1024 Birds Fuzzer
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![.DOTNET](https://github.com/Aif4thah/CShidori/actions/workflows/dotnet.yml/badge.svg?branch=main)
@@ -8,11 +10,13 @@
 
 ![](Intro.png)
 
-## Real life vulnerabilities discovered by this tool
+## trophies
 
 * Open Redirect: 1
 * IDOR: 1
 * XSS: 1
+* XXE: 3
+* SQLI: 1
 * Application Data Leak: 2
 
 ## Disclaimer
