@@ -3,26 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CShidori.Core;
 using CShidori.DataHandler;
 
-namespace CShidori.Core
+namespace CShidori.Generator
 {
     public class CsrfTemplate
     {
         string target { get; set; }
-        string parameters { get; set;}
+        string parameters { get; set; }
 
-        public CsrfTemplate( string method, string target, string parameters)
+        public CsrfTemplate(string method, string target, string parameters)
         {
             this.target = target;
             this.parameters = parameters;
 
 
-            if(method.ToLower() == "get")
+            if (method.ToLower() == "get")
             {
                 getcsrf();
             }
-            else if ( method.ToLower() == "post")
+            else if (method.ToLower() == "post")
             {
                 postcsrf();
             }
@@ -41,7 +42,7 @@ namespace CShidori.Core
     </body>
 </html>
 ";
-            Console.WriteLine(csrf.Replace("§", this.target + "?" + this.parameters));
+            Console.WriteLine(csrf.Replace("§", target + "?" + parameters));
         }
 
 
@@ -51,15 +52,15 @@ namespace CShidori.Core
         {
             Dictionary<string, string> dparameters = new Dictionary<string, string>();
 
-            string csrf = String.Join("\n", BadStrings.Output);
+            string csrf = string.Join("\n", BadStrings.Output);
 
             string FormParams = @"     <input type=""hidden"" name=""§NAME§"" value=""§VAMUE§"">
 ";
             string formPrep = string.Empty;
 
-            if (this.parameters.Contains("&"))
+            if (parameters.Contains("&"))
             {
-                foreach (string pv in this.parameters.Split("&"))
+                foreach (string pv in parameters.Split("&"))
                     dparameters.Add(pv.Split("=")[0], pv.Split("=")[1]);
             }
             else
@@ -70,7 +71,7 @@ namespace CShidori.Core
             foreach (KeyValuePair<string, string> kv in dparameters)
                 formPrep += FormParams.Replace("§NAME§", kv.Key).Replace("§VAMUE§", kv.Value);
 
-            csrf = csrf.Replace("§PARAMETERS§", formPrep).Replace("§TARGET§", this.target);
+            csrf = csrf.Replace("§PARAMETERS§", formPrep).Replace("§TARGET§", target);
 
             Console.WriteLine(csrf);
         }

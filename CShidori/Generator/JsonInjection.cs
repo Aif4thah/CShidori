@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 using CShidori.DataHandler;
 
 
-namespace CShidori.Core
+namespace CShidori.Generator
 {
     public class JsonInjection
     {
@@ -14,23 +14,23 @@ namespace CShidori.Core
 
         public JsonInjection(string param1, string param2)
         {
-            this.InputJson = param1;
-            this.InputInj = param2;
+            InputJson = param1;
+            InputInj = param2;
 
             List<string> results = new List<string>();
             JToken old;
-            JObject json = JObject.Parse(File.ReadAllText(this.InputJson));
+            JObject json = JObject.Parse(File.ReadAllText(InputJson));
 
             foreach (JProperty p in json.DeepClone())
             {
                 old = json[p.Name];
-                json[p.Name] = this.InputInj;
-                results.Add(json.ToString().Replace("\r\n",""));
+                json[p.Name] = InputInj;
+                results.Add(json.ToString().Replace("\r\n", ""));
                 json[p.Name] = old;
             }
 
 
-            if (int.TryParse(this.InputInj, out int v))   //if inupt is int
+            if (int.TryParse(InputInj, out int v))   //if inupt is int
             {
                 foreach (JProperty p in json.DeepClone())
                 {

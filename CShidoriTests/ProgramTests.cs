@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.CommandLine;
+using System.Net;
+using System.Net.Sockets;
 using CShidori.Core;
 using CShidori.DataHandler;
 using CShidori.NetworkTest;
@@ -15,11 +17,19 @@ namespace CShidori.Tests
     [TestClass()]
     public class ProgramTests
     {
+
+       /*
+        *   [ Unit Tests ]
+        */
         [TestMethod()]
-        public void RandomStringTest()
+        public void MiscTest()
         {
             string r = Misc.RandomString(10);
             Assert.IsTrue( r.Length == 10);
+
+            IPAddress ipVar;
+            string ip = Misc.GetIp();
+            Assert.IsTrue(IPAddress.TryParse(ip, out ipVar));
         }
 
 
@@ -50,5 +60,34 @@ namespace CShidori.Tests
             Assert.IsTrue(results.Count > list.Count);
 
         }
+
+
+        /*
+         *   [ Fuzzing Tests ]
+         */
+
+
+        [TestMethod()]
+        public void MutationFuzz()
+        {
+            int o = 1024;
+            string p = Misc.RandomString(10);
+            new DataLoader("Chars, BadString, DotNet");
+            Mutation result = new Mutation(o, p);
+            result.Output.ForEach(x => new Mutation(o, x));
+
+        }
+
+        public void EncodeStringsFuzz()
+        {
+            string p = Misc.RandomString(10);
+            new DataLoader("Chars, BadString, DotNet");
+            List<string> results = EncodeStrings.encodebadchars(BadStrings.Output);
+            Assert.IsTrue(results.Count > BadStrings.Output.Count);
+
+        }
+
+
+
     }
 }

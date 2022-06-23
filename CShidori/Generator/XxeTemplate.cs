@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CShidori.Core;
 using CShidori.DataHandler;
 
-namespace CShidori.Core
+namespace CShidori.Generator
 {
     public class XxeTemplate
     {
@@ -13,9 +14,9 @@ namespace CShidori.Core
         string target { get; set; }
         public XxeTemplate(string TemplateType)
         {
-            this.target = Misc.GetIp();
-            foreach(string l in BadStrings.Output)
-                Console.WriteLine(l.Replace("§", this.target).Replace("foo", Misc.RandomString(3)));
+            target = Misc.GetIp();
+            foreach (string l in BadStrings.Output)
+                Console.WriteLine(l.Replace("§", target).Replace("foo", Misc.RandomString(3)));
         }
     }
 }

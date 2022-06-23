@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 using CShidori.DataHandler;
 
 
-namespace CShidori.Core
+namespace CShidori.Generator
 {
     public class GetInjection
     {
@@ -14,11 +14,11 @@ namespace CShidori.Core
 
         public GetInjection(string param1, string param2)
         {
-            this.InputGetparam = param1;
-            this.InputInj = param2;
+            InputGetparam = param1;
+            InputInj = param2;
 
             List<string> results = new List<string>();
-            string parameters = this.InputGetparam.Split("?")[1];
+            string parameters = InputGetparam.Split("?")[1];
             Dictionary<string, string> dparameters = new Dictionary<string, string>();
             string getstr;
 
@@ -32,16 +32,16 @@ namespace CShidori.Core
                 dparameters.Add(parameters.Split("=")[0], parameters.Split("=")[1]);
             }
 
-            foreach(KeyValuePair<string, string> kv in dparameters)
+            foreach (KeyValuePair<string, string> kv in dparameters)
             {
-                getstr = parameters.Replace(kv.Key + "=" + kv.Value, kv.Key + "=" + this.InputInj);
+                getstr = parameters.Replace(kv.Key + "=" + kv.Value, kv.Key + "=" + InputInj);
                 results.Add(getstr);
 
                 // HTTP parameters polution
-                results.Add(parameters + "&" + getstr); 
-                results.Add(parameters.Replace(kv.Key + "=" + kv.Value, kv.Key + "=" + kv.Value + "," + this.InputInj));
-            }    
-            Console.WriteLine(String.Join("\n", results));
+                results.Add(parameters + "&" + getstr);
+                results.Add(parameters.Replace(kv.Key + "=" + kv.Value, kv.Key + "=" + kv.Value + "," + InputInj));
+            }
+            Console.WriteLine(string.Join("\n", results));
         }
 
     }

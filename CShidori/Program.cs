@@ -7,6 +7,7 @@ using System.CommandLine;
 using CShidori.Core;
 using CShidori.DataHandler;
 using CShidori.NetworkTest;
+using CShidori.Generator;
 
 namespace CShidori
 {

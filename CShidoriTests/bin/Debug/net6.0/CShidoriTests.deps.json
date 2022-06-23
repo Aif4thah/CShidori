@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "CShidoriTests/1.0.0": {
         "dependencies": {
-          "CShidori": "5.10.1",
+          "CShidori": "5.10.3",
           "MSTest.TestAdapter": "2.2.8",
           "MSTest.TestFramework": "2.2.8",
           "Microsoft.NET.Test.Sdk": "17.1.0",
@@ -1260,7 +1260,7 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
-      "CShidori/5.10.1": {
+      "CShidori/5.10.3": {
         "dependencies": {
           "CsvHelper": "27.2.1",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.6",
@@ -1973,7 +1973,7 @@
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
     },
-    "CShidori/5.10.1": {
+    "CShidori/5.10.3": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

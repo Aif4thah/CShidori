@@ -116,6 +116,8 @@ namespace CShidori.Core
 
         public string RepThreeBytes(Random rand)
         {
+            if(this.Input.Length < 3){ this.Input += Misc.RandomString(3); }
+
             byte[] bytes = Encoding.UTF8.GetBytes(this.Input);
             byte[] ByteRange = new Byte[3];
 

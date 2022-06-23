@@ -54,7 +54,7 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 * CSRF
 * XXE
 * Encoding
-* List Generation
+* Wordlist
 
 ### Payloads
 
@@ -73,7 +73,7 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 Put your request in a text file* then start fuzzing with: 
 
 ```powershell
-.\CShidori.exe -m tls -o ..\testing\ZAP-Post-req.raw -i 127.0.0.1 -p 443
+.\CShidori.exe -m tls -o ZAP.raw -i 127.0.0.1 -p 443
 ```
 
 You can select data with the "-d" parameter
@@ -81,14 +81,8 @@ You can select data with the "-d" parameter
 ### TCP Sockets
 
 ```powershell
-.\CShidori.exe -m tcp -o ..\testing\burp.req -i 127.0.0.1 -p 80
+.\CShidori.exe -m tcp -o burp.req -i 127.0.0.1 -p 80
 ```
-
-#### *how put my Web request in a file ? 
- 
-	* from ZAP or Burp: right click > copy to file
-	* for Chrome: F12 > Network > your request / paylod > view source, copy-past in text file, with a line between request and payload, and "\n" + a new line at the end of the file
-
 
 ### Analyse logs
 
@@ -136,7 +130,7 @@ wrapp xss command to test multiples injections:
 Inject java and general payloads in all parameters of a Json request
 
 ```powershell
-.\CShidori.exe -m json -p ..\testing\test.json -d Java,Strings
+.\CShidori.exe -m json -p test.json -d Java,Strings
 ```
 
 ### XML
@@ -144,7 +138,7 @@ Inject java and general payloads in all parameters of a Json request
 Inject .NET payloads in all parameters of an XML request
 
 ```powershell
-.\CShidori.exe -m xml -p ..\testing\exemple.xml -d DotNet
+.\CShidori.exe -m xml -p exemple.xml -d DotNet
 ```
 
 ### GET
@@ -172,23 +166,14 @@ Generate XXE payload
 ```powershell
 .\CShidori.exe -m xxe
 ```
-### MSTEST
-
-Generate Test for Microsoft.VisualStudio.TestTools.UnitTesting (Beta)
-
-```powershell
-.\CShidori.exe -m mst -p 'function( \"value1\", 2, FUZZ)' -i FUZZ
-```
 
 ### Encode
-
-Encode your payload
 
 ```powershell
 .\CShidori.exe -m enc -p "<script>alert(1)</script>"
 ```
 
-### List Generation
+### WordList Generation
 
 Generate a payload list
 
@@ -200,11 +185,17 @@ Generate a payload list
 
 ### Unit TEST
 
-CShidori run MSTEST to fuzz himself
+CShidori run MSTEST to fuzz himself,
 this test can be run somewhere else, read the sources.
+
+### *how put my Web request in a file ? 
+ 
+	* from ZAP or Burp: right click > copy to file
+	* for Chrome: F12 > Network > your request / paylod > view source
 
 ### SOAP & XSD
 
 Removed since you can perform it from Visual Studio:
 - Merge all XSD files in WSDL file
 - Right click on the project and select "Add Service Reference" -> "WCF" -> "enter localPath"
+

@@ -8,20 +8,20 @@ using System.Xml.Linq;
 using System.Xml;
 using CShidori.DataHandler;
 
-namespace CShidori.Core
+namespace CShidori.Generator
 {
     public class XmlInjection
     {
         public string InputXml { get; set; }
         public string InputInj { get; set; }
 
-        public XmlInjection( string p, string i )
+        public XmlInjection(string p, string i)
         {
-            this.InputXml = p;
-            this.InputInj = i;
+            InputXml = p;
+            InputInj = i;
 
             XmlDocument xmldoc = new XmlDocument();
-            xmldoc.Load(this.InputXml);
+            xmldoc.Load(InputXml);
 
             XmlNodeList nodes = xmldoc.DocumentElement.ChildNodes;
             foreach (XmlNode n in nodes)
@@ -30,7 +30,7 @@ namespace CShidori.Core
 
                 if (n.HasChildNodes)
                 {
-                    foreach ( XmlNode n2 in n.ChildNodes)
+                    foreach (XmlNode n2 in n.ChildNodes)
                     {
                         inject(n2, xmldoc);
 
@@ -46,16 +46,16 @@ namespace CShidori.Core
             }
         }
 
-        private void inject( XmlNode n , XmlDocument xmldoc)
+        private void inject(XmlNode n, XmlDocument xmldoc)
         {
-            if( n.InnerXml == string.Empty)
+            if (n.InnerXml == string.Empty)
             {
                 StringWriter stringWriter = new StringWriter();
                 XmlTextWriter xmlTextWriter = new XmlTextWriter(stringWriter);
 
                 //replace value
                 string old = n.InnerText;
-                n.InnerText = this.InputInj;
+                n.InnerText = InputInj;
 
                 //write in oneline
                 xmldoc.WriteTo(xmlTextWriter);
@@ -66,7 +66,7 @@ namespace CShidori.Core
 
             }
 
- 
+
         }
 
     }
