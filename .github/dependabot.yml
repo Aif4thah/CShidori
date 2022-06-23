@@ -5,7 +5,9 @@
 
 version: 2
 updates: 
-  - package-ecosystem: "nuget"
-  directory: "CShidori" 
-  interval: "daily"
+  - package-ecosystem: "nuget" # See documentation for possible values
+    directory: "/CShidori" # Location of package manifests
+    schedule:
+      interval: "daily"
+
       
