@@ -4,9 +4,11 @@
 # https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
 
 version: 2
-updates:
-  - package-ecosystem: "" # See documentation for possible values
-    directory: "/" # Location of package manifests
-    schedule:
-      interval: "daily"
+updates: 
+  # Enable version updates for nuget 
+  — package-ecosystem: “nuget”
+  # Look for NuGet dependency info from the `root` directory
+  directory: “CShidori” 
+  # Check the nuget registry for updates every day (weekdays) schedule: 
+  interval: “daily"
       
