@@ -11,6 +11,8 @@ using System.Net.Sockets;
 using CShidori.Core;
 using CShidori.DataHandler;
 using CShidori.NetworkTest;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
 
 namespace CShidori.Tests
 {
@@ -19,7 +21,7 @@ namespace CShidori.Tests
     {
 
        /*
-        *   [ Unit Tests ]
+        *   Core
         */
         [TestMethod()]
         public void MiscTest()
@@ -61,9 +63,92 @@ namespace CShidori.Tests
 
         }
 
+        /*
+        *   [ Network ]
+        */
+
+        [TestMethod()]
+        public void TlsFuzzTest()
+        {
+            int testDuration = 1024 * 2;
+            var certificate = new X509Certificate2("DotNotUseInProd.pfx", "cshidori");           
+            var listener = new TcpListener(IPAddress.Loopback, 10443);
+            
+
+            // fuzzer send
+            new DataLoader("Chars");
+            Task.Run(() =>
+            {
+                TlsFuzz.TlsFuzzAsync("request.txt", "127.0.0.1", "10443");
+            });
+            listener.Start();
+            int i;
+            for(i=0; i < testDuration; i++)
+            {
+                // serveur listen
+                var client = listener.AcceptTcpClient();
+                var stream = client.GetStream();
+                SslStream sslStream = new SslStream(stream, false);
+                sslStream.AuthenticateAsServer(certificate, false, System.Security.Authentication.SslProtocols.Tls12, false);
+
+                // serveur read and respond
+                while(client.Connected)
+                {
+                    byte[] buffer = new byte[client.ReceiveBufferSize];
+                    int bytesRead = sslStream.Read(buffer, 0, client.ReceiveBufferSize);
+                    string message = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+                    Console.WriteLine("Server reciv: {0}", message);
+                    sslStream.Write(Encoding.UTF8.GetBytes(message), 0, Encoding.UTF8.GetBytes(message).Length);
+                    client.Close();
+                }
+
+            }
+            Console.WriteLine(i);
+            Assert.IsTrue(i == testDuration);
+        }
+
+
+
+        [TestMethod()]
+        public void TcpFuzzTest()
+        {
+            int testDuration = 1024 * 2;
+            var listener = new TcpListener(IPAddress.Loopback, 1080);
+
+            // fuzzer send
+            new DataLoader("Chars");
+            Task.Run(() =>
+            {
+                TcpFuzz.TcpFuzzAsync("request.txt", "127.0.0.1", "1080");
+            });
+            listener.Start();
+            int i;
+            for (i = 0; i < testDuration ; i++)
+            {
+                // serveur listen
+                var client = listener.AcceptTcpClient();
+
+                // serveur read and respond
+                while (client.Connected)
+                {
+                    var stream = client.GetStream();
+                    stream.ReadTimeout = 2000;
+                    byte[] buffer = new byte[4096];
+                    int bytesRead = stream.Read(buffer, 0, buffer.Length);
+                    string message = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+                    Console.WriteLine("Server reciv: {0}", message);
+                    stream.Write(Encoding.UTF8.GetBytes(message), 0, Encoding.UTF8.GetBytes(message).Length);
+                    client.Close();
+                }
+
+            }
+            Console.WriteLine(i);
+            Assert.IsTrue(i == testDuration);
+        }
+
 
         /*
-         *   [ Fuzzing Tests ]
+         *   [ Fuzzing and introspection Tests ]
          */
 
 

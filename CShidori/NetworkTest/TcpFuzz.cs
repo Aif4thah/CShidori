@@ -16,7 +16,7 @@ using CShidori.Core;
 
 namespace CShidori.NetworkTest
 {
-    internal class TcpFuzz
+    public class TcpFuzz
     {
         public static async void TcpFuzzAsync(string File, string Ip, string Port)
         {

@@ -1,5 +1,0 @@
-﻿ <iframe style="display: none" name="csrf-frame"></iframe>
- <form method="POST" action="§TARGET§" target="csrf-frame" id="csrf-form">
- §PARAMETERS§    <input type="submit" value="submit">
- </form>
- <script>document.getElementById("csrf-form").submit()</script>

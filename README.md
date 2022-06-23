@@ -10,7 +10,7 @@
 
 ![](Intro.png)
 
-## trophies
+## Trophies
 
 * Open Redirect: 1
 * IDOR: 1
@@ -70,7 +70,7 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 
 ### TLS sockets
 
-Put your request in a text file* then start fuzzing with: 
+Put your request in a text file then start fuzzing with: 
 
 ```powershell
 .\CShidori.exe -m tls -o ZAP.raw -i 127.0.0.1 -p 443
@@ -183,19 +183,29 @@ Generate a payload list
 
 ## Miscellaneous
 
+### how put my Web request in a file ? 
+ 
+* from ZAP or Burp: right click > copy to file
+* for Chrome: F12 > Network > your request / paylod > view source
+
 ### Unit TEST
 
 CShidori run MSTEST to fuzz himself,
-this test can be run somewhere else, read the sources.
+these tests can be run somewhere else, read the sources.
 
-### *how put my Web request in a file ? 
- 
-	* from ZAP or Burp: right click > copy to file
-	* for Chrome: F12 > Network > your request / paylod > view source
+### What is the .pfx file ?
 
-### SOAP & XSD
+this certificate is used for TLS fuzzing unit test. consider it as compromised (password is in sources).
+If you need to renew it:
 
-Removed since you can perform it from Visual Studio:
-- Merge all XSD files in WSDL file
-- Right click on the project and select "Add Service Reference" -> "WCF" -> "enter localPath"
+```powershell
+New-SelfSignedCertificate -DnsName UnitTestCShidori.lan -CertStoreLocation Cert:\CurrentUser\My\  -KeyAlgorithm RSA -KeyLength 4096
+certmgr.msc # export the generated certificate as password protected .pfx file 
+```
+
+### why SOAP & XSD is removed ?
+
+You can perform it from Visual Studio:
+1. Merge all XSD files in WSDL file
+2. Right click on the project and select "Add Service Reference" -> "WCF" -> "enter localPath"
 

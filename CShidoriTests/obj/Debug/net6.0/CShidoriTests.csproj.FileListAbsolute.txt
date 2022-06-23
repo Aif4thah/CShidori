@@ -320,3 +320,5 @@ C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CS
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\obj\Debug\net6.0\CShidoriTests.pdb
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\obj\Debug\net6.0\CShidoriTests.genruntimeconfig.cache
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\obj\Debug\net6.0\ref\CShidoriTests.dll
+C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\DotNotUseInProd.pfx
+C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\request.txt
