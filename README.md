@@ -14,8 +14,6 @@ CShidori use mutation and generation techniques to find vulnerabilites in any ap
 The best ways to use CShidori is to give him the intended input and let him generate data to your tests.
 You can fuzz with CShidori or just generate your malicious data. 
 
-![Principe](Intro.png)
-
 ## Trophies
 
 * Open Redirect: 1
