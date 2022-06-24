@@ -6,9 +6,15 @@
 ![.DOTNET](https://github.com/Aif4thah/CShidori/actions/workflows/dotnet.yml/badge.svg?branch=main)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
 
-**Get Data and Fuzz Your App**
+![Banner](CShidori.png)
 
-![](Intro.png)
+## Principe
+
+CShidori use mutation and generation techniques to find vulnerabilites in any applicaitons.
+The best ways to use CShidori is to give him the intended input and let him generate data to your tests.
+You can fuzz with CShidori or just generate your malicious data. 
+
+![Principe](Intro.png)
 
 ## Trophies
 
