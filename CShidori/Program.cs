@@ -84,22 +84,7 @@ Disclaimer: Usage of this tool for attacking targets without prior mutual consen
                         List<string> results = EncodeStrings.encodebadchars(list);
                         results.ForEach(x => Console.WriteLine(x));
                         break;
-
-                    case "json":
-                        new DataLoader(d);
-                        foreach (string bs in BadStrings.Output)
-                            new JsonInjection(p, bs);                     
-                        break;
-
-                    case "xml":
-                        new DataLoader(d);
-                        BadStrings.Output.ForEach(x => new XmlInjection(p, x));
-                        break;
-
-                    case "get":
-                        new DataLoader(d);
-                        BadStrings.Output.ForEach(x => new GetInjection(p, x));
-                        break;
+               
 
                     case "csrf":
                         new DataLoader("CsrfTemplate");
@@ -111,10 +96,6 @@ Disclaimer: Usage of this tool for attacking targets without prior mutual consen
                         new XxeTemplate(o);
                         break;
 
-                    case "xss":
-                        new DataLoader("JavaScript,Angular");
-                        new XssInjection(p);
-                        break;
 
                 }
 

@@ -71,7 +71,7 @@ namespace CShidori.Tests
         public void TlsFuzzTest()
         {
             int testDuration = 1024 * 2;
-            var certificate = new X509Certificate2("DotNotUseInProd.pfx", "cshidori");           
+            var certificate = new X509Certificate2(@"UnitTestData/DotNotUseInProd.pfx", "cshidori");           
             var listener = new TcpListener(IPAddress.Loopback, 10443);
             
 
@@ -79,7 +79,7 @@ namespace CShidori.Tests
             new DataLoader("Chars");
             Task.Run(() =>
             {
-                TlsFuzz.TlsFuzzAsync("request.txt", "127.0.0.1", "10443");
+                TlsFuzz.TlsFuzzAsync(@"UnitTestData/request.txt", "127.0.0.1", "10443");
             });
             listener.Start();
             int i;
@@ -119,7 +119,7 @@ namespace CShidori.Tests
             new DataLoader("Chars");
             Task.Run(() =>
             {
-                TcpFuzz.TcpFuzzAsync("request.txt", "127.0.0.1", "1080");
+                TcpFuzz.TcpFuzzAsync(@"UnitTestData/request.txt", "127.0.0.1", "1080");
             });
             listener.Start();
             int i;

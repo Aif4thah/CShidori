@@ -47,6 +47,10 @@ namespace CShidori.Core
                             this.Output.Add(RepLine(rand));
                             break;
 
+                        case 5:
+                            this.Output.Add(RepeatStr(rand));
+                            break;
+
                         default:
                             this.Output.Add(RepRandBc(rand));
                             break;
@@ -129,6 +133,24 @@ namespace CShidori.Core
             bytes[randvalue + 2] = ByteRange[2];
 
             return Encoding.UTF8.GetString(bytes);
+        }
+
+        public string RepeatStr(Random rand)
+        {
+
+            int randbc = rand.Next(BadStrings.Output.Count);
+            StringBuilder sb = new StringBuilder(this.Input);
+            int randvalue1 = rand.Next(this.Input.Length);
+            int randvalue2 = rand.Next(this.Input.Length);
+
+            if (this.Input.Contains("&"))
+            {
+                foreach (string pv in this.Input.Split("&"))
+                    sb.Insert(randvalue1, pv + "&" + pv.Split("=")[0] + "=" + BadStrings.Output[randbc]);
+                    
+            }
+            else{ sb.Insert(randvalue1, this.Input[randvalue2]);}
+            return sb.ToString();
         }
 
     }

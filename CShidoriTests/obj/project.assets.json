@@ -890,7 +890,7 @@
           "ref/netstandard1.3/System.Threading.Tasks.dll": {}
         }
       },
-      "CShidori/5.10.4": {
+      "CShidori/5.11.1": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -3380,7 +3380,7 @@
         "system.threading.tasks.nuspec"
       ]
     },
-    "CShidori/5.10.4": {
+    "CShidori/5.11.1": {
       "type": "project",
       "path": "../CShidori/CShidori.csproj",
       "msbuildProject": "../CShidori/CShidori.csproj"
@@ -3388,7 +3388,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "CShidori >= 5.10.4",
+      "CShidori >= 5.11.1",
       "MSTest.TestAdapter >= 2.2.10",
       "MSTest.TestFramework >= 2.2.10",
       "Microsoft.NET.Test.Sdk >= 17.2.0",

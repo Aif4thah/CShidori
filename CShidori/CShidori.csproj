@@ -10,7 +10,7 @@
     <PublishReadyToRun>true</PublishReadyToRun>
     <AssemblyVersion>
     </AssemblyVersion>
-    <Version>5.10.4</Version>
+    <Version>5.11.1</Version>
     <ApplicationIcon>CShidoriTaisen.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
@@ -85,7 +85,7 @@
     <None Update="MachineLearning\Info.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="request.txt">
+    <None Update="UnitTestData\request.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Start-Fuzzing-Function.ps1">
