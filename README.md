@@ -40,10 +40,6 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 
 * OWASP Web Application Security Testing Guide: [C-Fuzz Vectors](https://owasp.org/www-project-web-security-testing-guide/v41/6-Appendix/C-Fuzz_Vectors#replacive-fuzzing)
 
-### Machine Learning
-
-* Will be re-build for data generation
-
 ### Data Generation
 * Mutation
 * Wordlist generation
