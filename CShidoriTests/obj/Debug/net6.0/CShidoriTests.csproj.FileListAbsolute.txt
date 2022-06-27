@@ -167,8 +167,6 @@ C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CS
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\Data\CsrfTemplate
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\Data\JavaScript
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\Data\XxeTemplate
-C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\Start-Fuzzing-Function.ps1
-C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\MachineLearning\MLfuzzing.zip
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\testhost.exe
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\testhost.dll
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
@@ -182,15 +180,11 @@ C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CS
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\Data\BadChars
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\Data\DotNet
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\Data\Java
-C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\Log\Info.txt
-C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\MachineLearning\Info.txt
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\CShidoriTests.deps.json
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\CShidoriTests.runtimeconfig.json
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\CShidoriTests.dll
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\CShidoriTests.pdb
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\CsvHelper.dll
-C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
-C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\Microsoft.VisualStudio.CodeCoverage.Shim.dll
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\Microsoft.ML.Core.dll
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\Microsoft.ML.Data.dll
@@ -201,7 +195,6 @@ C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CS
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\Microsoft.ML.dll
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\Microsoft.ML.CpuMath.dll
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\Microsoft.ML.DataView.dll
-C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\Microsoft.ML.Recommender.dll
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\Microsoft.TestPlatform.CoreUtilities.dll
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\Microsoft.TestPlatform.CommunicationUtilities.dll
@@ -211,7 +204,6 @@ C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CS
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\Newtonsoft.Json.dll
-C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\NuGet.Frameworks.dll
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\System.CodeDom.dll
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\System.CommandLine.dll
@@ -300,13 +292,6 @@ C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CS
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\runtimes\osx-x64\native\libLdaNative.dylib
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\runtimes\win-x64\native\LdaNative.dll
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\runtimes\win-x86\native\LdaNative.dll
-C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\runtimes\linux-arm\native\libMatrixFactorizationNative.so
-C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\runtimes\linux-arm64\native\libMatrixFactorizationNative.so
-C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\runtimes\linux-x64\native\libMatrixFactorizationNative.so
-C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\runtimes\osx-arm64\native\libMatrixFactorizationNative.dylib
-C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\runtimes\osx-x64\native\libMatrixFactorizationNative.dylib
-C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\runtimes\win-x64\native\MatrixFactorizationNative.dll
-C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\runtimes\win-x86\native\MatrixFactorizationNative.dll
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\CShidori.dll
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\CShidori.pdb
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\obj\Debug\net6.0\CShidoriTests.csproj.AssemblyReference.cache
@@ -324,5 +309,4 @@ C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CS
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\fr\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\fr\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\fr\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
-C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\UnitTestData\request.txt
 C:\Users\michael\OneDrive\Documents\Projets-InfoSec\CShidori-project\CShidori\CShidoriTests\bin\Debug\net6.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml

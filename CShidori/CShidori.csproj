@@ -4,18 +4,19 @@
     <TargetFramework>net6.0</TargetFramework>
     <RuntimeIdentifier>win10-x64</RuntimeIdentifier>
     <Platforms>x64</Platforms>
-    <SelfContained>true</SelfContained>
-    <!--<PublishSingleFile>true</PublishSingleFile>-->
     <PublishSingleFile Condition="'$(Configuration)' == 'Release'">true</PublishSingleFile>
     <PublishReadyToRun>true</PublishReadyToRun>
     <AssemblyVersion>
     </AssemblyVersion>
-    <Version>5.11.1</Version>
+    <Version>6.0.1</Version>
     <ApplicationIcon>CShidoriTaisen.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="MachineLearning\**" />
     <Compile Remove="UnitTest\**" />
+    <EmbeddedResource Remove="MachineLearning\**" />
     <EmbeddedResource Remove="UnitTest\**" />
+    <None Remove="MachineLearning\**" />
     <None Remove="UnitTest\**" />
   </ItemGroup>
   <ItemGroup>
@@ -30,9 +31,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="CsvHelper" Version="27.2.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.6" />
     <PackageReference Include="Microsoft.ML" Version="1.7.1" />
-    <PackageReference Include="Microsoft.ML.Recommender" Version="0.19.1" />
     <PackageReference Include="System.CommandLine" Version="2.0.0-beta3.22114.1" />
   </ItemGroup>
   <ItemGroup>
@@ -41,9 +40,6 @@
   <ItemGroup>
     <None Update=".gitignore">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
-    <None Update="CShidoriLogsViewer.ps1">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="CShidoriTaisen.ico">
       <Pack>True</Pack>
@@ -82,25 +78,13 @@
     <None Update="Log\Info.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="MachineLearning\Info.txt">
+    <None Update="UnitTestData\DotNotUseInProd.pfx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="UnitTestData\request.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Start-Fuzzing-Function.ps1">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup Label="MLfuzzing">
-    <None Include="MachineLearning\MLfuzzing.consumption.cs">
-      <DependentUpon>MLfuzzing.mbconfig</DependentUpon>
-    </None>
-    <None Include="MachineLearning\MLfuzzing.training.cs">
-      <DependentUpon>MLfuzzing.mbconfig</DependentUpon>
-    </None>
-    <None Include="MachineLearning\MLfuzzing.zip">
-      <DependentUpon>MLfuzzing.mbconfig</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

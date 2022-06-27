@@ -1,6 +1,6 @@
 # CShidori 
 
-## 1024 Birds Fuzzer
+## 1024 Birds for your fuzzer
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![.DOTNET](https://github.com/Aif4thah/CShidori/actions/workflows/dotnet.yml/badge.svg?branch=main)
@@ -8,13 +8,15 @@
 
 ![Banner](CShidori.png)
 
-## Principe
+## The idea
 
-CShidori combines mutation and generation techniques to find vulnerabilites in any applicaitons.
-The best ways to use CShidori is to give him the intended input and let him generate data to your tests.
-You can fuzz with CShidori or just generate your malicious data. 
+CShidori combines mutation and generation techniques to help you to find vulnerabilites in any applicaitons.
+The best ways to use CShidori is to give him the intended input and generate data to your tests.
+Then use your favorite tool (Zap, Ffuf, Burp, Sockets, UnitTestFunction etc...) to leverage fuzzing test.
 
-## Trophies
+## The result
+
+Discovered with this tool:
 
 * Open Redirect: 1
 * IDOR: 1
@@ -38,21 +40,13 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 
 * OWASP Web Application Security Testing Guide: [C-Fuzz Vectors](https://owasp.org/www-project-web-security-testing-guide/v41/6-Appendix/C-Fuzz_Vectors#replacive-fuzzing)
 
-## Fuzzer and Data
-
-### Fuzzer
-
-* TLS Sockets 
-* TCP Sockets
-
 ### Machine Learning
 
-* CShidori learns and tries to detect vulnerabilities from your fuzzing history
-* ML is not miraculous thing, you have to train it for your Apps ;)
+* Will be re-build for data generation
 
 ### Data Generation
 * Mutation
-* Wordlist
+* Wordlist generation
 * Encoding
 
 ### Embedded Templates
@@ -69,47 +63,6 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 * C
 * Angular
 * JavaScript
-
-## Mutation Fuzzing
-
-### TLS sockets
-
-Put your request in a text file then start fuzzing with: 
-
-```powershell
-.\CShidori.exe -m tls -o ZAP.raw -i 127.0.0.1 -p 443
-```
-
-You can select data with the "-d" parameter
-
-### TCP Sockets
-
-```powershell
-.\CShidori.exe -m tcp -o burp.req -i 127.0.0.1 -p 80
-```
-
-### Analyse logs
-
-use the `Import-Csv` cmdlet or the `.\CShidoriLogsViewer.ps1` script. 
-You can then parse the logs as powershell objects.
-
-```powershell
-. .\CShidoriLogsViewer.ps1
-Get-CShidoriLogs .\127-0-0-1-b4e09da3-7e34-46f2-9ce9-6f8b1d3a3019.csv -ResponseMatch "bad" -ExcludeSize 295 -debug   
-```
-
-### Speed
-
-1 thread = 110-150 req/s
-
-### Go further with MultiThreading
-
-Edit and execute the `Start-Fuzzing-Function.ps1` script
-
-```powershell
-. .\Start-Fuzzing-Function.ps1
-Start-Fuzzing
-```
 
 ## Data Generation
 
@@ -165,19 +118,12 @@ Generate XXE payload
 CShidori run MSTEST to fuzz himself,
 these tests can be run somewhere else, read the sources.
 
-### What is the .pfx file ?
-
-this certificate is used for TLS fuzzing unit test. consider it as compromised (password is in sources).
-If you need to renew it:
-
-```powershell
-New-SelfSignedCertificate -DnsName UnitTestCShidori.lan -CertStoreLocation Cert:\CurrentUser\My\  -KeyAlgorithm RSA -KeyLength 4096
-certmgr.msc # export the generated certificate as password protected .pfx file 
-```
-
-### why SOAP & XSD is removed ?
+### why SOAP & XSD have been removed ?
 
 You can perform it from Visual Studio:
 1. Merge all XSD files in WSDL file
 2. Right click on the project and select "Add Service Reference" -> "WCF" -> "enter localPath"
 
+### why tls and tcp function have been removed ?
+
+there is already many and many tools that do the job

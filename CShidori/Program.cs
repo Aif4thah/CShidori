@@ -6,7 +6,6 @@ using System.Linq;
 using System.CommandLine;
 using CShidori.Core;
 using CShidori.DataHandler;
-using CShidori.NetworkTest;
 using CShidori.Generator;
 
 namespace CShidori
@@ -58,21 +57,13 @@ Disclaimer: Usage of this tool for attacking targets without prior mutual consen
 
                 switch (m)
                 {
-                    case "tls":
-                        new DataLoader(d);
-                        TlsFuzz.TlsFuzzAsync(o, i, p);
-                        break;
 
-                    case "tcp":
-                        new DataLoader(d);
-                        TcpFuzz.TcpFuzzAsync(o, i, p);
-                        break;
-
+                    //Core
                     case "gen":
                         new DataLoader(d);
                         BadStrings.Output.ForEach(x => Console.WriteLine(x));
                         break;
-
+                                        
                     case "mut":
                         new DataLoader(d);
                         Mutation mut = new Mutation(int.Parse(o), p);
@@ -84,8 +75,8 @@ Disclaimer: Usage of this tool for attacking targets without prior mutual consen
                         List<string> results = EncodeStrings.encodebadchars(list);
                         results.ForEach(x => Console.WriteLine(x));
                         break;
-               
-
+                    
+                    //Generator
                     case "csrf":
                         new DataLoader("CsrfTemplate");
                         new CsrfTemplate(o, p, i);
