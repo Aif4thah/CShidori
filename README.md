@@ -104,22 +104,17 @@ Generate XXE payload
 
 ## Miscellaneous
 
-### how put my Web request in a file ? 
- 
-* from ZAP or Burp: right click > copy to file
-* for Chrome: F12 > Network > your request / paylod > view source
-
 ### Unit TEST
 
 CShidori run MSTEST to fuzz himself,
 these tests can be run somewhere else, read the sources.
 
-### why SOAP & XSD have been removed ?
+### Why SOAP & XSD have been removed ?
 
 You can perform it from Visual Studio:
 1. Merge all XSD files in WSDL file
 2. Right click on the project and select "Add Service Reference" -> "WCF" -> "enter localPath"
 
-### why tls and tcp function have been removed ?
+### Why TLS and TCP fuzzing function have been removed ?
 
-there is already many and many tools that do the job
+there is already many and many tools that do this job
