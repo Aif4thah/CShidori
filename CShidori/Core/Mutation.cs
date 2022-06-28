@@ -4,108 +4,55 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CShidori.DataHandler;
+using CShidori.Core;
 
 namespace CShidori.Core
 {
-    public class Mutation
+    public static class Mutation
     {
-        public string Input { get; set; }
-        public List<string> Output { set; get; }
-
-        public Mutation(int n, string p) 
-        {
-            this.Input = p;
-            this.Output = new List<string>();
-
-            if (this.Input != string.Empty)
-            {
-                while (n > 0)
-                {
-                    n -= 1;
-                    var rand = new Random();
-                    int r = rand.Next(0,10);
-
-                    switch(r)
-                    {
-                        case 0:
-                            this.Output.Add( BitFlip(rand) );
-                            break;
-
-                        case 1:
-                            this.Output.Add(AddRandBc(rand));
-                            break;
-
-                        case 2:
-                            this.Output.Add(DelChar(rand));
-                            break;
-
-                        case 3:
-                            this.Output.Add(RepThreeBytes(rand));
-                            break;
-
-                        case 4:
-                            this.Output.Add(RepLine(rand));
-                            break;
-
-                        case 5:
-                            this.Output.Add(RepeatStr(rand));
-                            break;
-
-                        default:
-                            this.Output.Add(RepRandBc(rand));
-                            break;
-
-                    }
-
-
-                }
-            }
-        }
-        
-        private string RepRandBc(Random rand)
+         
+        public static string RepRandBc(Random rand, string p)
         {         
-            int randvalue = rand.Next(this.Input.Length);
+            int randvalue = rand.Next(p.Length);
             int randbc = rand.Next(BadStrings.Output.Count);  
             
-            StringBuilder sb = new StringBuilder(this.Input);
+            StringBuilder sb = new StringBuilder(p);
             sb.Remove(randvalue, 1);     
             
             return sb.ToString().Insert(randvalue, BadStrings.Output[randbc]);
         }
 
 
-        private string AddRandBc( Random rand)
+        public static string AddRandBc( Random rand, string p)
         {
-            int randvalue = rand.Next(this.Input.Length);
+            int randvalue = rand.Next(p.Length);
             int randbc = rand.Next(BadStrings.Output.Count);
 
-            return this.Input.Insert(randvalue, BadStrings.Output[randbc]);
+            return p.Insert(randvalue, BadStrings.Output[randbc]);
         }
 
-        private string RepLine(Random rand)
+        public static string RepLine(Random rand, string p)
         {
-            string[] lines = this.Input.Split('\n');
+            string[] lines = p.Split('\n');
             int randvalue = rand.Next(lines.Length);
             int randbc = rand.Next(BadStrings.Output.Count);
-
-            lines[randvalue] = (rand.Next(2) == 1) ? BadStrings.Output[randbc] : BadStrings.Output[randbc] + "\\n";
+            lines[randvalue] = BadStrings.Output[randbc];
 
             return String.Join('\n', lines);
         }
 
 
-        private string DelChar( Random rand)
+        public static string DelChar( Random rand, string p)
         {
-            int randvalue = rand.Next(this.Input.Length);
-
-            StringBuilder sb = new StringBuilder(this.Input);
+            int randvalue = rand.Next(p.Length);
+            StringBuilder sb = new StringBuilder(p);
             
             return sb.Remove(randvalue, 1).ToString();
         }
 
-        private string BitFlip(Random rand)
+        public static string BitFlip(Random rand, string p)
         {
-            byte[] bytes = Encoding.UTF8.GetBytes(this.Input);
+            byte[] bytes = Encoding.UTF8.GetBytes(p);
             byte[] bitW = { 0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80 };
 
             int randvalue = rand.Next(bytes.Length);
@@ -118,11 +65,11 @@ namespace CShidori.Core
         }
 
 
-        public string RepThreeBytes(Random rand)
+        public static string RepThreeBytes(Random rand, string p)
         {
-            if(this.Input.Length < 3){ this.Input += Misc.RandomString(3); }
+            if(p.Length < 3){ p += Misc.RandomString(3); }
 
-            byte[] bytes = Encoding.UTF8.GetBytes(this.Input);
+            byte[] bytes = Encoding.UTF8.GetBytes(p);
             byte[] ByteRange = new Byte[3];
 
             int randvalue = rand.Next(bytes.Length - 2);
@@ -135,22 +82,16 @@ namespace CShidori.Core
             return Encoding.UTF8.GetString(bytes);
         }
 
-        public string RepeatStr(Random rand)
+        public static string RepeatStr(Random rand, string p)
         {
 
+            string[] lines = p.Split('\n');
+            int randvalue = rand.Next(lines.Length);
             int randbc = rand.Next(BadStrings.Output.Count);
-            StringBuilder sb = new StringBuilder(this.Input);
-            int randvalue1 = rand.Next(this.Input.Length);
-            int randvalue2 = rand.Next(this.Input.Length);
+            StringBuilder sb = new StringBuilder(lines[randvalue]);
+            lines[randvalue] = sb.ToString(rand.Next(sb.Length), rand.Next(sb.Length));
 
-            if (this.Input.Contains("&"))
-            {
-                foreach (string pv in this.Input.Split("&"))
-                    sb.Insert(randvalue1, pv + "&" + pv.Split("=")[0] + "=" + BadStrings.Output[randbc]);
-                    
-            }
-            else{ sb.Insert(randvalue1, this.Input[randvalue2]);}
-            return sb.ToString();
+            return String.Join('\n', lines);
         }
 
     }

@@ -53,8 +53,6 @@ Disclaimer: Usage of this tool for attacking targets without prior mutual consen
             rootCommand.SetHandler((string m, string i, string p, string o, string d) =>
             {
 
-                
-
                 switch (m)
                 {
 
@@ -66,7 +64,7 @@ Disclaimer: Usage of this tool for attacking targets without prior mutual consen
                                         
                     case "mut":
                         new DataLoader(d);
-                        Mutation mut = new Mutation(int.Parse(o), p);
+                        MutDispatcher mut = new MutDispatcher(int.Parse(o), p);
                         mut.Output.ForEach(x => Console.WriteLine(x));
                         break;
 

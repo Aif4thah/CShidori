@@ -85,7 +85,7 @@
       }
     },
     "C:\\Users\\michael\\OneDrive\\Documents\\Projets-InfoSec\\CShidori-project\\CShidori\\CShidori\\CShidori.csproj": {
-      "version": "6.0.1",
+      "version": "6.0.4",
       "restore": {
         "projectUniqueName": "C:\\Users\\michael\\OneDrive\\Documents\\Projets-InfoSec\\CShidori-project\\CShidori\\CShidori\\CShidori.csproj",
         "projectName": "CShidori",
@@ -124,14 +124,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "CsvHelper": {
-              "target": "Package",
-              "version": "[27.2.1, )"
-            },
-            "Microsoft.ML": {
-              "target": "Package",
-              "version": "[1.7.1, )"
-            },
             "System.CommandLine": {
               "target": "Package",
               "version": "[2.0.0-beta3.22114.1, )"
