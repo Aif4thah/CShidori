@@ -10,13 +10,10 @@ namespace CShidori.Generator
 {
     public class XxeTemplate
     {
-
-        string target { get; set; }
         public XxeTemplate(string TemplateType)
         {
-            target = Misc.GetIp();
             foreach (string l in BadStrings.Output)
-                Console.WriteLine(l.Replace("§", target).Replace("foo", Misc.RandomString(3)));
+                Console.WriteLine(l.Replace("§", Misc.GetIp()).Replace("foo", Misc.RandomString(3)));
         }
     }
 }

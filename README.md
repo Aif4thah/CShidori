@@ -11,7 +11,7 @@
 ## The idea
 
 CShidori combines mutation and generation techniques to help you to find vulnerabilites in any applicaitons.
-The best ways to use CShidori is to give him the intended input and generate data to your tests.
+The best way to use CShidori is to give him the intended input and generate data to your test.
 Then use your favorite tool (Zap, Ffuf, Burp, Sockets, UnitTestFunction etc...) to leverage fuzzing test.
 
 ## The result
@@ -64,7 +64,7 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 
 ### Mutation
 
-generate 5 mutation (chars and bitflip) for the value "test" :
+generate 5 mutation + genration for the value "test" :
 
 ```powershell
 .\CShidori.exe -m mut -o 5 -p test -d Chars

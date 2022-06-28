@@ -94,5 +94,6 @@ namespace CShidori.Core
             return String.Join('\n', lines);
         }
 
+
     }
 }
