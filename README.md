@@ -1,6 +1,6 @@
 # CShidori 
 
-## 1024 Birds for your fuzzer
+## 1024 Birds to your fuzzer
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![.DOTNET](https://github.com/Aif4thah/CShidori/actions/workflows/dotnet.yml/badge.svg?branch=main)
@@ -8,15 +8,13 @@
 
 ![Banner](CShidori.png)
 
-## The idea
+## How use it ?
 
 CShidori combines mutation and generation techniques to help you to find vulnerabilites in any applicaitons.
 The best way to use CShidori is to give him the intended input and generate data to your test.
 Then use your favorite tool (Zap, Ffuf, Burp, Sockets, UnitTestFunction etc...) to leverage fuzzing test.
 
-## The result
-
-Discovered with this tool:
+## results
 
 * Open Redirect: 1
 * IDOR: 1
@@ -40,16 +38,6 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 
 * OWASP Web Application Security Testing Guide: [C-Fuzz Vectors](https://owasp.org/www-project-web-security-testing-guide/v41/6-Appendix/C-Fuzz_Vectors#replacive-fuzzing)
 
-### Data Generation
-* Mutation
-* Wordlist generation
-* Encoding
-
-### Embedded Templates
-
-* CSRF
-* XXE
-
 ### Payloads
 
 * Chars (default)
@@ -60,33 +48,27 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 * Angular
 * JavaScript
 
-## Data Generation
+## Use Cases
 
 ### Mutation
-
-generate 5 mutation + genration for the value "test" :
 
 ```powershell
 .\CShidori.exe -m mut -o 5 -p test -d Chars
 ```
 
-### Encode
-
-```powershell
-.\CShidori.exe -m enc -p "<script>alert(1)</script>"
-```
-
 ### WordList Generation
-
-Generate a payload list
 
 ```powershell
 .\CShidori.exe -m gen -d Chars,Java
 ```
 
-### CSRF
+### Encoding
 
-Generate get and post CSRF exploits
+```powershell
+.\CShidori.exe -m enc -p "<script>alert(1)</script>"
+```
+
+### CSRF Tmenplate
 
 ```powershell
 .\CShidori.exe -m csrf -o get -p http://target.lan -i "name1=value1&name2=value2"
@@ -94,27 +76,10 @@ Generate get and post CSRF exploits
 
 ```
 
-### XXE
+### XXE Tmenplate
 
 Generate XXE payload
 
 ```powershell
 .\CShidori.exe -m xxe
 ```
-
-## Miscellaneous
-
-### Unit TEST
-
-CShidori run MSTEST to fuzz himself,
-these tests can be run somewhere else, read the sources.
-
-### Why SOAP & XSD have been removed ?
-
-You can perform it from Visual Studio:
-1. Merge all XSD files in WSDL file
-2. Right click on the project and select "Add Service Reference" -> "WCF" -> "enter localPath"
-
-### Why TLS and TCP fuzzing function have been removed ?
-
-there is already many and many tools that do this job
