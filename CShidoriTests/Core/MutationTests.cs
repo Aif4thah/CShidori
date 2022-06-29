@@ -22,7 +22,7 @@ namespace CShidori.Core.Tests
             string p = Misc.RandomString(10);
             new DataLoader("Chars, BadString, DotNet");
             string result = Mutation.RepRandBc(rand, p);
-            Assert.IsTrue(result != p);
+            Assert.IsTrue(result.Length >= p.Length && result != p);
         }
 
         [TestMethod()]
@@ -32,7 +32,7 @@ namespace CShidori.Core.Tests
             string p = Misc.RandomString(10);
             new DataLoader("Chars, BadString, DotNet");
             string result = Mutation.AddRandBc(rand, p);
-            Assert.IsTrue(result != p);
+            Assert.IsTrue(result.Length > p.Length);
         }
 
         [TestMethod()]
@@ -42,7 +42,7 @@ namespace CShidori.Core.Tests
             string p = Misc.RandomString(10);
             new DataLoader("Chars, BadString, DotNet");
             string result = Mutation.RepLine(rand, p);
-            Assert.IsTrue(result != p);
+            Assert.IsTrue(result != String.Empty && result != p);
         }
 
         [TestMethod()]
@@ -52,7 +52,7 @@ namespace CShidori.Core.Tests
             string p = Misc.RandomString(10);
             new DataLoader("Chars, BadString, DotNet");
             string result = Mutation.DelChar(rand, p);
-            Assert.IsTrue(result != p);
+            Assert.IsTrue(result != String.Empty && result.Length < p.Length);
         }
 
         [TestMethod()]
@@ -62,7 +62,7 @@ namespace CShidori.Core.Tests
             string p = Misc.RandomString(10);
             new DataLoader("Chars, BadString, DotNet");
             string result = Mutation.BitFlip(rand, p);
-            Assert.IsTrue(result != p);
+            Assert.IsTrue(result != p && result.Length == p.Length);
         }
 
         [TestMethod()]
@@ -72,17 +72,19 @@ namespace CShidori.Core.Tests
             string p = Misc.RandomString(10);
             new DataLoader("Chars, BadString, DotNet");
             string result = Mutation.RepThreeBytes(rand, p);
-            Assert.IsTrue(result != p);
+            Assert.IsTrue(result != p && result.Length == p.Length);
         }
 
         [TestMethod()]
         public void RepeatStrTest()
         {
             Random rand = new Random();
-            string p = Misc.RandomString(10);
+            string p = Misc.RandomString(2);
             new DataLoader("Chars, BadString, DotNet");
             string result = Mutation.RepeatStr(rand, p);
-            Assert.IsTrue(result != p);
+            Console.WriteLine("result: {0} and p = {1}", result, p);
+            Assert.IsTrue(result.Length >= p.Length);
+            
         }
     }
 

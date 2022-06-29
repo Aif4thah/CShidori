@@ -27,7 +27,7 @@ namespace CShidori.Core.Tests
         [TestMethod()]
         public void MutationFuzz()
         {
-            int o = 1024;
+            int o = 4096;
             string p = Misc.RandomString(10);
             new DataLoader("Chars, BadString, DotNet");
             MutDispatcher result = new MutDispatcher(o, p);

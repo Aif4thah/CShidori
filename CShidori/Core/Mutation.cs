@@ -89,7 +89,8 @@ namespace CShidori.Core
             int randvalue = rand.Next(lines.Length);
             int randbc = rand.Next(BadStrings.Output.Count);
             StringBuilder sb = new StringBuilder(lines[randvalue]);
-            lines[randvalue] = sb.ToString(rand.Next(sb.Length), rand.Next(sb.Length));
+            int startIndex = rand.Next(sb.Length);
+            lines[randvalue] += sb.ToString(rand.Next(startIndex), rand.Next(sb.Length - startIndex));
 
             return String.Join('\n', lines);
         }

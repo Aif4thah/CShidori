@@ -17,27 +17,27 @@ namespace CShidori
             var m = new Option<string>( //mode
                 "-m",
                 getDefaultValue: () => "none",
-                description: "mode, ie: bc, xss, json...");
+                description: "mode: function you want to call (mut, gen, enc, ...)");
 
-            var o = new Option<string>( // option
+            var o = new Option<string>(
                 "-o",
-                getDefaultValue: () => "none",
-                description: "option, ie: get, post...");
+                getDefaultValue: () => "1",
+                description: "option: option needed by the called function ");
 
-            var i = new Option<string>( // injection
+            var i = new Option<string>( 
                 "-i",
                 getDefaultValue: () => "foo",
-                description: "injection, ie: foo");
+                description: "input: data you want processing");
 
-            var p = new Option<string>( //params
+            var p = new Option<string>( 
                 "-p",
                 getDefaultValue: () => "bar",
-                description: "parameter, ie: bar");
+                description: "parameter: additional parameters");
 
-            var d = new Option<string>( //data
-            "-d",
-            getDefaultValue: () => "s",
-            description: "parameter, ie: bar");
+            var d = new Option<string>( 
+                "-d",
+                getDefaultValue: () => "s",
+                description: "data: used for generation techniques (Chars,String,Java,Dotnet,...)");
 
             var rootCommand = new RootCommand{m,i,p, o,d};
 
@@ -62,12 +62,12 @@ DOCUMENTATION: https://github.com/Aif4thah/CShidori
                                         
                     case "mut":
                         new DataLoader(d);
-                        MutDispatcher mut = new MutDispatcher(int.Parse(o), p);
+                        MutDispatcher mut = new MutDispatcher(int.Parse(o), i);
                         mut.Output.ForEach(x => Console.WriteLine(x));
                         break;
 
                     case "enc":
-                        List<string> list = new List<string>() { p };
+                        List<string> list = new List<string>() { i };
                         List<string> results = EncodeStrings.encodebadchars(list);
                         results.ForEach(x => Console.WriteLine(x));
                         break;

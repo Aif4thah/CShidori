@@ -53,7 +53,7 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 ### Mutation
 
 ```powershell
-.\CShidori.exe -m mut -o 5 -p test -d Chars
+.\CShidori.exe -m mut -o 5 -i test -d Chars
 ```
 
 ### WordList Generation
@@ -65,7 +65,7 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 ### Encoding
 
 ```powershell
-.\CShidori.exe -m enc -p "<script>alert(1)</script>"
+.\CShidori.exe -m enc -i "<script>alert(1)</script>"
 ```
 
 ### CSRF Tmenplate
