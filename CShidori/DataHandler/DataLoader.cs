@@ -12,35 +12,19 @@ namespace CShidori.DataHandler
     {
         public DataLoader(string d)
         {
-            string[] lines;
             List<string> results = new List<string>();
-            List<string> FileList = new List<string>()
-            {
-                "Data/BadChars",
-                "Data/BadStrings",
-                "Data/Java",
-                "Data/DotNet",
-                "Data/JavaScript",
-                "Data/CsrfTemplate",
-                "Data/XxeTemplate",
-                "Data/C",
-                "Data/Angular"
-
-            };
-
-            foreach( string s in d.Split(","))
+            List<string> FileList = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + @"/Data").ToList();
+            
+            foreach ( string s in d.Split(","))
             {
                 IEnumerable<string> FileNames = from f in FileList where f.EndsWith(s) select f;
                 foreach (string FileName in FileNames)
                 {
-                    lines = File.ReadAllLines(FileName);
-                    foreach (string line in lines)
+                    foreach (string line in File.ReadAllLines(FileName))
                         results.Add(line);
                 }
             }
-
             BadStrings.Output = d.EndsWith("Template") ? results : EncodeStrings.encodebadchars(results); //EncodeStrings.encodebadchars contains results.Distinct().ToList();
-
         }
     }
 }
