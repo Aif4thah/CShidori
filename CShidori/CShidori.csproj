@@ -9,7 +9,7 @@
     <PublishReadyToRun>true</PublishReadyToRun>
     <AssemblyVersion>
     </AssemblyVersion>
-    <Version>6.0.6</Version>
+    <Version>6.0.7</Version>
     <ApplicationIcon>CShidoriTaisen.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
@@ -66,6 +66,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Data\JavaScript">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\Php">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Data\XxeTemplate">
