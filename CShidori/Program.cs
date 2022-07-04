@@ -42,7 +42,7 @@ namespace CShidori
             var rootCommand = new RootCommand{m,i,p, o,d};
 
             rootCommand.Description = @"
-CShidori : A C# Thousand Birds Payloads Fuzzer
+CShidori : 1024 Birds to your fuzzer
 License: GPL-3.0
 Disclaimer: Usage of this tool for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. We assume no liability and are not responsible for any misuse or damage caused by this site. This tools is provided 'as is' without warranty of any kind.
 DOCUMENTATION: https://github.com/Aif4thah/CShidori
@@ -62,14 +62,12 @@ DOCUMENTATION: https://github.com/Aif4thah/CShidori
                                         
                     case "mut":
                         new DataLoader(d);
-                        MutDispatcher mut = new MutDispatcher(int.Parse(o), i);
-                        mut.Output.ForEach(x => Console.WriteLine(x));
+                        new MutDispatcher(int.Parse(o), i).Output.ForEach(x => Console.WriteLine(x));
                         break;
 
                     case "enc":
                         List<string> list = new List<string>() { i };
-                        List<string> results = EncodeStrings.encodebadchars(list);
-                        results.ForEach(x => Console.WriteLine(x));
+                        EncodeStrings.encodebadchars(list).ForEach(x => Console.WriteLine(x));
                         break;
                     
                     //Generator

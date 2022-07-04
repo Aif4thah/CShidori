@@ -14,7 +14,7 @@ CShidori combines mutation and generation techniques to help you to find vulnera
 The best way to use CShidori is to give him the intended input and generate data to your test.
 Then use your favorite tool (Zap, Ffuf, Burp, Sockets, UnitTestFunction etc...) to leverage fuzzing test.
 
-## results
+## Known results
 
 * Open Redirect: 1
 * IDOR: 1
@@ -47,6 +47,7 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 * C
 * Angular
 * JavaScript
+* Php
 
 ## Use Cases
 

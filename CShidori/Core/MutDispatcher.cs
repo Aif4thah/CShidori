@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 
 namespace CShidori.Core
 {
@@ -19,37 +20,36 @@ namespace CShidori.Core
                 while (n > 0)
                 {
                     n -= 1;
-                    Random rand = new Random();
-                    int r = rand.Next(0, 10);
-
-                    switch (r)
+                    int rng = RandomNumberGenerator.GetInt32(10);
+                    
+                    switch (rng)
                     {
                         case 0:
-                            this.Output.Add(Mutation.BitFlip(rand, p));
+                            this.Output.Add(Mutation.BitFlip(p));
                             break;
 
                         case 1:
-                            this.Output.Add(Mutation.AddRandBc(rand,p));
+                            this.Output.Add(Mutation.AddRandBc(p));
                             break;
 
                         case 2:
-                            this.Output.Add(Mutation.DelChar(rand,p));
+                            this.Output.Add(Mutation.DelChar(p));
                             break;
 
                         case 3:
-                            this.Output.Add(Mutation.RepThreeBytes(rand,p));
+                            this.Output.Add(Mutation.RepThreeBytes(p));
                             break;
 
                         case 4:
-                            this.Output.Add(Mutation.RepLine(rand,p));
+                            this.Output.Add(Mutation.RepLine(p));
                             break;
 
                         case 5:
-                            this.Output.Add(Mutation.RepeatStr(rand,p));
+                            this.Output.Add(Mutation.RepeatStr(p));
                             break;
 
                         default:
-                            this.Output.Add(Mutation.RepRandBc(rand,p));
+                            this.Output.Add(Mutation.RepRandBc(p));
                             break;
                     }
 
