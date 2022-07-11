@@ -21,6 +21,7 @@ namespace CShidori.Core.Tests
             string p = Misc.RandomString(10);
             new DataLoader("Chars, BadString, DotNet");
             string result = Mutation.RepRandBc(p);
+            Console.WriteLine("result: {0} and p = {1}", result, p);
             Assert.IsTrue(result.Length >= p.Length && result != p);
         }
 
@@ -30,6 +31,7 @@ namespace CShidori.Core.Tests
             string p = Misc.RandomString(10);
             new DataLoader("Chars, BadString, DotNet");
             string result = Mutation.AddRandBc(p);
+            Console.WriteLine("result: {0} and p = {1}", result, p);
             Assert.IsTrue(result.Length > p.Length);
         }
 
@@ -39,6 +41,7 @@ namespace CShidori.Core.Tests
             string p = Misc.RandomString(10);
             new DataLoader("Chars, BadString, DotNet");
             string result = Mutation.RepLine(p);
+            Console.WriteLine("result: {0} and p = {1}", result, p);
             Assert.IsTrue(result != String.Empty && result != p);
         }
 
@@ -48,6 +51,7 @@ namespace CShidori.Core.Tests
             string p = Misc.RandomString(10);
             new DataLoader("Chars, BadString, DotNet");
             string result = Mutation.DelChar(p);
+            Console.WriteLine("result: {0} and p = {1}", result, p);
             Assert.IsTrue(result != String.Empty && result.Length < p.Length);
         }
 
@@ -57,6 +61,7 @@ namespace CShidori.Core.Tests
             string p = Misc.RandomString(10);
             new DataLoader("Chars, BadString, DotNet");
             string result = Mutation.BitFlip(p);
+            Console.WriteLine("result: {0} and p = {1}", result, p);
             Assert.IsTrue(result != p && result.Length == p.Length);
         }
 
@@ -66,6 +71,7 @@ namespace CShidori.Core.Tests
             string p = Misc.RandomString(10);
             new DataLoader("Chars, BadString, DotNet");
             string result = Mutation.RepThreeBytes(p);
+            Console.WriteLine("result: {0} and p = {1}", result, p);
             Assert.IsTrue(result != p && result.Length == p.Length);
         }
 

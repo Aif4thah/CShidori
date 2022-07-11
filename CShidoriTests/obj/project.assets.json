@@ -1816,7 +1816,7 @@
           "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
         }
       },
-      "CShidori/6.1.2": {
+      "CShidori/6.1.3": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -6735,7 +6735,7 @@
         "system.xml.xmldocument.nuspec"
       ]
     },
-    "CShidori/6.1.2": {
+    "CShidori/6.1.3": {
       "type": "project",
       "path": "../CShidori/CShidori.csproj",
       "msbuildProject": "../CShidori/CShidori.csproj"
@@ -6743,7 +6743,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "CShidori >= 6.1.2",
+      "CShidori >= 6.1.3",
       "MSTest.TestAdapter >= 2.2.10",
       "MSTest.TestFramework >= 2.2.10",
       "Microsoft.NET.Test.Sdk >= 17.2.0",

@@ -49,6 +49,14 @@ Usage of all tools on this site for attacking targets without prior mutual conse
 * JavaScript
 * Php
 
+## Install
+
+```powershell
+git clone https://github.com/Aif4thah/CShidori.git
+cd .\CShidori\CShidori\
+dotnet build
+```
+
 ## Use Cases
 
 ### Mutation
@@ -84,3 +92,4 @@ Generate XXE payload
 ```powershell
 .\CShidori.exe -m xxe
 ```
+

@@ -86,21 +86,11 @@ namespace CShidori.Core
         public static string RepeatStr(string p)
         {
 
-            string[] lines = p.Split('\n');
-            int randvalue = RandomNumberGenerator.GetInt32(lines.Length);
-            StringBuilder sb = new StringBuilder(lines[randvalue]);
-            if (sb.Length >= 1)
-            {
-                int startIndex = RandomNumberGenerator.GetInt32(sb.Length);
-                lines[randvalue] += sb.ToString(startIndex, RandomNumberGenerator.GetInt32(sb.Length - startIndex));
-            }
-            else
-            {
-                lines[randvalue] += " ";
-            }
-
-
-            return String.Join('\n', lines);
+            StringBuilder sb = new StringBuilder(p);
+            int startIndex = RandomNumberGenerator.GetInt32(sb.Length);
+            
+            return p + sb.ToString(startIndex, sb.Length - startIndex);
+           
         }
 
 
